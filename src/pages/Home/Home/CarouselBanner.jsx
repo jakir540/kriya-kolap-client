@@ -11,7 +11,7 @@ const CarouselBanner = () => {
             live towords eternity
           </h2>
           <p className="text-black my-5 text-center">
-            The term "yoga" in the Western world often <br /> denotes a modern
+            The term yoga in the Western world often <br /> denotes a modern
             form of Hatha yoga and <br /> a posture-based physical fitness,
             stress-relief and relaxation technique{" "}
           </p>
@@ -39,7 +39,7 @@ const CarouselBanner = () => {
             live towords eternity
           </h2>
           <p className="text-black my-5 text-center">
-            The term "yoga" in the Western world often <br /> denotes a modern
+            The term yoga in the Western world often <br /> denotes a modern
             form of Hatha yoga and <br /> a posture-based physical fitness,
             stress-relief and relaxation technique{" "}
           </p>
@@ -66,7 +66,7 @@ const CarouselBanner = () => {
             live towords eternity
           </h2>
           <p className="text-black my-5 text-center">
-            The term "yoga" in the Western world often <br /> denotes a modern
+            The term yoga in the Western world often <br /> denotes a modern
             form of Hatha yoga and <br /> a posture-based physical fitness,
             stress-relief and relaxation technique{" "}
           </p>
@@ -94,7 +94,7 @@ const CarouselBanner = () => {
             live towords eternity
           </h2>
           <p className="text-black my-5 text-center">
-            The term "yoga" in the Western world often <br /> denotes a modern
+            The term yoga in the Western world often <br /> denotes a modern
             form of Hatha yoga and <br /> a posture-based physical fitness,
             stress-relief and relaxation technique{" "}
           </p>
