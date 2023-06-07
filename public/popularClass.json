@@ -1,0 +1,75 @@
+{
+    "yogaClasses": [
+      {
+        "yogaClassName": "Hatha Yoga",
+        "instructorName": "John Doe",
+        "photo": "hatha-yoga.jpg",
+        "students": 20,
+        "description": "Hatha yoga focuses on physical postures, breathing techniques, and meditation. It helps improve flexibility, strength, and overall well-being."
+      },
+      {
+        "yogaClassName": "Vinyasa Flow",
+        "instructorName": "Jane Smith",
+        "photo": "vinyasa-flow.jpg",
+        "students": 15,
+        "description": "Vinyasa flow yoga is a dynamic style that links movement with breath. It emphasizes continuous flow, strength, and mindfulness."
+      },
+      {
+        "yogaClassName": "Ashtanga Yoga",
+        "instructorName": "David Johnson",
+        "photo": "ashtanga-yoga.jpg",
+        "students": 12,
+        "description": "Ashtanga yoga is a rigorous practice that follows a specific sequence of postures. It builds strength, flexibility, and mental focus."
+      },
+      {
+        "yogaClassName": "Kundalini Yoga",
+        "instructorName": "Sarah Davis",
+        "photo": "kundalini-yoga.jpg",
+        "students": 18,
+        "description": "Kundalini yoga combines dynamic movements, breathing exercises, meditation, and chanting to awaken and harness inner energy."
+      },
+      {
+        "yogaClassName": "Bikram Yoga",
+        "instructorName": "Michael Wilson",
+        "photo": "bikram-yoga.jpg",
+        "students": 25,
+        "description": "Bikram yoga, also known as hot yoga, is practiced in a heated room. It involves a series of 26 postures and two breathing exercises."
+      },
+      {
+        "yogaClassName": "Yin Yoga",
+        "instructorName": "Emily Roberts",
+        "photo": "yin-yoga.jpg",
+        "students": 10,
+        "description": "Yin yoga focuses on passive, long-held poses to target deep connective tissues, promoting relaxation, flexibility, and inner stillness."
+      },
+      {
+        "yogaClassName": "Iyengar Yoga",
+        "instructorName": "Christopher Lee",
+        "photo": "iyengar-yoga.jpg",
+        "students": 14,
+        "description": "Iyengar yoga emphasizes precise alignment and the use of props to support practitioners in achieving optimal posture and balance."
+      },
+      {
+        "yogaClassName": "Restorative Yoga",
+        "instructorName": "Olivia Thompson",
+        "photo": "restorative-yoga.jpg",
+        "students": 8,
+        "description": "Restorative yoga involves gentle poses held for longer durations, promoting deep relaxation, stress relief, and rejuvenation."
+      },
+      {
+        "yogaClassName": "Power Yoga",
+        "instructorName": "Daniel Brown",
+        "photo": "power-yoga.jpg",
+        "students": 17,
+        "description": "Power yoga is a dynamic and physically challenging style that focuses on building strength, flexibility, and stamina."
+      },
+      {
+        "yogaClassName": "Yoga Nidra",
+        "instructorName": "Sophia Wilson",
+        "photo": "yoga-nidra.jpg",
+        "students": 6,
+        "description": "Yoga Nidra, also known as yogic sleep, is a deeply relaxing practice that guides you into a state of conscious sleep and deep rest."
+      }
+    ]
+  }
+  

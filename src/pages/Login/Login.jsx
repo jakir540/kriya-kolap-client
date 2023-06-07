@@ -42,6 +42,7 @@ const Login = () => {
             name="password"
             {...register("password", { required: true })}
             placeholder="password"
+         
             className="input input-bordered"
           />
         </div>
