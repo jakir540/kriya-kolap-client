@@ -1,27 +1,29 @@
 import { GrYoga } from 'react-icons/gr';
+import { Link } from 'react-router-dom';
+
 
 
 const Navbar = () => {
 
     const menu =<>
         <li>
-            <a>Home</a>
+            <Link>Home</Link>
           </li>
           
           <li>
-            <a>Instructors</a>
+            <Link>Instructors</Link>
           </li>
           <li>
-            <a>Classes</a>
+            <Link>Classes</Link>
           </li>
           <li>
-            <a>Login</a>
+            <Link>Login</Link>
           </li>
           <li>
-            <a>Dashboard </a>
+            <Link>Dashboard </Link>
           </li>
           <li>
-            <a>Profile </a>
+            <Link to="#">Profile </Link>
           </li>
     </>
   return (
@@ -51,7 +53,7 @@ const Navbar = () => {
            {menu}
           </ul>
         </div>
-        <a className=" font-bold   text-4xl">
+        <Link className=" font-bold   text-4xl">
         
       <div className='flex mx-2'>
       <div> <GrYoga></GrYoga></div>
@@ -59,7 +61,7 @@ const Navbar = () => {
         
       </div>
         
-        </a>
+        </Link>
       </div>
 
 
@@ -71,7 +73,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <Link className="btn">Button</Link>
       </div>
     </div>
   );

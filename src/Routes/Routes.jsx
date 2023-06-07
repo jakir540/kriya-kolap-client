@@ -13,7 +13,8 @@ export const router = createBrowserRouter([
             path:'/',
             element:<Home></Home>
 
-        }
+        },
+       
       ]
     },
   ]);
