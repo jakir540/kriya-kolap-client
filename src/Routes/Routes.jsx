@@ -2,7 +2,7 @@ import {
     createBrowserRouter,
   } from "react-router-dom";
 import Main from "../layouts/Main";
-import Home from "../pages/Home/Home/Home";
+import CarouselBanner from "../pages/Home/Home/CarouselBanner";
 
 export const router = createBrowserRouter([
     {
@@ -11,7 +11,7 @@ export const router = createBrowserRouter([
       children:[
         {
             path:'/',
-            element:<Home></Home>
+            element:<CarouselBanner></CarouselBanner>
 
         },
        
