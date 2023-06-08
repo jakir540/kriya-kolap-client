@@ -1,0 +1,82 @@
+{
+  "yogaInstructors": [
+    {
+      "instructorName": "John Doe",
+      "price": 50,
+      "enrollment": 20,
+      "description": "John is a certified yoga instructor with over 10 years of experience. He specializes in Hatha and Vinyasa flow yoga. His classes focus on proper alignment, breath awareness, and building strength and flexibility.",
+      "photo": "john-doe.jpg",
+      "activities": [
+        "Partner yoga",
+        "Yoga retreats",
+        "Yoga workshops"
+      ],
+      "email": "john.doe@example.com"
+    },
+    {
+      "instructorName": "Jane Smith",
+      "price": 55,
+      "enrollment": 18,
+      "description": "Jane is a passionate yoga teacher who believes in the transformative power of yoga. She offers classes in Ashtanga and Yin yoga. Her teaching style emphasizes mindfulness, deep stretching, and finding balance.",
+      "photo": "jane-smith.jpg",
+      "activities": [
+        "Yoga for stress relief",
+        "Meditation sessions",
+        "Yoga for back pain"
+      ],
+      "email": "jane.smith@example.com"
+    },
+    {
+      "instructorName": "David Johnson",
+      "price": 60,
+      "enrollment": 15,
+      "description": "David is a dedicated practitioner and teacher of Kundalini yoga. He brings a spiritual and meditative approach to his classes. His sessions include kriyas, mantras, and pranayama techniques to awaken the dormant energy within.",
+      "photo": "david-johnson.jpg",
+      "activities": [
+        "Chakra balancing",
+        "Kundalini awakening workshops",
+        "Yoga for emotional well-being"
+      ],
+      "email": "david.johnson@example.com"
+    },
+    {
+      "instructorName": "Sarah Davis",
+      "price": 45,
+      "enrollment": 22,
+      "description": "Sarah is a compassionate and experienced yoga instructor. She specializes in Restorative and Iyengar yoga. Her classes focus on relaxation, healing, and using props to support proper alignment and deep relaxation.",
+      "photo": "sarah-davis.jpg",
+      "activities": [
+        "Yoga with props",
+        "Therapeutic yoga",
+        "Yoga for better sleep"
+      ],
+      "email": "sarah.davis@example.com"
+    },
+    {
+      "instructorName": "Michael Wilson",
+      "price": 65,
+      "enrollment": 16,
+      "description": "Michael is a seasoned yoga teacher with expertise in Bikram and Power yoga. He believes in pushing boundaries and challenging oneself on the mat. His classes are dynamic, energetic, and designed to build strength and endurance.",
+      "photo": "michael-wilson.jpg",
+      "activities": [
+        "Hot yoga sessions",
+        "Power yoga workshops",
+        "Yoga for athletes"
+      ],
+      "email": "michael.wilson@example.com"
+    },
+    {
+      "instructorName": "Emily Roberts",
+      "price": 50,
+      "enrollment": 12,
+      "description": "Emily is a knowledgeable and compassionate yoga instructor. She specializes in Yin and Yoga Nidra. Her classes promote deep relaxation, inner stillness, and mindfulness. She encourages her students to listen to their bodies and find peace within.",
+      "photo": "emily-roberts.jpg",
+      "activities": [
+        "Yin yoga for flexibility",
+        "Yoga Nidra for stress reduction",
+        "Mindfulness meditation"
+      ],
+      "email": "emily.roberts@example.com"
+    }
+  ]
+}
