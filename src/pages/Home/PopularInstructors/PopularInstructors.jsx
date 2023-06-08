@@ -25,7 +25,7 @@ const PopularInstructors = () => {
           They carefully design class sequences that cater{" "}
         </p>
       </div>
-      <div className="grid grid-cols-3 gap-5 my-5">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 my-5">
         {instructors.map((instructor) => (
           <PopularInstructorsCards
             instructor={instructor}

@@ -7,7 +7,7 @@ const PopularClassesCard = ({ singleClass }) => {
   return (
     <div className="card card-compact w-96 bg-base-100 shadow-xl">
       <motion.figure
-        animate={{ scale:0.9 }}
+        animate={{scale:0.9 }}
         transition={{
           ease: "linear",
           duration: 3,
