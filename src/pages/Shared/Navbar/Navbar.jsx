@@ -33,7 +33,7 @@ useEffect(()=>{
   const menu = (
     <>
       <li>
-        <Link>Home</Link>
+        <Link to="/">Home</Link>
       </li>
 
       <li>

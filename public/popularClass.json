@@ -3,7 +3,7 @@
     {
       "yogaClassName": "Hatha Yoga",
       "instructorName": "John Doe",
-      "photo": "hatha-yoga.jpg",
+      "photo": "https://img.freepik.com/free-vector/flat-international-yoga-day-background-with-person-doing-yoga_23-2149425891.jpg?w=740&t=st=1686247755~exp=1686248355~hmac=ab5a0231d8b2a40732abe4067a582b280cdb2568a0912a095d5cdecd9c9309dd",
       "students": 20,
       "description": "Hatha yoga focuses on physical postures, breathing techniques, and meditation. It helps improve flexibility, strength, and overall well-being.",
       "activities": [
@@ -16,7 +16,7 @@
     {
       "yogaClassName": "Vinyasa Flow",
       "instructorName": "Jane Smith",
-      "photo": "vinyasa-flow.jpg",
+      "photo": "https://img.freepik.com/free-photo/yoga-group-classes-inside-gym_1303-14788.jpg?w=740&t=st=1686247840~exp=1686248440~hmac=fc7335a97ed32f794e3368a1af8a1a75d4230b41d91d6b2f2bdcfcd591afd486",
       "students": 15,
       "description": "Vinyasa flow yoga is a dynamic style that links movement with breath. It emphasizes continuous flow, strength, and mindfulness.",
       "activities": [
@@ -29,7 +29,7 @@
     {
       "yogaClassName": "Ashtanga Yoga",
       "instructorName": "David Johnson",
-      "photo": "ashtanga-yoga.jpg",
+      "photo": "https://img.freepik.com/free-photo/smiling-people-doing-mermaid-pose-yoga-class_1262-16416.jpg?w=740&t=st=1686247863~exp=1686248463~hmac=5d4ac61334e015777361386668a133823703d62e0b50fbef7eda358fbaff89de",
       "students": 12,
       "description": "Ashtanga yoga is a rigorous practice that follows a specific sequence of postures. It builds strength, flexibility, and mental focus.",
       "activities": [
@@ -42,7 +42,7 @@
     {
       "yogaClassName": "Kundalini Yoga",
       "instructorName": "Sarah Davis",
-      "photo": "kundalini-yoga.jpg",
+      "photo": "https://img.freepik.com/free-photo/trainer-assisting-group-people-with-pashimottanasana-exercise_1170-200.jpg?w=740&t=st=1686247891~exp=1686248491~hmac=a2695657f30bc63de7d06de6ea44888d46ec5e18b12a0286965dd956d4b6a09e",
       "students": 18,
       "description": "Kundalini yoga combines dynamic movements, breathing exercises, meditation, and chanting to awaken and harness inner energy.",
       "activities": [
@@ -55,7 +55,7 @@
     {
       "yogaClassName": "Bikram Yoga",
       "instructorName": "Michael Wilson",
-      "photo": "bikram-yoga.jpg",
+      "photo": "https://img.freepik.com/free-photo/yoga-group-classes-inside-gym_1303-14780.jpg?w=740&t=st=1686247910~exp=1686248510~hmac=900dfe56472c873dd3092a3885a7147f4dad014d38e113a808c36d85506a5f58",
       "students": 25,
       "description": "Bikram yoga, also known as hot yoga, is practiced in a heated room. It involves a series of 26 postures and two breathing exercises.",
       "activities": [
@@ -68,7 +68,7 @@
     {
       "yogaClassName": "Yin Yoga",
       "instructorName": "Emily Roberts",
-      "photo": "yin-yoga.jpg",
+      "photo": "https://img.freepik.com/free-photo/group-young-yogi-people-sitting-sukhasana-exercise_1163-4945.jpg?w=740&t=st=1686247930~exp=1686248530~hmac=27d1501d0b2de1d1ce1a9cec83ee6326750ee9658dfa761178074fdb4b462b90",
       "students": 10,
       "description": "Yin yoga focuses on passive, long-held poses to target deep connective tissues, promoting relaxation, flexibility, and inner stillness.",
       "activities": [
@@ -81,7 +81,7 @@
     {
       "yogaClassName": "Iyengar Yoga",
       "instructorName": "Christopher Lee",
-      "photo": "iyengar-yoga.jpg",
+      "photo": "https://img.freepik.com/free-photo/yoga-group-classes-inside-gym_1303-17162.jpg?w=740&t=st=1686247965~exp=1686248565~hmac=b4ce02c33729314dd71237d662f8cfe4e3db28233a2f9db59dbd3a875b571ebf",
       "students": 14,
       "description": "Iyengar yoga emphasizes precise alignment and the use of props to support practitioners in achieving optimal posture and balance.",
       "activities": [
@@ -94,7 +94,7 @@
     {
       "yogaClassName": "Restorative Yoga",
       "instructorName": "Olivia Thompson",
-      "photo": "restorative-yoga.jpg",
+      "photo": "https://img.freepik.com/free-vector/organic-flat-people-meditating-illustration_23-2148906556.jpg?w=740&t=st=1686247992~exp=1686248592~hmac=3d43005567e03428ad2c3be95e5cce2ebf850d0ce6fe4a7e2e619c089ce962f6",
       "students": 8,
       "description": "Restorative yoga involves gentle poses held for longer durations, promoting deep relaxation, stress relief, and rejuvenation.",
       "activities": [
@@ -120,7 +120,7 @@
     {
       "yogaClassName": "Yoga Nidra",
       "instructorName": "Sophia Wilson",
-      "photo": "yoga-nidra.jpg",
+      "photo": "https://img.freepik.com/free-photo/group-young-people-teacher-sitting-padmasana-pose_1163-4128.jpg?w=740&t=st=1686248008~exp=1686248608~hmac=30cb3adbf072c00a2e7b0d45b5c370398bdc54e06a471e16ff4b581164be745d",
       "students": 6,
       "description": "Yoga Nidra, also known as yogic sleep, is a deeply relaxing practice that guides you into a state of conscious sleep and deep rest.",
       "activities": [
