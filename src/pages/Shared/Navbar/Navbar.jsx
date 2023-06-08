@@ -1,31 +1,55 @@
-import { GrYoga } from 'react-icons/gr';
-import { Link } from 'react-router-dom';
-
-
+import { useContext } from "react";
+import { GrYoga } from "react-icons/gr";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Navbar = () => {
+  const { logOut, user } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
-    const menu =<>
+  const menu = (
+    <>
+      <li>
+        <Link>Home</Link>
+      </li>
+
+      <li>
+        <Link>Instructors</Link>
+      </li>
+      <li>
+        <Link>Classes</Link>
+      </li>
+
+      <li>
+        <Link>Dashboard </Link>
+      </li>
+      {user ? (
+        <div>
+          <img
+            className="mx-3 rounded-full h-12"
+            src={user.photoURL}
+            alt="userProfile"
+            title={user && user.displayName}
+          />
+        </div>
+      ) : (
         <li>
-            <Link>Home</Link>
-          </li>
-          
-          <li>
-            <Link>Instructors</Link>
-          </li>
-          <li>
-            <Link>Classes</Link>
-          </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-          <li>
-            <Link>Dashboard </Link>
-          </li>
-          <li>
-            <Link to="#">Profile </Link>
-          </li>
+          <Link to="/login">Login</Link>
+        </li>
+      )}
+      <li>
+        <Link to="#">
+          {user && <button onClick={handleLogOut}>LogOut</button>}{" "}
+        </Link>
+      </li>
     </>
+  );
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -50,33 +74,28 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
-           {menu}
+            {menu}
           </ul>
         </div>
         <Link className=" font-bold   text-4xl">
-        
-      <div className='flex mx-2'>
-      <div> <GrYoga></GrYoga></div>
-       <div className='ml-2'> Kriya Kolap</div>
-        
-      </div>
-        
+          <div className="flex mx-2">
+            <div>
+              {" "}
+              <GrYoga></GrYoga>
+            </div>
+            <div className="ml-2"> Kriya Kolap</div>
+          </div>
         </Link>
       </div>
 
-
-
-
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-         {menu}
-        </ul>
+        <ul className="menu menu-horizontal px-1">{menu}</ul>
       </div>
       <div className="navbar-end">
         <Link className="btn">Button</Link>
       </div>
     </div>
   );
-  };
+};
 
 export default Navbar;

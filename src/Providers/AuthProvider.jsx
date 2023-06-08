@@ -26,6 +26,7 @@ const signIn =(email,password)=>{
 }
 
 const googleSignIn =()=>{
+    setLoading(true)
     return signInWithPopup(auth,googleProvider)
 }
 
@@ -49,7 +50,8 @@ useEffect(()=>{
         loading,
         signIn,
         googleSignIn,
-        logOut
+        logOut,
+        setLoading
     }
 
 

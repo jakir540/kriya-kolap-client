@@ -1,8 +1,15 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { updateProfile } from "firebase/auth";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
+  const { googleSignIn, createUser, setLoading } = useContext(AuthContext);
+  const [error, setError] = useState("");
+
   const {
     register,
     handleSubmit,
@@ -10,9 +17,42 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  //google signIn
+  const handleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+      })
+      .then((error) => {
+        setLoading(false);
+        console.log(error);
+        setError(error);
+      });
   };
+
+  const onSubmit = (data) => {
+    const { email, password, name, photoURL } = data;
+    console.log(email, password, name, photoURL);
+    //create user using fireabse
+    createUser(email, password)
+      .then((result) => {
+        console.log(result);
+        updateProfile(name, photoURL);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Your registration successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => {
+        setLoading(false);
+        setError(error.message);
+      });
+  };
+
   return (
     <div className="w-1/2 mx-auto mt-16 bg-slate-100 p-16 shadow-2xl rounded-lg">
       <h2 className=" text-center text-3xl font-semibold"> Please Signup</h2>
@@ -64,8 +104,6 @@ const SignUp = () => {
           </p>
         )}
 
-        {errors.password && <span>Email must be required</span>}
-
         <div className="form-control my-8">
           <input
             type="password"
@@ -80,6 +118,7 @@ const SignUp = () => {
           <input
             type="url"
             name="photoURL"
+            accept="image/*"
             {...register("photoURL", { required: true })}
             placeholder="photoURL"
             className="input input-bordered"
@@ -106,7 +145,7 @@ const SignUp = () => {
       </p>
 
       <div className="flex justify-center text-3xl mt-5">
-        <FaGoogle></FaGoogle>
+        <FaGoogle onClick={handleSignIn}></FaGoogle>
       </div>
     </div>
   );
