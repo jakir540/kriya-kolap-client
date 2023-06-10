@@ -37,7 +37,7 @@ useEffect(()=>{
       </li>
 
       <li>
-        <Link>Instructors</Link>
+        <Link to="/allInstructors">Instructors</Link>
       </li>
       <li>
         <Link>Classes</Link>
@@ -45,7 +45,7 @@ useEffect(()=>{
 
       {user && (
         <li>
-          <Link>Dashboard </Link>
+          <Link to="/dashbord/myClasses">Dashboard </Link>
         </li>
       )}
       {user ? (
@@ -96,7 +96,7 @@ useEffect(()=>{
             {menu}
           </ul>
         </div>
-        <Link className=" font-bold   text-4xl">
+        <Link className=" font-bold   lg:text-4xl text-2xl">
           <div className="flex mx-2">
             <div>
               {" "}

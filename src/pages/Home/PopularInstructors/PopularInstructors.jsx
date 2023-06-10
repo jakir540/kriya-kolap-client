@@ -18,7 +18,7 @@ const PopularInstructors = () => {
         <h2 className="text-center text-3xl font-semibold">
           Popular Instructors
         </h2>
-        <p className="my-5 leading-9">
+        <p className="my-5 lg:leading-9 ">
           A yoga teacher's primary responsibility is to lead yoga classes, where
           they demonstrate <br /> and instruct various yoga postures (asanas),
           breathing techniques (pranayama), <br /> and meditation practices.

@@ -13,7 +13,7 @@ const CarouselBanner = () => {
             <h2 className=" uppercase text-white lg:text-4xl font-semibold">
               live towords eternity
             </h2>
-            <p className="text-white lg:leading-7 my-5 text-center ">
+            <p className="lg:text-white lg:leading-7 my-5 text-center ">
               The term yoga in the Western world often <br /> denotes a modern
               form of Hatha yoga and <br /> a posture-based physical fitness,
               stress-relief and relaxation technique{" "}
@@ -37,8 +37,8 @@ const CarouselBanner = () => {
             src="https://cdn.pixabay.com/photo/2016/11/23/18/34/woman-1854265_1280.jpg"
             className="w-full"
           />
-          <div className="absolute top-[650px] right-[390px] flex flex-col items-center">
-            <h2 className=" uppercase text-white text-4xl font-semibold">
+          <div className="absolute lg:top-[650px] lg:right-[390px] flex flex-col items-center">
+            <h2 className=" uppercase text-center text-white lg:text-4xl font-semibold">
               lose yourself ambience and atmosphere
             </h2>
             <p className="text-black leading-7 my-5 text-center">
@@ -63,8 +63,8 @@ const CarouselBanner = () => {
             src="https://cdn.pixabay.com/photo/2018/01/22/06/12/stretching-3098228_1280.jpg"
             className="w-full"
           />
-          <div className="absolute top-[650px] right-[390px] flex flex-col items-center">
-            <h2 className=" uppercase text-4xl font-semibold">
+          <div className="absolute  lg:top-[650px] lg:right-[390px] flex flex-col items-center">
+            <h2 className=" uppercase text-center lg:text-4xl font-semibold">
               live towords eternity
             </h2>
             <p className="text-black my-5 text-center">
@@ -89,11 +89,11 @@ const CarouselBanner = () => {
             src="https://cdn.pixabay.com/photo/2019/10/09/06/39/yoga-4536546_1280.jpg"
             className="w-full"
           />
-          <div className="absolute top-[650px] right-[390px] flex flex-col items-center">
-            <h2 className=" uppercase text-4xl font-semibold">
+          <div className="absolute lg:top-[650px] lg:right-[390px] flex flex-col items-center">
+            <h2 className=" uppercase  text-white lg:text-4xl font-semibold">
               live towords eternity
             </h2>
-            <p className="text-black my-5 text-center">
+            <p className="text-black leading-7 my-5 text-center">
               The term yoga in the Western world often <br /> denotes a modern
               form of Hatha yoga and <br /> a posture-based physical fitness,
               stress-relief and relaxation technique{" "}

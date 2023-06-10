@@ -5,6 +5,7 @@ import { AiFillEye } from "react-icons/ai";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const Login = () => {
   const [show, setShow] = useState(false);
@@ -23,27 +24,27 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   //google signIn
-  const handleSignIn = () => {
-    googleSignIn()
-      .then((result) => {
-        const loggedUser = result.user;
+  // const handleSignIn = () => {
+  //   googleSignIn()
+  //     .then((result) => {
+  //       const loggedUser = result.user;
 
-        console.log(loggedUser);
-        navigate(from, { replace: true });
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Google Login successfully",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      })
-      .then((error) => {
-        setLoading(false);
-        console.log(error);
-        setError(error);
-      });
-  };
+  //       console.log(loggedUser);
+  //       navigate(from, { replace: true });
+  //       Swal.fire({
+  //         position: "top-end",
+  //         icon: "success",
+  //         title: "Google Login successfully",
+  //         showConfirmButton: false,
+  //         timer: 1500,
+  //       });
+  //     })
+  //     .then((error) => {
+  //       setLoading(false);
+  //       console.log(error);
+  //       setError(error);
+  //     });
+  // };
 
   const onSubmit = (data) => {
     console.log(data);
@@ -124,9 +125,9 @@ const Login = () => {
         </small>
       </p>
 
-      <div className="flex justify-center text-3xl mt-5">
-        <FaGoogle onClick={handleSignIn}></FaGoogle>
-      </div>
+  
+        <SocialLogin></SocialLogin>
+     
     </div>
   );
 };

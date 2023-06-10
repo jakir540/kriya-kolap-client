@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const SignUp = () => {
   const { googleSignIn, createUser, setLoading } = useContext(AuthContext);
@@ -37,15 +38,31 @@ const SignUp = () => {
     //create user using fireabse
     createUser(email, password)
       .then((result) => {
-        console.log(result);
+        const loggedUser = result.user;
+        console.log(loggedUser);
         updateProfile(name, photoURL);
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Your registration successfully",
-          showConfirmButton: false,
-          timer: 1500,
-        });
+        const savedUser = { name, email };
+
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(savedUser),
+        })
+          .then((res) => res.json)
+          .then((data) => {
+            console.log(data)
+            if (data.insertedId) {
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Your registration successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            }
+          });
       })
       .catch((error) => {
         setLoading(false);
@@ -144,11 +161,29 @@ const SignUp = () => {
         </small>
       </p>
 
-      <div className="flex justify-center text-3xl mt-5">
-        <FaGoogle onClick={handleSignIn}></FaGoogle>
-      </div>
+     <SocialLogin></SocialLogin>
     </div>
   );
 };
 
 export default SignUp;
+
+// fetch("http://localhost:5000/users", {
+//         method: "POST",
+//         headers: {
+//           "content-type": "application/json",
+//         },
+//         body: JSON.stringify(savedUser),
+//       })
+//         .then((res) => res.json)
+//         .then((data) => {
+//           if (data.insertedId) {
+//             Swal.fire({
+//               position: "top-end",
+//               icon: "success",
+//               title: "Your registration successfully",
+//               showConfirmButton: false,
+//               timer: 1500,
+//             });
+//           }
+//         });
