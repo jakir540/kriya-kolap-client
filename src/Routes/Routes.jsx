@@ -12,6 +12,7 @@ import AddClass from "../pages/DashBord/AddClasse/AddClass";
 import ManageClasses from "../pages/DashBord/ManageClasses/ManageClasses";
 import Feedback from "../pages/DashBord/ManageClasses/Feedback";
 import ApprovedClasses from "../pages/ApprovedClasses/ApprovedClasses";
+import MySelectedClass from "../pages/DashBord/MySelectedClass/MySelectedClass";
 
 export const router = createBrowserRouter([
   {
@@ -63,6 +64,10 @@ export const router = createBrowserRouter([
       {
         path: "manageClasses/feedback",
         element: <Feedback></Feedback>
+      },
+      {
+        path: "mySelectedClass",
+        element: <MySelectedClass></MySelectedClass>
       },
      
     ],

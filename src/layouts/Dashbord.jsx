@@ -4,7 +4,7 @@ import { Link, Outlet } from "react-router-dom";
 const Dashbord = () => {
   // const [isAdmin] = useAdmin();
   const isAdmin =false
-  const isInstructor = true;
+  const isInstructor = false;
 
   return (
     <div className="drawer lg:drawer-open">
@@ -50,7 +50,7 @@ const Dashbord = () => {
             <>
             <h2>Student Page</h2>
               <li>
-                <Link to="">My Selected Classes</Link>
+                <Link to="/dashbord/mySelectedClass">My Selected Classes</Link>
               </li>
               <li>
                 <Link>My Enrolled Classes</Link>

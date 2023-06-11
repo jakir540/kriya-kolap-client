@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const PopularClassesCard = ({ singleClass }) => {
   console.log(singleClass);
 
-  const { classname, name, price, seats, imgURL, email, status } = singleClass;
+  const { classname, name, price, seats, imgURL } = singleClass;
 
   // const { yogaClassName, students, photo, instructorName, description } =
   //   singleClass;

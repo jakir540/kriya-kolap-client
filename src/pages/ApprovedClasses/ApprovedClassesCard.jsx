@@ -1,38 +1,65 @@
 import { motion } from "framer-motion";
+import useAxiosSecure from "../../Hooks/useAxiosSecuir";
+import Swal from "sweetalert2";
 
 const ApprovedClassesCard = ({ singleClass }) => {
-  console.log(singleClass);
+  const [axiosSecure] = useAxiosSecure();
+  const { classname, name, price, seats, imgURL, email } = singleClass;
 
-  const { classname, name, price, seats, imgURL, email, status } = singleClass;
-  console.log(seats)
+  const handleSelect = (singleClass) => {
 
-  return (
-
-      <div
-        // className="card card-compact w-96  shadow-xl"
-        className={`${seats == 0 ? 'bg-red-400' : 'bg-base-200'} card card-compact w-96  shadow-xl`}
-      >
-        <motion.figure
-          animate={{ scale: 0.9 }}
-          transition={{
-            ease: "linear",
-            duration: 3,
-            x: { duration: 1 },
-          }}
-        >
-          <img src={imgURL} alt="yoga class" />
-        </motion.figure>
-        <div className="card-body">
-          <h2 className="card-title">{classname}</h2>
-          <h2 className="">Instructor Name: {name}</h2>
-          <h2 className="">Instructor Email: {email}</h2>
-          <p>Students Available Seat: {seats}</p>
-          <p>Price : $ {price}</p>
-          <div className="card-actions justify-end">
-            <button className="btn bg-orange-600 text-white">Select</button>
-          </div>
-        </div>
    
+    axiosSecure.post("/mySelectClasses", singleClass).then((data) => {
+      console.log(data.data);
+      if (data.data.insertedId) {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "my selected class successfullt",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
+  };
+  return (
+    <div
+      className={`${
+        seats == 0 ? "bg-red-400" : "bg-base-200"
+      } card card-compact w-96  shadow-xl`}
+    >
+      <motion.figure
+        animate={{ scale: 0.9 }}
+        transition={{
+          ease: "linear",
+          duration: 3,
+          x: { duration: 1 },
+        }}
+      >
+        <img src={imgURL} alt="yoga class" />
+      </motion.figure>
+      <div className="card-body">
+        <h2 className="card-title">{classname}</h2>
+        <h2 className="">Instructor Name: {name}</h2>
+        <h2 className="">Instructor Email: {email}</h2>
+        <p>Students Available Seat: {seats}</p>
+        <p>Price : $ {price}</p>
+        <div className="card-actions justify-end">
+          {/* todo check admin and instructor then disabled btn */}
+          {seats == 0 ? (
+            <button disabled className="btn bg-orange-600 text-white">
+              Select
+            </button>
+          ) : (
+            <button
+              onClick={() => handleSelect(singleClass)}
+              className="btn bg-orange-600 text-white"
+            >
+              Select
+            </button>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
