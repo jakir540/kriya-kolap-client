@@ -40,7 +40,7 @@ useEffect(()=>{
         <Link to="/allInstructors">Instructors</Link>
       </li>
       <li>
-        <Link>Classes</Link>
+        <Link to="/approvedClasses">Classes</Link>
       </li>
 
       {user && (
