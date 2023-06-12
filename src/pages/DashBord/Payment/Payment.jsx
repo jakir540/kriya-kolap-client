@@ -7,18 +7,18 @@ const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHED_KEY );
 
 const Payment = () => {
     const price = useParams()
+    console.log('price',price)
   
 
-    const paymentPrice = price.paymentPrice;
-    const finalPayment = parseFloat(paymentPrice);
-   
+    const paymentPrice = parseFloat(price.paymentPrice);
+   console.log(paymentPrice)
     
   return (
     <div className="w-1/2">
       <h2 className="text-center text-3xl font-semibold my-10">Payment Process </h2>
 
       <Elements stripe={stripePromise}>
-        <CheckOutPaymentForm finalPayment={finalPayment} ></CheckOutPaymentForm>
+        <CheckOutPaymentForm paymentPrice={paymentPrice} ></CheckOutPaymentForm>
       </Elements>
     </div>
   );

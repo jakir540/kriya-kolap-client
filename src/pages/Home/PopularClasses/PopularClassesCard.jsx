@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const PopularClassesCard = ({ singleClass }) => {
-  console.log(singleClass);
+  
 
   const { classname, name, price, seats, imgURL } = singleClass;
 
@@ -25,7 +26,7 @@ const PopularClassesCard = ({ singleClass }) => {
         <p>Students: {seats}</p>
         <p>Price : $ {price}</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Buy Now</button>
+          <Link to="/approvedClasses"><button className="btn bg-orange-500">Go To Class Page</button></Link>
         </div>
       </div>
     </div>

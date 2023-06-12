@@ -1,11 +1,15 @@
 import { Link, Outlet } from "react-router-dom";
-// import useAdmin from "../Hooks/useAdmin";
+import useAdmin from "../Hooks/useAdmin";
 import { AiOutlineFolderAdd } from "react-icons/ai";
+import { MdManageAccounts } from 'react-icons/md';
+import { FaUserEdit } from 'react-icons/fa';
+import useInstructor from "../Hooks/useInstructor";
 
 const Dashbord = () => {
-  // const [isAdmin] = useAdmin();
+  // const [isAdmin] = useAdmin();  
+  // const [isInstructor] =useInstructor()
   const isAdmin =false
-  const isInstructor = true;
+  const isInstructor = false
 
   return (
     <div className="drawer lg:drawer-open">
@@ -28,10 +32,10 @@ const Dashbord = () => {
             <>
             <h2>Admin Page</h2>
               <li>
-                <Link to="/dashbord/manageClasses">Manage Classes</Link>
+                <Link to="/dashbord/manageClasses"><MdManageAccounts className="text-2xl"/> Manage Classes</Link>
               </li>
               <li>
-                <Link to="/dashbord/manageUsers">Manage Users</Link>
+                <Link to="/dashbord/manageUsers"><FaUserEdit className="text-2xl"/> Manage Users</Link>
               </li>
             </>
           ) : isInstructor ? (

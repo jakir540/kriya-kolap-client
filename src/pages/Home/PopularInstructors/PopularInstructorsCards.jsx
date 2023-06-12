@@ -1,12 +1,12 @@
 const PopularInstructorsCards = ({ instructor }) => {
-  console.log(instructor);
+
   const {instructorName,email,activities,photo,price}=instructor
   return (
 
     <div className="card card-compact w-96 bg-base-100 shadow-xl">
       <figure>
         <img
-          src="https://cdn.pixabay.com/photo/2023/03/13/17/21/yoga-7850443_1280.jpg"
+          src={photo}
           alt="yoga class"
         />
       </figure>
@@ -16,7 +16,7 @@ const PopularInstructorsCards = ({ instructor }) => {
        <p>Price : {price}</p>
        
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Buy Now</button>
+          <button className="btn bg-orange-500">See Classes</button>
         </div>
       </div>
     </div>

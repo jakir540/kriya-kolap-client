@@ -16,7 +16,7 @@ const ManageClasses = () => {
 
   const handleUpdateApproved = (singleClass) => {
     console.log("update");
-    fetch(`http://localhost:5000/classes/${singleClass._id}`, {
+    fetch(`http://localhost:5000/approvedClasses/${singleClass._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -35,9 +35,26 @@ const ManageClasses = () => {
       });
   };
 
-  // const handleUpdateDenied = (singleClass) => {
-  //   console.log("denied");
-  // };
+  const handleUpdateDenied = (singleClass) => {
+    console.log("denied");
+    fetch(`http://localhost:5000/deniedClasses/${singleClass._id}`, {
+      method: "PATCH",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount) {
+          refetch();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${singleClass?.name} is denied Now`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+  };
 
   return (
     <div className="w-full h-screen">
@@ -82,7 +99,7 @@ const ManageClasses = () => {
                   <td className="text-green-700">{singleClass.status}</td>
 
                   <th>
-                    {singleClass.status === "approved" ? (
+                    {singleClass.status !== "pending" ? (
                       <button disabled className=" btn btn-sm bg-orange-600">
                         approved
                       </button>
@@ -97,13 +114,13 @@ const ManageClasses = () => {
                   </th>
 
                   <th>
-                    {singleClass.status === "denied" ? (
+                    {singleClass.status !== "pending" ? (
                       <button disabled className=" btn btn-sm bg-orange-600">
                         Deny
                       </button>
                     ) : (
                       <button
-                        // onClick={() => handleUpdateDenied(singleClass)}
+                        onClick={() => handleUpdateDenied(singleClass)}
                         className="btn btn-sm bg-orange-600"
                       >
                         Deny

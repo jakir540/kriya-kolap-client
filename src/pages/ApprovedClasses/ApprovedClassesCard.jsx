@@ -1,14 +1,23 @@
 import { motion } from "framer-motion";
 import useAxiosSecure from "../../Hooks/useAxiosSecuir";
 import Swal from "sweetalert2";
+import useAuth from "../../Hooks/useAuth";
+import useAdmin from "../../Hooks/useAdmin";
+import useInstructor from "../../Hooks/useInstructor";
+// import { useEffect, useState } from "react";
+
 
 const ApprovedClassesCard = ({ singleClass }) => {
+  const {user} = useAuth()
+  const [isAdmin] = useAdmin();  
+  const [isInstructor] =useInstructor()
+
+
+
   const [axiosSecure] = useAxiosSecure();
   const { classname, name, price, seats, imgURL, email } = singleClass;
 
   const handleSelect = (singleClass) => {
-
-   
     axiosSecure.post("/mySelectClasses", singleClass).then((data) => {
       console.log(data.data);
       if (data.data.insertedId) {
@@ -45,8 +54,7 @@ const ApprovedClassesCard = ({ singleClass }) => {
         <p>Students Available Seat: {seats}</p>
         <p>Price : $ {price}</p>
         <div className="card-actions justify-end">
-          {/* todo check admin and instructor then disabled btn */}
-          {seats == 0 ? (
+          {isAdmin || isInstructor || seats == 0 ? (
             <button disabled className="btn bg-orange-600 text-white">
               Select
             </button>

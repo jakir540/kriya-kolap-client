@@ -1,9 +1,19 @@
-import useAllInstructorsCard from "../../Hooks/useAllInstructorsCard";
+import { useEffect, useState } from "react";
 import Navbar from "../Shared/Navbar/Navbar";
 import AllInstructorsCard from "./AllInstructorsCard";
 const AllInstructors = () => {
 
-  const [instructors] = useAllInstructorsCard();
+  const [instructors,setInstructors] =useState([])
+useEffect(()=>{
+  fetch("http://localhost:5000/instructors")
+  .then(res => res.json())
+  .then(data =>{
+    setInstructors(data)
+  })
+},[])
+
+
+
   console.log(instructors)
   return (
     <div>

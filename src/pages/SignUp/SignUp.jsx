@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
@@ -8,8 +8,12 @@ import Swal from "sweetalert2";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const SignUp = () => {
-  const { googleSignIn, createUser, setLoading } = useContext(AuthContext);
+  const {  createUser, setLoading } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/login";
 
   const {
     register,
@@ -18,19 +22,7 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
 
-  //google signIn
-  const handleSignIn = () => {
-    googleSignIn()
-      .then((result) => {
-        const loggedUser = result.user;
-        console.log(loggedUser);
-      })
-      .then((error) => {
-        setLoading(false);
-        console.log(error);
-        setError(error);
-      });
-  };
+  
 
   const onSubmit = (data) => {
     const { email, password, name, photoURL } = data;
@@ -41,7 +33,7 @@ const SignUp = () => {
         const loggedUser = result.user;
         console.log(loggedUser);
         updateProfile(name, photoURL);
-        const savedUser = { name, email };
+        const savedUser = { name, email,role:"student" };
 
         fetch("http://localhost:5000/users", {
           method: "POST",
@@ -50,9 +42,10 @@ const SignUp = () => {
           },
           body: JSON.stringify(savedUser),
         })
-          .then((res) => res.json)
+          .then((res) => res.json())
           .then((data) => {
-            console.log(data)
+            console.log({data})
+            navigate(from,{replace:true})
             if (data.insertedId) {
               Swal.fire({
                 position: "top-end",
@@ -168,22 +161,3 @@ const SignUp = () => {
 
 export default SignUp;
 
-// fetch("http://localhost:5000/users", {
-//         method: "POST",
-//         headers: {
-//           "content-type": "application/json",
-//         },
-//         body: JSON.stringify(savedUser),
-//       })
-//         .then((res) => res.json)
-//         .then((data) => {
-//           if (data.insertedId) {
-//             Swal.fire({
-//               position: "top-end",
-//               icon: "success",
-//               title: "Your registration successfully",
-//               showConfirmButton: false,
-//               timer: 1500,
-//             });
-//           }
-//         });

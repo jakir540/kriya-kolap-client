@@ -10,7 +10,7 @@ import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 const Login = () => {
   const [show, setShow] = useState(false);
   const [error, setError] = useState("");
-  const { signIn, googleSignIn, setLoading } = useContext(AuthContext);
+  const { signIn, setLoading } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -23,28 +23,7 @@ const Login = () => {
 
     formState: { errors },
   } = useForm();
-  //google signIn
-  // const handleSignIn = () => {
-  //   googleSignIn()
-  //     .then((result) => {
-  //       const loggedUser = result.user;
 
-  //       console.log(loggedUser);
-  //       navigate(from, { replace: true });
-  //       Swal.fire({
-  //         position: "top-end",
-  //         icon: "success",
-  //         title: "Google Login successfully",
-  //         showConfirmButton: false,
-  //         timer: 1500,
-  //       });
-  //     })
-  //     .then((error) => {
-  //       setLoading(false);
-  //       console.log(error);
-  //       setError(error);
-  //     });
-  // };
 
   const onSubmit = (data) => {
     console.log(data);

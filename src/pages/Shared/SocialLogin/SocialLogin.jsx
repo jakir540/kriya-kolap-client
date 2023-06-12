@@ -1,46 +1,49 @@
-import { useContext } from "react";
-import { FaGoogle } from "react-icons/fa";
-import { AuthContext } from "../../../Providers/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
-
+import { FaGoogle } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/AuthProvider";
 const SocialLogin = () => {
-    const { googleSignIn } = useContext(AuthContext);
-    const location = useLocation();
-    const navigate = useNavigate();
-  
-    const from = location.state?.from?.pathname || "/";
+  const { googleSignIn } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
 
-    const handleGoogleSignIn = () => {
-        googleSignIn()
-            .then(result => {
-                const loggedInUser = result.user;
-                console.log(loggedInUser);
-                const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email }
-                fetch('http://localhost:5000/users', {
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(saveUser)
-                })
-                    .then(res => res.json())
-                    .then(() => {
-                        navigate(from, { replace: true });
-                    })
-            })
-    }
+  const from = location.state?.from?.pathname || "/";
 
-//todo write full code again 
-    return (
-        <div>
-        <div className="divider"></div> 
-        <div className="w-full text-center  text-3xl my-4">
-            <button onClick={handleGoogleSignIn} className="btn btn-circle btn-outline">
-                <FaGoogle></FaGoogle>
-            </button>
-        </div>
+  const handleGoogleSignIn = () => {
+    googleSignIn().then((result) => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+      const uploadUser = {
+        name: loggedUser.displayName,
+        email: loggedUser.email,
+        role: "student",
+      };
+      console.log({ uploadUser });
+
+      fetch("http://localhost:5000/users", {
+        method: "POST",
+        headers: {
+          "metheod-type": "application/json",
+          },
+        body: JSON.stringify(uploadUser),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          navigate(from, { replace: true });
+        });
+    });
+  };
+  return (
+    <div>
+      <div className="divider"></div>
+      <div className="w-full text-center text-4xl my-5 ">
+        <button className="btn btn-circle" onClick={handleGoogleSignIn}>
+          <FaGoogle></FaGoogle>
+        </button>
+      </div>
     </div>
-    );
+  );
 };
 
 export default SocialLogin;
