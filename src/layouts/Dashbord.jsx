@@ -1,10 +1,11 @@
 import { Link, Outlet } from "react-router-dom";
 // import useAdmin from "../Hooks/useAdmin";
+import { AiOutlineFolderAdd } from "react-icons/ai";
 
 const Dashbord = () => {
   // const [isAdmin] = useAdmin();
   const isAdmin =false
-  const isInstructor = false;
+  const isInstructor = true;
 
   return (
     <div className="drawer lg:drawer-open">
@@ -37,7 +38,7 @@ const Dashbord = () => {
             <>
             <h2>Instructor Page</h2>
               <li>
-                <Link to="/dashbord/addClass">Add a Class</Link>
+                <Link to="/dashbord/addClass"> <AiOutlineFolderAdd className="text-2xl"/> Add a Class</Link>
               </li>
               <li>
                 <Link to="/dashbord/myClasses">My Classes</Link>
@@ -56,7 +57,7 @@ const Dashbord = () => {
                 <Link>My Enrolled Classes</Link>
               </li>
               <li>
-                <Link>Payment</Link>
+                <Link to="/dashbord/payment/:paymentPrice">Payment</Link>
               </li>
             </>
           )}

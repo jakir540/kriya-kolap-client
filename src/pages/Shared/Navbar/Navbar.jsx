@@ -45,7 +45,7 @@ useEffect(()=>{
 
       {user && (
         <li>
-          <Link to="/dashbord/myClasses">Dashboard </Link>
+          <Link to="/dashbord">Dashboard </Link>
         </li>
       )}
       {user ? (

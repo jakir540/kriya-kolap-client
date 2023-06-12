@@ -13,6 +13,7 @@ import ManageClasses from "../pages/DashBord/ManageClasses/ManageClasses";
 import Feedback from "../pages/DashBord/ManageClasses/Feedback";
 import ApprovedClasses from "../pages/ApprovedClasses/ApprovedClasses";
 import MySelectedClass from "../pages/DashBord/MySelectedClass/MySelectedClass";
+import Payment from "../pages/DashBord/Payment/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -68,6 +69,10 @@ export const router = createBrowserRouter([
       {
         path: "mySelectedClass",
         element: <MySelectedClass></MySelectedClass>
+      },
+      {
+        path: "payment/:paymentPrice",
+        element: <Payment></Payment>
       },
      
     ],
