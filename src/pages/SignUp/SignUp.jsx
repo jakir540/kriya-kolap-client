@@ -35,7 +35,7 @@ const SignUp = () => {
         updateProfile(name, photoURL);
         const savedUser = { name, email,role:"student" };
 
-        fetch("http://localhost:5000/users", {
+        fetch("https://kriya-kolap-sever-jakir540.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

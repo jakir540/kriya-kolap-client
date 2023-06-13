@@ -17,7 +17,7 @@ const PopularClasses = () => {
 
 
   // useEffect(() => {
-  //   fetch("http://localhost:5000/classes")
+  //   fetch("https://kriya-kolap-sever-jakir540.vercel.app/classes")
   //     .then((res) => res.json())
   //     .then((data) => {
   //       console.log({data});

@@ -16,7 +16,7 @@ const ManageClasses = () => {
 
   const handleUpdateApproved = (singleClass) => {
     console.log("update");
-    fetch(`http://localhost:5000/approvedClasses/${singleClass._id}`, {
+    fetch(`https://kriya-kolap-sever-jakir540.vercel.app/approvedClasses/${singleClass._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -37,7 +37,7 @@ const ManageClasses = () => {
 
   const handleUpdateDenied = (singleClass) => {
     console.log("denied");
-    fetch(`http://localhost:5000/deniedClasses/${singleClass._id}`, {
+    fetch(`https://kriya-kolap-sever-jakir540.vercel.app/deniedClasses/${singleClass._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())

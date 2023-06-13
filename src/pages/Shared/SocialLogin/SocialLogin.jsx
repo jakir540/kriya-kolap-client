@@ -20,10 +20,10 @@ const SocialLogin = () => {
       };
       console.log({ uploadUser });
 
-      fetch("http://localhost:5000/users", {
+      fetch("https://kriya-kolap-sever-jakir540.vercel.app/users", {
         method: "POST",
         headers: {
-          "metheod-type": "application/json",
+          "content-type": "application/json",
           },
         body: JSON.stringify(uploadUser),
       })
@@ -38,7 +38,7 @@ const SocialLogin = () => {
     <div>
       <div className="divider"></div>
       <div className="w-full text-center text-4xl my-5 ">
-        <button className="btn btn-circle" onClick={handleGoogleSignIn}>
+        <button className="btn btn-circle btn-outline" onClick={handleGoogleSignIn}>
           <FaGoogle></FaGoogle>
         </button>
       </div>

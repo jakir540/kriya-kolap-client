@@ -49,7 +49,7 @@ useEffect(()=>{
         </li>
       )}
       {user ? (
-        <div>
+        <div className="hidden md:block">
           <img
             className="mx-3 rounded-full h-12"
             src={user.photoURL}
@@ -70,8 +70,8 @@ useEffect(()=>{
     </>
   );
   return (
-    <div className="navbar bg-base-100 py-5 fixed z-10">
-      <div className="navbar-start">
+    <div className="navbar bg-base-100 py-5 fixed z-10 top-0 ">
+      <div className="navbar-start ">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
@@ -111,10 +111,10 @@ useEffect(()=>{
         <ul className="menu menu-horizontal px-1">{menu}</ul>
       </div>
       {/* -------------------------------------------------- */}
-      <div className="navbar-end">
+      <div className="hidden md:block navbar-end lg:me-[-390px]">
         <label className="swap swap-rotate">
           {/* this hidden checkbox controls the state */}
-          <input type="checkbox" 
+          <input className="bg-transparent" type="checkbox" 
 
             onChange={handleToggle}
             checked={theme === "light" ? false:true}

@@ -16,11 +16,17 @@ import MySelectedClass from "../pages/DashBord/MySelectedClass/MySelectedClass";
 import Payment from "../pages/DashBord/Payment/Payment";
 import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
+import MyEnrolledClass from "../pages/DashBord/MyEnrolledClass/MyEnrolledClass";
+import PaymentHistory from "../pages/DashBord/PaymentHistory/PaymentHistory";
+import UpdateInstructorInfo from "../pages/DashBord/UpdateInstructorInfo/UpdateInstructorInfo";
+import ReceivedFeedback from "../pages/DashBord/ReceivedFeedback/ReceivedFeedback";
+import Errorpage from "../components/Errorpage/Errorpage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <Errorpage></Errorpage>,
     children: [
       {
         path: "/",
@@ -69,12 +75,20 @@ export const router = createBrowserRouter([
           </InstructorRoute>
         ),
       },
+      
       {
-        path: "manageClasses/feedback",
+        path: "myClasses/:id",
         element: (
           <InstructorRoute>
-            {" "}
-            <Feedback></Feedback>
+            <UpdateInstructorInfo></UpdateInstructorInfo>
+          </InstructorRoute>
+        ),
+      },
+      {
+        path: "feedback/:id",
+        element: (
+          <InstructorRoute>
+            <ReceivedFeedback></ReceivedFeedback>
           </InstructorRoute>
         ),
       },
@@ -85,6 +99,15 @@ export const router = createBrowserRouter([
           <AdminRoute>
             {" "}
             <ManageUsers></ManageUsers>
+          </AdminRoute>
+        ),
+      },
+
+      {
+        path: "manageClasses/feedback",
+        element: (
+          <AdminRoute>
+            <Feedback></Feedback>
           </AdminRoute>
         ),
       },
@@ -103,8 +126,16 @@ export const router = createBrowserRouter([
         element: <MySelectedClass></MySelectedClass>,
       },
       {
+        path: "myEnrolledClasses",
+        element: <MyEnrolledClass></MyEnrolledClass>,
+      },
+      {
         path: "payment/:id",
         element: <Payment></Payment>,
+      },
+      {
+        path: "paymentHistory",
+        element: <PaymentHistory></PaymentHistory>,
       },
     ],
   },

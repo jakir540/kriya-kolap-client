@@ -2,10 +2,11 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecuir";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+// import { useState } from "react";
+
 
 const MySelectedClass = () => {
-    const [paymentPrice ,setPaymentPrice] = useState(null);
+    // const [paymentPrice ,setPaymentPrice] = useState(null);
   const [axiosSecure] = useAxiosSecure();
   const { data: mySelectClasses = [], refetch } = useQuery(
     ["mySelectClasses"],
@@ -17,7 +18,7 @@ const MySelectedClass = () => {
   );
   console.log(mySelectClasses);
 const handleDelete =(selectClass)=>{
-    fetch(`http://localhost:5000/mySelectClasses/${selectClass._id}`,{
+    fetch(`https://kriya-kolap-sever-jakir540.vercel.app/mySelectClasses/${selectClass._id}`,{
         method:"DELETE"
     })
     .then(res => res.json())
@@ -36,10 +37,10 @@ const handleDelete =(selectClass)=>{
     })
 }
 
-const handlePrice =(p)=>{
-    setPaymentPrice(p)
-    console.log({p})
-}
+// const handlePrice =(p)=>{
+//     setPaymentPrice(p)
+//     console.log({p})
+// }
 
 
   return (
@@ -58,6 +59,7 @@ const handlePrice =(p)=>{
               <th>Name</th>
               <th>Email</th>
               <th>Price</th>
+              <th>Seats</th>
               <th>Action</th>
               <th>Action</th>
             </tr>
@@ -84,13 +86,15 @@ const handlePrice =(p)=>{
 
                 <td>{selectClass.email}</td>
                 <td>{selectClass.price}</td>
+                <td>{selectClass.seats}</td>
                 <th>
                   <button onClick={()=>handleDelete(selectClass)} className="btn bg-red-500 btn-xs">Delete</button>
                 </th>
                 <th>
                   <Link 
                   to={`/dashbord/payment/${selectClass._id}`} 
-                  ><button onClick={()=>handlePrice(selectClass.price)} className="btn bg-green-500 btn-xs">pay</button></Link>
+                  // onClick={()=>handlePrice(selectClass.price)}
+                  ><button  className="btn bg-green-500 btn-xs">pay</button></Link>
                 </th>
               </tr>
             ))}

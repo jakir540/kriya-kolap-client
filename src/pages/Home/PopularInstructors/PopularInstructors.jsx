@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const PopularInstructors = () => {
   const [instructors, setInstructors] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/instructors")
+    fetch("https://kriya-kolap-sever-jakir540.vercel.app/instructors")
       .then((res) => res.json())
       .then((data) => {
       

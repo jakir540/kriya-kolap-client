@@ -8,7 +8,7 @@ const useAllInstructorsCard = () => {
         queryKey: ['instructors'],
         enabled: !loading && !!user?.email,
         queryFn: async()=>{
-            const res = await fetch('http://localhost:5000/instructors')
+            const res = await fetch('https://kriya-kolap-sever-jakir540.vercel.app/instructors')
             console.log(res)
             return res.json();
         }

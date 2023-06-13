@@ -3,6 +3,7 @@ import CheckOutPaymentForm from "./CheckOutPaymentForm";
 import { loadStripe } from "@stripe/stripe-js";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import payment from './payment.css'
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHED_KEY );
 
@@ -14,7 +15,7 @@ const Payment = () => {
     console.log('price',price,typeof(price))
     useEffect(()=>{
 
-      fetch(`http://localhost:5000/classes/${id}`)
+      fetch(`https://kriya-kolap-sever-jakir540.vercel.app/classes/${id}`)
       .then(res => res.json())
       .then(data => {
         console.log(data)
@@ -32,8 +33,8 @@ const Payment = () => {
     <div className="w-1/2">
       <h2 className="text-center text-3xl font-semibold my-10">Payment Process </h2>
 
-      <Elements stripe={stripePromise}>
-        <CheckOutPaymentForm singleClass={singleClass} paymentPrice={paymentPrice} ></CheckOutPaymentForm>
+      <Elements className="bg-slate-600" stripe={stripePromise}>
+        <CheckOutPaymentForm  singleClass={singleClass} paymentPrice={paymentPrice} ></CheckOutPaymentForm>
       </Elements>
     </div>
   );

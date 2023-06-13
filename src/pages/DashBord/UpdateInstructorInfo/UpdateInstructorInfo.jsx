@@ -1,75 +1,85 @@
-import { useEffect } from "react";
-import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import useAuth from "../../../Hooks/useAuth";
+import { useParams } from "react-router-dom";
 
-const AddClass = () => {
-  const { user } = useAuth();
-  const { displayName, email } = user;
 
-  //-----------------------------------------------
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const classname = form.className.value;
-    const name = form.name.value;
-    const email = form.email.value;
-    const price = form.price.value;
-    const seats = form.seats.value;
-    //image upload imgbb
-    const image = form.image.files[0];
+const UpdateInstructorInfo = () => {
+    const {id} = useParams()
+    console.log("update",id)
+    const { user } = useAuth();
+    const { displayName, email } = user;
 
-    const formData = new FormData();
-    formData.append("image", image);
-
-    const url = `https://api.imgbb.com/1/upload?key=${
-      import.meta.env.VITE_IMGBB_KEY
-    }`;
-    console.log(import.meta.env.VITE_IMGBB_KEY);
-
-    fetch(url, {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((imgData) => {
-        const imgURL = imgData.data.display_url;
-
-//post class in DB form client-------------
-        const newClass = {
-          classname,
-          name,
-          price,
-          seats,
-          imgURL,
-          email,
-          status: "pending",
-        };
-        fetch("https://kriya-kolap-sever-jakir540.vercel.app/classes", {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const classname = form.className.value;
+        const name = form.name.value;
+        const email = form.email.value;
+        const price = form.price.value;
+        const seats = form.seats.value;
+        //image upload imgbb
+        const image = form.image.files[0];
+    
+        const formData = new FormData();
+        formData.append("image", image);
+    
+        const url = `https://api.imgbb.com/1/upload?key=${
+          import.meta.env.VITE_IMGBB_KEY
+        }`;
+        console.log(import.meta.env.VITE_IMGBB_KEY);
+    
+        fetch(url, {
           method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(newClass),
+          body: formData,
         })
           .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-            if (data.insertedId) {
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "new class uploaded",
-                    showConfirmButton: false,
-                    timer: 1500,
-                  });
-            }
+          .then((imgData) => {
+            const imgURL = imgData.data.display_url;
+    
+    //post class in DB form client-------------
+            const newClass = {
+              classname,
+              name,
+              price,
+              seats,
+              imgURL,
+              email,
+              status: "pending",
+            };
+            fetch(`https://kriya-kolap-sever-jakir540.vercel.app/classes/${id}`, {
+              method: "PUT",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(newClass),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "update class uploaded",
+                        showConfirmButton: false,
+                        timer: 1500,
+                      });
+                }
+              });
           });
-      });
-  };
+      };
+    
 
-  return (
-    <div>
-      <h2 className="text-center text-3xl font-semibold my-8">Add Classes</h2>
+
+
+
+    return (
+        <div>
+            <h2 className="text-center text-3xl font-semibold my-8">My updated information for Classes </h2>
+
+            <div>
+            <div>
+     
 
       <div>
         <form onSubmit={handleSubmit} className="w-full">
@@ -158,13 +168,15 @@ const AddClass = () => {
 
           <div>
             <button type="submit" className="btn btn-active btn-accent">
-              Add Class
+              Update Class
             </button>
           </div>
         </form>
       </div>
     </div>
-  );
+            </div>
+        </div>
+    );
 };
 
-export default AddClass;
+export default UpdateInstructorInfo;

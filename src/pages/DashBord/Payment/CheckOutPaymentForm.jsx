@@ -4,7 +4,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecuir";
 import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
 
-const CheckOutPaymentForm = ({singleClass, paymentPrice }) => {
+const CheckOutPaymentForm = ({ singleClass, paymentPrice }) => {
   console.log(typeof paymentPrice, paymentPrice);
   const stripe = useStripe();
   const { user } = useAuth();
@@ -13,7 +13,7 @@ const CheckOutPaymentForm = ({singleClass, paymentPrice }) => {
   const [axiosSecure] = useAxiosSecure();
   const [clientSecret, setClientSecret] = useState("");
   const [processing, setProcessing] = useState(false);
-  const [transictionId,setTransictionId] = useState('')
+  const [transictionId, setTransictionId] = useState("");
 
   // show price for payment
   useEffect(() => {
@@ -25,7 +25,7 @@ const CheckOutPaymentForm = ({singleClass, paymentPrice }) => {
           setClientSecret(res.data.clientSecret);
         });
     }
-  }, [paymentPrice,axiosSecure]);
+  }, [paymentPrice, axiosSecure]);
 
   // handle submit button
   const handleSubmit = async (event) => {
@@ -65,19 +65,28 @@ const CheckOutPaymentForm = ({singleClass, paymentPrice }) => {
       setError(confirmError);
     }
     console.log("success paymentIntent", paymentIntent);
-    setProcessing(false)
+    setProcessing(false);
     if (paymentIntent.status === "succeeded") {
       const transictionId = paymentIntent.id;
-      setTransictionId(transictionId)
-const {classname,name,price,imgURL,seats}= singleClass
+      setTransictionId(transictionId);
+      const { classname, name, price, imgURL, seats, _id } = singleClass;
 
-console.log(classname,name,imgURL,parseFloat(price ),parseFloat(seats -1 ))
-const payment ={classname, imgURL,name,price:parseFloat(price ),seats:parseFloat(seats -1 )}
+      const payment = {
+        classname,
+        user: user?.email,
+        imgURL,
+        date:new Date(),
+        name,
+        transictionId,
+        selectClass: _id,
+        status: "class pending",
+        price: parseFloat(price),
+        seats: parseFloat(seats - 1),
+      };
       //todo
-      axiosSecure.post("/payments",payment)
-      .then(res=>{
-        console.log(res.data)
-        if (res.data.insertedId) {
+      axiosSecure.post("/payments", payment).then((res) => {
+        console.log(res.data);
+        if (res.data.insertResult.insertedId) {
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -86,7 +95,7 @@ const payment ={classname, imgURL,name,price:parseFloat(price ),seats:parseFloat
             timer: 1500,
           });
         }
-      })
+      });
     }
   };
   return (
@@ -117,10 +126,12 @@ const payment ={classname, imgURL,name,price:parseFloat(price ),seats:parseFloat
         </button>
       </form>
       {error && <p className="text-red-400 ml-10">{error}</p>}
-      
-      {
-        transictionId && <p className="text-green-600">payment successfully transictionId is {transictionId}</p>
-      }
+
+      {transictionId && (
+        <p className="text-green-600">
+          payment successfully transictionId is {transictionId}
+        </p>
+      )}
     </>
   );
 };

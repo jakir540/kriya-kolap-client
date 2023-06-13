@@ -18,18 +18,24 @@ const ApprovedClassesCard = ({ singleClass }) => {
   const { classname, name, price, seats, imgURL, email } = singleClass;
 
   const handleSelect = (singleClass) => {
-    axiosSecure.post("/mySelectClasses", singleClass).then((data) => {
-      console.log(data.data);
-      if (data.data.insertedId) {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "my selected class successfullt",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
-    });
+    if (user) {
+      axiosSecure.post("/mySelectClasses", singleClass).then((data) => {
+        console.log(data.data);
+        if (data.data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "my selected class successfullt",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+    }
+    else{
+      alert("login first then select item ")
+    }
+    
   };
   return (
     <div

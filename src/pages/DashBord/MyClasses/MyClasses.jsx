@@ -90,14 +90,15 @@ const MyClasses = () => {
                   </th>
                   {/* todo */}
                   <th>
-                    <Link to="#">
+                    <Link to={`/dashbord/myClasses/${singleClass._id}`}>
                       <GrUpdate className="text-2xl "></GrUpdate>
                     </Link>
                   </th>
 
                   {/* todo */}
                   <th>
-                    <Link to="/dashbord/manageClasses/feedback">
+                
+                    <Link to={`/dashbord/feedback/${singleClass._id}`}>
                       <button className="btn btn-xs">feedback</button>
                     </Link>
                   </th>

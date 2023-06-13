@@ -10,7 +10,7 @@ const Feedback = () => {
     console.log(feedback, name);
     const feedbackInstructor = { name, feedback };
 
-    fetch("http://localhost:5000/feedbackInstructor", {
+    fetch("https://kriya-kolap-sever-jakir540.vercel.app/feedbackInstructor", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -34,6 +34,7 @@ const Feedback = () => {
 
   return (
     <div>
+  
       <form onSubmit={handleSubmit} className="w-full">
         <div>
           <div>
