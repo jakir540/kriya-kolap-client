@@ -5,7 +5,7 @@ const About = () => {
       <h2 className="text-center text-4xl font-semibold capitalize">
         About kriya kolap
       </h2>
-      <div className="lg:flex   justify-between items-center gap-16">
+      <div className="lg:flex   justify-between items-center lg:gap-16">
         <div className="lg:w-1/2">
           <h2 className="capitalize text-end  text-3xl text-green-600 leading-[50px] ">
             summer vacation of yoga <br />{" "}
