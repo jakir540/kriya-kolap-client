@@ -2,8 +2,9 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecuir";
 import useAuth from "../../../Hooks/useAuth";
+import Swal from "sweetalert2";
 
-const CheckOutPaymentForm = ({ paymentPrice }) => {
+const CheckOutPaymentForm = ({singleClass, paymentPrice }) => {
   console.log(typeof paymentPrice, paymentPrice);
   const stripe = useStripe();
   const { user } = useAuth();
@@ -24,7 +25,7 @@ const CheckOutPaymentForm = ({ paymentPrice }) => {
           setClientSecret(res.data.clientSecret);
         });
     }
-  }, []);
+  }, [paymentPrice,axiosSecure]);
 
   // handle submit button
   const handleSubmit = async (event) => {
@@ -68,8 +69,24 @@ const CheckOutPaymentForm = ({ paymentPrice }) => {
     if (paymentIntent.status === "succeeded") {
       const transictionId = paymentIntent.id;
       setTransictionId(transictionId)
+const {classname,name,price,imgURL,seats}= singleClass
 
+console.log(classname,name,imgURL,parseFloat(price ),parseFloat(seats -1 ))
+const payment ={classname, imgURL,name,price:parseFloat(price ),seats:parseFloat(seats -1 )}
       //todo
+      axiosSecure.post("/payments",payment)
+      .then(res=>{
+        console.log(res.data)
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "payment successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      })
     }
   };
   return (

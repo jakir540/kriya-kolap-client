@@ -89,7 +89,7 @@ const handlePrice =(p)=>{
                 </th>
                 <th>
                   <Link 
-                  to={`/dashbord/payment/${selectClass.price}`} 
+                  to={`/dashbord/payment/${selectClass._id}`} 
                   ><button onClick={()=>handlePrice(selectClass.price)} className="btn bg-green-500 btn-xs">pay</button></Link>
                 </th>
               </tr>
