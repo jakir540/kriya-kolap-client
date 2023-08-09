@@ -122,7 +122,7 @@ useEffect(()=>{
       <div className="hidden md:block navbar-end lg:me-[-390px]">
         <label className="swap swap-rotate">
           {/* this hidden checkbox controls the state */}
-          <input className="bg-transparent" type="checkbox" 
+          <input className="bg-transparent  shadow-none" type="checkbox" 
 
             onChange={handleToggle}
             checked={theme === "light" ? false:true}
