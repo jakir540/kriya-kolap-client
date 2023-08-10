@@ -8,7 +8,7 @@ const WhyKriya = () => {
       <h2 className="text-center text-3xl font-semibold my-16">
         Why KRIYA KOLAP?
       </h2>
-      <div className="flex items-center justify-between gap-5">
+      <div className="lg:flex items-center justify-between gap-5">
         <div className="flex gap-4">
           <div>
             <img className="w-32" src={icon1} alt="" />

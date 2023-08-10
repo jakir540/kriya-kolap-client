@@ -16,7 +16,7 @@ const PopularInstructorsCards = ({ instructor }) => {
        <p>Price : {price}</p>
        
         <div className="card-actions justify-end">
-          <button className="btn bg-orange-500">See Classes</button>
+          <button className="btn bg-orange-500 hover:bg-slate-700">See Classes</button>
         </div>
       </div>
     </div>

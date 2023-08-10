@@ -6,7 +6,7 @@ const Videos = () => {
   const videoUrl = "https://www.youtube.com/watch?v=Jo3ga3Vk6vQ";
 
   return (
-    <div className="flex justify-between items-center my-16">
+    <div className="lg:flex justify-between items-center my-16">
       <div className="youtube-player-container ">
         <ReactPlayer url={videoUrl} controls />
       </div>

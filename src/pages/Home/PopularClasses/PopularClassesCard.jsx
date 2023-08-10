@@ -26,7 +26,7 @@ const PopularClassesCard = ({ singleClass }) => {
         <p>Students: {seats}</p>
         <p>Price : $ {price}</p>
         <div className="card-actions justify-end">
-          <Link to="/approvedClasses"><button className="btn bg-yellow-400">Go To Class Page</button></Link>
+          <Link to="/approvedClasses"><button className="btn bg-orange-500 hover:bg-slate-700 ">Go To Class Page</button></Link>
         </div>
       </div>
     </div>

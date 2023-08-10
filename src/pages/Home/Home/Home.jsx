@@ -1,5 +1,7 @@
 import Blogs from "../Blogs/Blogs";
 import CarouselBanner from "../CarouselBanner/CarouselBanner";
+import Contact from "../Contact/Contact";
+import FAQs from "../FAQs/FAQs";
 import Newsletter from "../Newsletter/Newsletter";
 import PopularClasses from "../PopularClasses/PopularClasses";
 import PopularInstructors from "../PopularInstructors/PopularInstructors";
@@ -15,7 +17,9 @@ const Home = () => {
             <Blogs></Blogs>
             <WhyKriya></WhyKriya>
             <Videos></Videos>
+            <FAQs></FAQs>
             <Newsletter></Newsletter>
+            <Contact></Contact>
         </div>
     );
 };
