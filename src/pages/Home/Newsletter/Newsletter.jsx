@@ -15,7 +15,7 @@ const Newsletter = () => {
             type="text"
             placeholder="type your email"
           />
-          <button className="btn bg-yellow-400">Subscribe</button>
+          <button className="btn bg-[#cbd5e1] hover:bg-slate-700">Subscribe</button>
         </div>
       </div>
     </div>

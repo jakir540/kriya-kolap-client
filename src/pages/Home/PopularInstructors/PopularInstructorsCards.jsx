@@ -1,9 +1,9 @@
 const PopularInstructorsCards = ({ instructor }) => {
 
-  const {instructorName,email,activities,photo,price}=instructor
+  const {instructorName,email,photo,price}=instructor
   return (
 
-    <div className="card card-compact w-96 bg-base-100 shadow-xl">
+    <div className="card card-compact w-92 bg-base-100 shadow-xl">
       <figure>
         <img
           src={photo}
@@ -16,7 +16,7 @@ const PopularInstructorsCards = ({ instructor }) => {
        <p>Price : {price}</p>
        
         <div className="card-actions justify-end">
-          <button className="btn bg-orange-500 hover:bg-slate-700">See Classes</button>
+          <button className="btn  bg-[#cbd5e1] hover:bg-slate-700">See Classes</button>
         </div>
       </div>
     </div>

@@ -61,7 +61,7 @@ const CarouselBanner = () => {
             <h2 className=" uppercase text-center lg:text-4xl font-semibold">
               live towords eternity
             </h2>
-            <p className="text-black my-5 text-center">
+            <p className="lg:text-white my-5 text-center">
               The term yoga in the Western world often <br /> denotes a modern
               form of Hatha yoga and <br /> a posture-based physical fitness,
               stress-relief and relaxation technique{" "}
@@ -77,9 +77,9 @@ const CarouselBanner = () => {
           />
           <div className="absolute  lg:top-[650px] lg:right-[390px] flex flex-col items-center">
             <h2 className=" uppercase text-center lg:text-4xl font-semibold">
-            Exploring Yoga's Path
+            Exploring Yogas Path
             </h2>
-            <p className="text-black my-5 text-center">
+            <p className="lg:text-white my-5 text-center">
               The term yoga in the Western world often <br /> denotes a modern
               form of Hatha yoga and 
             </p>

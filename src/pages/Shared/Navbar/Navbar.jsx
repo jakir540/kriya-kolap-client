@@ -2,6 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import { GrYoga } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import { AiOutlineHome,AiOutlineLogin } from 'react-icons/ai';
+import { GiTeacher } from 'react-icons/gi';
+import { SiGoogleclassroom } from 'react-icons/si';
+
+
 
 const Navbar = () => {
   const [theme,setTheme] = useState(localStorage.getItem("theme")? localStorage.getItem("theme"): "light")
@@ -33,14 +38,14 @@ useEffect(()=>{
   const menu = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <Link to="/">Home<span><AiOutlineHome></AiOutlineHome></span></Link>
       </li>
 
       <li>
-        <Link to="/allInstructors">Instructors</Link>
+        <Link to="/allInstructors">Instructors <GiTeacher></GiTeacher></Link>
       </li>
       <li>
-        <Link to="/approvedClasses">Classes</Link>
+        <Link to="/approvedClasses">Classes <SiGoogleclassroom></SiGoogleclassroom></Link>
       </li>
 
       {user && (
@@ -59,18 +64,18 @@ useEffect(()=>{
         </div>
       ) : (
         <li>
-          <Link to="/login">Login</Link>
+          <Link to="/login">Login <AiOutlineLogin></AiOutlineLogin></Link>
         </li>
       )}
       <li>
         <Link to="#">
-          {user && <button onClick={handleLogOut}>LogOut</button>}{" "}
+          {user && <button className="bg-[#cbd5e1] text-black hover:bg-slate-800 mt-[-5px]" onClick={handleLogOut}>LogOut</button>}{" "}
         </Link>
       </li>
     </>
   );
   return (
-    <div className="navbar bg-base-100 py-5 fixed z-10 top-0 ">
+    <div className="navbar bg-base-100 w-[1280px] py-5 fixed z-10 top-0 ">
       <div className="navbar-start ">
 
 
@@ -119,7 +124,7 @@ useEffect(()=>{
         <ul className="menu menu-horizontal px-1">{menu}</ul>
       </div>
       {/* -------------------------------------------------- */}
-      <div className="hidden md:block navbar-end lg:me-[-390px]">
+      <div className="hidden md:block navbar-end lg:me-[-390px] mt-[-5px]">
         <label className="swap swap-rotate">
           {/* this hidden checkbox controls the state */}
           <input className="bg-transparent  shadow-none" type="checkbox" 
@@ -155,3 +160,8 @@ useEffect(()=>{
 };
 
 export default Navbar;
+
+
+
+
+

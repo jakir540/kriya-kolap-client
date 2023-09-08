@@ -23,7 +23,7 @@ const AllInstructorsCard = ({ instructor }) => {
 
            }
           </p>
-          <button className="btn bg-orange-500">See Classes</button>
+          <button className="btn bg-[#cbd5e1]">See Classes</button>
         </div>
       </div>
     </div>

@@ -67,7 +67,7 @@ const ApprovedClassesCard = ({ singleClass }) => {
           ) : (
             <button
               onClick={() => handleSelect(singleClass)}
-              className="btn bg-orange-600 text-white"
+              className="btn bg-[#9ca3af] text-white"
             >
               Select
             </button>

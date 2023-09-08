@@ -88,7 +88,7 @@ const Login = () => {
         <div className="flex justify-center">
           {" "}
           <input
-            className="btn btn-primary my-8 text-white"
+            className="btn bg-slate-500 hover:bg-slate-800 my-8 text-white"
             type="submit"
             value="Submit"
           />

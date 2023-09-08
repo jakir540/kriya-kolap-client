@@ -19,10 +19,8 @@ const PopularInstructors = () => {
           Popular Instructors
         </h2>
         <p className="my-5 lg:leading-9 ">
-          A yoga teacher's primary responsibility is to lead yoga classes, where
-          they demonstrate <br /> and instruct various yoga postures (asanas),
-          breathing techniques (pranayama), <br /> and meditation practices.
-          They carefully design class sequences that cater{" "}
+          A yoga teachers primary responsibility is to lead yoga classes, where
+          they demonstrate <br /> 
         </p>
       </div>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 my-5">
@@ -38,7 +36,7 @@ const PopularInstructors = () => {
         {" "}
         <Link to="/allInstructors">
           {" "}
-          <button className="btn bg-orange-500 hover:bg-slate-700">All Instructors</button>
+          <button className="btn bg-[#cbd5e1] hover:bg-slate-700">All Instructors</button>
         </Link>
       </div>
     </div>

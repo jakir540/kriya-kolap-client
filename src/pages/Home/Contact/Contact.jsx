@@ -23,9 +23,7 @@ const Contact = () => {
           </h2>
           <p className="text-sm  mb-10 text-gray-500 font-thin tracking-widest">
             A wonderful serenity has taken possession of my entire soul, like
-            these sweet mornings of spring which I enjoy with my whole heart. I
-            am alone, and feel the charm of existence in this spot, which was
-            created htmlFor the bliss of souls like mine.
+            these sweet mornings of spring which I enjoy with my whole heart.
           </p>
 
           <div>
@@ -101,7 +99,7 @@ const Contact = () => {
                   </div>
                   <div className="flex items-center justify-end">
                   {" "}
-                  <button className="btn bg-orange-600 hover:bg-gray-900 ">
+                  <button className="btn bg-[#cbd5e1] hover:bg-gray-900 ">
                     Submit
                   </button>
                 </div>
