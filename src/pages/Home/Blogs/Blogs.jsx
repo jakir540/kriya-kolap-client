@@ -1,6 +1,12 @@
-
+import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Blogs = () => {
+  
+  useEffect(function () {
+    Aos.init({ duration: 1000 });
+  }, []);
   return (
     <div className="my-10">
 
@@ -23,7 +29,7 @@ const Blogs = () => {
 
 
 
-        <div>
+        <div data-aos="zoom-in-right">
           <div className="card w-92 bg-base-100 shadow-xl">
             <figure className="px-10 pt-10">
               <img
@@ -63,7 +69,7 @@ const Blogs = () => {
           </div>
         </div>
 
-        <div>
+        <div data-aos="zoom-in-down">
           <div className="card w-96 bg-base-100 shadow-xl">
             <figure className="px-10 pt-10">
               <img
@@ -103,7 +109,7 @@ const Blogs = () => {
           </div>
         </div>
 
-        <div>
+        <div data-aos="zoom-in-left">
           <div className="card w-96 bg-base-100 shadow-xl">
             <figure className="px-10 pt-10">
               <img

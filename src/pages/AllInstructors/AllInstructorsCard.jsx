@@ -4,8 +4,8 @@ const AllInstructorsCard = ({ instructor }) => {
   const { instructorName, email, activities, photo } = instructor;
   console.log(activities)
   return (
-    <div className="hero  bg-base-100 rounded-lg shadow-2xl">
-      <div className="hero-content flex-col">
+    <div className="hero   rounded-lg shadow-2xl group">
+      <div className="hero-content flex-col  fd-cl group-hover:opacity-25">
         <div className="">
         <img
           src={photo}
@@ -13,7 +13,7 @@ const AllInstructorsCard = ({ instructor }) => {
         />
         </div>
         <div className="">
-          <h1 className="text-3xl font-bold">{instructorName}</h1>
+        
           <p className="py-2">
            Email: {email}
           </p>
@@ -23,9 +23,29 @@ const AllInstructorsCard = ({ instructor }) => {
 
            }
           </p>
-          <button className="btn bg-[#cbd5e1]">See Classes</button>
+      
         </div>
       </div>
+
+
+
+      <div className="absolute mt-32 ms-20 text-center opacity-0 fd-sh group-hover:opacity-100">
+          <span className="text-3xl flex items-center justify-center flex-col font-bold text-gray-600 tracking-wider leading-relaxed font-sans">
+          <h1 className="text-3xl font-bold">{instructorName}</h1>
+            
+          </span>
+          <div className="">
+          
+          <button className="btn bg-[#cbd5e1]">See Classes</button>
+        </div>
+        </div>
+
+
+
+
+
+
+
     </div>
   );
 };

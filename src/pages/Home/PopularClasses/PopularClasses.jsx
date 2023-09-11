@@ -32,7 +32,7 @@ const PopularClasses = () => {
   // }, []);
 
   return ( 
-    <div className="w-[1280px]">
+    <div className="w-[1280px] ">
 
       <div data-aos="fade-up" className="text-center my-5">
         <h2 className="text-center text-3xl font-semibold capitalize">

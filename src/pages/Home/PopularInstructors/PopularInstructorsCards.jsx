@@ -1,9 +1,17 @@
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
 const PopularInstructorsCards = ({ instructor }) => {
+
+  useEffect(function () {
+    Aos.init({ duration: 1000 });
+  }, []);
 
   const {instructorName,email,photo,price}=instructor
   return (
 
-    <div className="card card-compact w-92 bg-base-100 shadow-xl">
+    <div data-aos="zoom-in-up"  className=" card card-compact w-92 bg-base-100 shadow-xl">
       <figure>
         <img
           src={photo}

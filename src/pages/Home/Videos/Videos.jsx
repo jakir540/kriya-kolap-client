@@ -1,51 +1,44 @@
 import { useRef, useState } from "react";
-
 import ReactPlayer from "react-player";
 
 const Videos = () => {
-  const videoUrl = "https://www.youtube.com/watch?v=Jo3ga3Vk6vQ";
-  const playerRef = useRef(null);
-  const [isHovered, setIsHovered] = useState(false);
+  const videoUrls = [
+    "https://www.youtube.com/watch?v=Jo3ga3Vk6vQ",
+    "https://youtu.be/LhYtcadR9nw?si=lf3frM-3F-dFs88Q",
+    "https://youtu.be/JgkZhGNSn8Q?si=Cjc8vlvFC_p8w9iX",
+    "https://youtu.be/JhSZw8fiTLc?si=Mjptm2YmfvguUwZI",
+  ];
 
-  const handleVideoHover = () => {
-    setIsHovered(true);
-    if (playerRef && playerRef.current) {
-      playerRef.current.seekTo(0);
-      playerRef.current.getInternalPlayer().playVideo();
+  const videoRefs = videoUrls.map(() => useRef(null));
+  const [hoveredVideoIndex, setHoveredVideoIndex] = useState(-1);
+
+  const handleVideoHover = (index) => {
+    setHoveredVideoIndex(index);
+    if (videoRefs[index] && videoRefs[index].current) {
+      videoRefs[index].current.seekTo(0);
+      videoRefs[index].current.getInternalPlayer().playVideo();
     }
   };
 
-  const handleVideoLeave = () => {
-    setIsHovered(false);
-
-    if (playerRef && playerRef.current) {
-      playerRef.current.getInternalPlayer().pauseVideo();
+  const handleVideoLeave = (index) => {
+    setHoveredVideoIndex(-1);
+    if (videoRefs[index] && videoRefs[index].current) {
+      videoRefs[index].current.getInternalPlayer().pauseVideo();
     }
   };
 
   return (
-    <div className="lg:flex justify-between items-center my-16">
-      <div
-        className="youtube-player-container"
-        onMouseEnter={handleVideoHover}
-        onMouseLeave={handleVideoLeave}
-      >
-        <ReactPlayer url={videoUrl} controls ref={playerRef} />
-      </div>
-
-      <div className="r">
-        <h3 className="text-3xl text-center mb-8">
-          Make your way to complete health
-        </h3>
-        <p className="p-3 text-center">
-          🌿 Holistic Wellness Philosophy: We embrace the concept that wellness
-          is more than just physical health. Our approach considers the
-          <br />
-          <br />
-          🧘‍♀️ Mindful Movement & Yoga: Experience the power of mindful movement
-          through our rejuvenating yoga classes.
-        </p>
-      </div>
+    <div className="grid grid-cols-2 gap-8 my-16">
+      {videoUrls.map((url, index) => (
+        <div
+          className="youtube-player-container"
+          key={index}
+          onMouseEnter={() => handleVideoHover(index)}
+          onMouseLeave={() => handleVideoLeave(index)}
+        >
+          <ReactPlayer url={url} controls ref={videoRefs[index]} />
+        </div>
+      ))}
     </div>
   );
 };

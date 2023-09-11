@@ -1,8 +1,16 @@
 import GoogleMapReact from "google-map-react";
 import { BsTelephoneOutbound } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 const Contact = () => {
+
+  useEffect(function () {
+    Aos.init({ duration: 1000 });
+  }, []);
+
   const defaultProps = {
     center: {
       lat: 23.848959,
@@ -17,7 +25,9 @@ const Contact = () => {
         Contact Our Yoga Center
       </h1>
       <div className="lg:flex items-center justify-evenly gap-6 location h-[500px] mb-24">
-        <div className="w-100%">
+
+
+        <div data-aos="fade-up" className="w-100%">
           <h2 className="text-2xl py-5 font-semibold text-center">
             Leave us your info
           </h2>
@@ -110,7 +120,7 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="w-100%">
+        <div data-aos="fade-up" className="w-100%">
           <div className="w-full p-5  text-center">
             <h3 className="font-semibold text-2xl p-2"> Location</h3>
             <p className="text-gray-600 py-2 text-sm">
@@ -147,6 +157,8 @@ const Contact = () => {
             </div>
           </div>
         </div>
+
+
       </div>
     </>
   );
