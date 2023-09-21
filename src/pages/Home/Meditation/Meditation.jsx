@@ -22,11 +22,11 @@ const Meditation = () => {
         data-aos="flip-left"
         data-aos-easing="ease-out-cubic"
         data-aos-duration="3000"
-        className="relative top-[600px] left-[100px]"
+        className="relative lg:top-[600px] lg:left-[100px] top-[220px] left-0"
       >
         <img className="h-[600px]" src={PractiseImage} alt="" />
       </div>
-      <div className="relative text-3xl w-[500px] font-semibold p-3 top-[280px] left-[800px]">
+      <div className="relative lg:text-3xl text-2xl text-center lg:w-[500px] font-semibold p-3 lg:top-[280px] lg:left-[800px] top-[280px] left-[10px]">
         <h3>
           BUILD YOUR YOGA AND{" "}
           <span className="text-[#facc15] leading-[60px] font-serif">

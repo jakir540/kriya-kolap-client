@@ -20,7 +20,7 @@ const About = () => {
 
 
         <div data-aos="fade-left" className="lg:w-1/2">
-          <h2 className="capitalize text-end  text-3xl text-[#00a854] leading-[50px] ">
+          <h2 className="capitalize lg:text-end text-center  text-3xl text-[#00a854] leading-[50px] ">
             summer vacation of yoga <br />{" "}
             <span className="text-yellow-400 text-5xl">with</span> <br /> kriya
             kolap

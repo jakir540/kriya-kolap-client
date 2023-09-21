@@ -15,7 +15,7 @@ const PopularClassesCard = ({ singleClass }) => {
   // const { yogaClassName, students, photo, instructorName, description } =
   //   singleClass;
   return (
-    <div className="card card-compact w-92 bg-base-100 shadow-xl group content-div">
+    <div className="card card-compact lg:w-[400px] w-[375px]   bg-base-100 shadow-xl group content-div">
       <motion.figure
         initial={false}
         animate={
@@ -31,7 +31,7 @@ const PopularClassesCard = ({ singleClass }) => {
 
 
       <div className="card-body fd-cl group-hover:opacity-25">
-        <img src={imgURL} onLoad={() => setIsLoaded(true)} alt="yoga class" />
+        <img className="w-" src={imgURL} onLoad={() => setIsLoaded(true)} alt="yoga class" />
         <h2 className="card-title">{classname}</h2>
       </div>
 

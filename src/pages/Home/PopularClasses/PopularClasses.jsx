@@ -35,17 +35,17 @@ const PopularClasses = () => {
     <div className="w-[1280px] ">
 
       <div data-aos="fade-up" className="text-center my-5">
-        <h2 className="text-center text-3xl font-semibold capitalize">
+        <h2 className="lg:text-center text-start mx-2 lg:text-3xl font-semibold capitalize">
           {" "}
           about the ways of yoga Popular Classes
         </h2>
-        <p className="my-5 leading-7">
+        <p className="my-5 text-start lg:text-center leading-7">
           We at <span className="font-bold text-green-600">KRIYA KOLAP</span> provide various services to the nature of the World.
           
         </p>
       </div>
 
-     <div data-aos="fade-up" className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 my-5">
+     <div data-aos="fade-up" className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 my-5 ">
         {
             classes.map(singleClass =><PopularClassesCard singleClass={singleClass} key={singleClass._id}></PopularClassesCard> )
         }
