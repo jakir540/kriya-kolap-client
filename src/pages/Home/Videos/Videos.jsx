@@ -31,12 +31,12 @@ const Videos = () => {
     <div className="grid lg:grid-cols-2 grid-cols-1 gap-8 my-16 ">
       {videoUrls.map((url, index) => (
         <div
-          className="youtube-player-container lg:w-full w-[350px]"
+          className="youtube-player-container sm:w-full  "
           key={index}
           onMouseEnter={() => handleVideoHover(index)}
           onMouseLeave={() => handleVideoLeave(index)}
         >
-          <ReactPlayer url={url} controls ref={videoRefs[index]} />
+          <ReactPlayer url={url} controls ref={videoRefs[index]} width="100%" />
         </div>
       ))}
     </div>

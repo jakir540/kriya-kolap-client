@@ -4,7 +4,7 @@ const AllInstructorsCard = ({ instructor }) => {
   const { instructorName, email, activities, photo } = instructor;
   console.log(activities)
   return (
-    <div className="hero w-[350px]   rounded-lg shadow-2xl group">
+    <div className="hero w-full rounded-lg shadow-2xl group">
       <div className="hero-content flex-col  fd-cl group-hover:opacity-25">
         <div className="">
         <img

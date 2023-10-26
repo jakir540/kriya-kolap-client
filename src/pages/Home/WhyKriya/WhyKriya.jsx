@@ -4,11 +4,14 @@ import icon3 from "../../../assets/ico-3.png";
 import icon4 from "../../../assets/floral-decor.png";
 const WhyKriya = () => {
   return (
-    <div className="my-10">
+    <div className="lg:my-10 my-16 ">
       <h2 className="text-center text-3xl font-semibold my-16">
         Why KRIYA KOLAP?
       </h2>
+
       <div className="lg:flex items-center justify-between gap-5">
+
+
         <div className="flex gap-4">
           <div>
             <img className="w-32" src={icon1} alt="" />
@@ -56,7 +59,10 @@ const WhyKriya = () => {
             </p>
           </div>
         </div>
+
       </div>
+
+
 
       <div className="flex items-center justify-center mt-3">
         
@@ -67,6 +73,9 @@ const WhyKriya = () => {
         </div>
        
       </div>
+
+
+
     </div>
   );
 };
