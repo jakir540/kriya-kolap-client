@@ -14,7 +14,7 @@ const MyClasses = () => {
   console.log(classes);
   return (
     <div>
-      <h2 className="text-center text-3xl"> My Classes {classes.length}</h2>
+      <h2 className="text-center text-3xl"> My Classes {classes?.length}</h2>
 
       <div>
         <div className="overflow-x-auto">
@@ -36,7 +36,7 @@ const MyClasses = () => {
               </tr>
             </thead>
             <tbody>
-              {classes.map((singleClass, index) => (
+              {classes?.map((singleClass, index) => (
                 <tr className="bg-base-300 " key={index}>
                   <td>
                     <div className="flex items-center space-x-3">

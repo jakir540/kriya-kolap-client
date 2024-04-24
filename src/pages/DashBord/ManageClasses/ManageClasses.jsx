@@ -132,7 +132,7 @@ const ManageClasses = () => {
                   {/* todo use the component and send info to instructor */}
                   <th>
 
-                      <Link to="/dashbord/manageClasses/feedback">
+                      <Link to="/dashboard/manageClasses/feedback">
                         <button>feedback</button>
                       </Link>
                   

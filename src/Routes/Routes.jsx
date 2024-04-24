@@ -21,6 +21,8 @@ import PaymentHistory from "../pages/DashBord/PaymentHistory/PaymentHistory";
 import UpdateInstructorInfo from "../pages/DashBord/UpdateInstructorInfo/UpdateInstructorInfo";
 import ReceivedFeedback from "../pages/DashBord/ReceivedFeedback/ReceivedFeedback";
 import Errorpage from "../components/Errorpage/Errorpage";
+import Shop from "../pages/Shop/Shop";
+import PaymentSuccess from "../pages/paymentSuccess/PaymentSuccess";
 
 export const router = createBrowserRouter([
   {
@@ -39,6 +41,10 @@ export const router = createBrowserRouter([
     element: <Login></Login>,
   },
   {
+    path: "payment/success/:tranID",
+    element: <PaymentSuccess></PaymentSuccess>,
+  },
+  {
     path: "signup",
     element: <SignUp></SignUp>,
   },
@@ -49,6 +55,10 @@ export const router = createBrowserRouter([
   {
     path: "/allInstructors",
     element: <AllInstructors></AllInstructors>,
+  },
+  {
+    path: "/shop",
+    element: <Shop></Shop>,
   },
   {
     path: "dashbord",
@@ -75,7 +85,7 @@ export const router = createBrowserRouter([
           </InstructorRoute>
         ),
       },
-      
+
       {
         path: "myClasses/:id",
         element: (
@@ -125,6 +135,7 @@ export const router = createBrowserRouter([
         path: "mySelectedClass",
         element: <MySelectedClass></MySelectedClass>,
       },
+     
       {
         path: "myEnrolledClasses",
         element: <MyEnrolledClass></MyEnrolledClass>,
@@ -137,6 +148,7 @@ export const router = createBrowserRouter([
         path: "paymentHistory",
         element: <PaymentHistory></PaymentHistory>,
       },
+      
     ],
   },
 ]);

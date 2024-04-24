@@ -9,7 +9,7 @@ const Meditation = () => {
     Aos.init({ duration: 1000 });
   }, []);
   return (
-    <div className="h-[1200px]">
+    <div className="h-[1200px] overflow-x-hidden">
       <div
         data-aos="fade-up"
         data-aos-offset="300"

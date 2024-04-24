@@ -23,7 +23,7 @@ useEffect(()=>{
         <h2 className="text-center text-3xl font-semibod">All Instructors</h2>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-8 my-8">
+      <div className="grid lg:grid-cols-2 gap-8 my-20">
         {
           instructors.map(instructor => <AllInstructorsCard instructor={instructor} key={instructors._id}></AllInstructorsCard>)
         }

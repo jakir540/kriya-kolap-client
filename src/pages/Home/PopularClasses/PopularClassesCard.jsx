@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./PopularClasses.css"
+import "./PopularClasses.css";
 
 const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`;
 const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`;
@@ -24,25 +24,22 @@ const PopularClassesCard = ({ singleClass }) => {
             : { WebkitMaskImage: hiddenMask, maskImage: hiddenMask }
         }
         transition={{ duration: 1, delay: 1 }}
-        viewport={{ once: true }}  
+        viewport={{ once: true }}
         onViewportEnter={() => setIsInView(true)}
-      >
-      </motion.figure>
-
+      ></motion.figure>
 
       <div className="card-body fd-cl group-hover:opacity-25">
-        <img className="w-" src={imgURL} onLoad={() => setIsLoaded(true)} alt="yoga class" />
+        <img
+          className="w-"
+          src={imgURL}
+          onLoad={() => setIsLoaded(true)}
+          alt="yoga class"
+        />
         <h2 className="card-title">{classname}</h2>
       </div>
 
-
-
       <div className="absolute mt-20 ms-10 text-center opacity-0 fd-sh group-hover:opacity-100">
-          <span className="text-3xl flex items-center justify-center flex-col font-bold text-gray-600 tracking-wider leading-relaxed font-sans">
-        
-        
-            
-          </span>
+        <span className="text-3xl flex items-center justify-center flex-col font-bold text-gray-600 tracking-wider leading-relaxed font-sans"></span>
         <h2 className="">Instructor Name: {name}</h2>
         <p>Students: {seats}</p>
         <p>Price : $ {price}</p>
@@ -53,11 +50,7 @@ const PopularClassesCard = ({ singleClass }) => {
             </button>
           </Link>
         </div>
-        </div>
-
-
-
-
+      </div>
     </div>
   );
 };

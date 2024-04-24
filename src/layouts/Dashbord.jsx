@@ -13,8 +13,10 @@ import useAuth from "../Hooks/useAuth";
 const Dashbord = () => {
   const {user} = useAuth()
   console.log(user)
+  // const isAdmin= true
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
+  // const isInstructor = true;
 
   return (
     <div className="drawer lg:drawer-open">
