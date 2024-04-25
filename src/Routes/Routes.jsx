@@ -23,6 +23,7 @@ import ReceivedFeedback from "../pages/DashBord/ReceivedFeedback/ReceivedFeedbac
 import Errorpage from "../components/Errorpage/Errorpage";
 import Shop from "../pages/Shop/Shop";
 import PaymentSuccess from "../pages/paymentSuccess/PaymentSuccess";
+import PaymentFail from "../pages/paymentFail/PaymentFail";
 
 export const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
   {
     path: "payment/success/:tranID",
     element: <PaymentSuccess></PaymentSuccess>,
+  },
+  {
+    path: "payment/fail/:tranID",
+    element: <PaymentFail></PaymentFail>,
   },
   {
     path: "signup",
