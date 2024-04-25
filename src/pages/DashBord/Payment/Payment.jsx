@@ -1,12 +1,6 @@
-import { Elements } from "@stripe/react-stripe-js";
-import CheckOutPaymentForm from "./CheckOutPaymentForm";
-import { loadStripe } from "@stripe/stripe-js";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import payment from "./payment.css";
 import { useForm } from "react-hook-form";
-
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHED_KEY);
 
 const Payment = () => {
   const [singleClass, setSingleClass] = useState({});
