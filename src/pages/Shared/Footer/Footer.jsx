@@ -88,15 +88,17 @@ const Footer = () => {
                 placeholder="Your Name"
                 value={formData.name}
                 onChange={handleChange}
-                className="mt-[-10] bg-[#f6f9fc]"
+                className="mt-[-10] p-2 bg-[#f6f9fc] rounded-lg"
               />
+              <br />
+              <br />
               <input
                 type="email"
                 name="email"
                 placeholder="Your Email"
                 value={formData.email}
                 onChange={handleChange}
-                className="bg-[#f6f9fc]"
+                className="bg-[#f6f9fc] p-2 rounded-lg"
               />
               {/* <textarea
                 name="message"
@@ -104,7 +106,7 @@ const Footer = () => {
                 value={formData.message}
                 onChange={handleChange}
               /> */}
-              <button type="submit" className="bg-[#898989] px-4">Send</button>
+              <button type="submit" className=" btn ms-3 bg-[#898989] px-7">Send</button>
             </form>
           </div>
         </footer>
