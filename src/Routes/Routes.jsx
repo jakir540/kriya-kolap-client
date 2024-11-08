@@ -24,6 +24,7 @@ import Errorpage from "../components/Errorpage/Errorpage";
 import Shop from "../pages/Shop/Shop";
 import PaymentSuccess from "../pages/paymentSuccess/PaymentSuccess";
 import PaymentFail from "../pages/paymentFail/PaymentFail";
+import ProfilePage from "../components/ProfilePage";
 
 export const router = createBrowserRouter([
   {
@@ -73,7 +74,13 @@ export const router = createBrowserRouter([
       </PrivateRoutes>
     ),
     children: [
-      //instructor Route
+      // Profile Route
+      {
+        path: "profile",
+        element: <ProfilePage />, // Add ProfilePage route here
+      },
+
+      // Instructor Routes
       {
         path: "myClasses",
         element: (
@@ -90,7 +97,6 @@ export const router = createBrowserRouter([
           </InstructorRoute>
         ),
       },
-
       {
         path: "myClasses/:id",
         element: (
@@ -107,17 +113,16 @@ export const router = createBrowserRouter([
           </InstructorRoute>
         ),
       },
-      //admin Route
+
+      // Admin Routes
       {
         path: "manageUsers",
         element: (
           <AdminRoute>
-            {" "}
             <ManageUsers></ManageUsers>
           </AdminRoute>
         ),
       },
-
       {
         path: "manageClasses/feedback",
         element: (
@@ -135,12 +140,11 @@ export const router = createBrowserRouter([
         ),
       },
 
-      //user Route
+      // User Routes
       {
         path: "mySelectedClass",
         element: <MySelectedClass></MySelectedClass>,
       },
-     
       {
         path: "myEnrolledClasses",
         element: <MyEnrolledClass></MyEnrolledClass>,
@@ -153,7 +157,6 @@ export const router = createBrowserRouter([
         path: "paymentHistory",
         element: <PaymentHistory></PaymentHistory>,
       },
-      
     ],
   },
 ]);

@@ -2,100 +2,92 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecuir";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
-// import { useState } from "react";
-
 
 const MySelectedClass = () => {
-    // const [paymentPrice ,setPaymentPrice] = useState(null);
   const [axiosSecure] = useAxiosSecure();
   const { data: mySelectClasses = [], refetch } = useQuery(
     ["mySelectClasses"],
     async () => {
       const res = await axiosSecure.get("/mySelectClasses");
-      
       return res.data;
     }
   );
-  console.log(mySelectClasses);
-const handleDelete =(selectClass)=>{
-    fetch(`https://kriya-kolap-sever-jakir540.vercel.app/mySelectClasses/${selectClass._id}`,{
-        method:"DELETE"
-    })
-    .then(res => res.json())
-    .then(data =>{
-        console.log(data)
-        refetch()
+
+  const handleDelete = (selectClass) => {
+    fetch(
+      `https://kriya-kolap-sever-jakir540.vercel.app/mySelectClasses/${selectClass._id}`,
+      {
+        method: "DELETE",
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        refetch();
         if (data.deletedCount > 0) {
-            Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: "deleted successfully",
-                showConfirmButton: false,
-                timer: 1500,
-              });
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Deleted successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
         }
-    })
-}
-
-// const handlePrice =(p)=>{
-//     setPaymentPrice(p)
-//     console.log({p})
-// }
-
+      });
+  };
 
   return (
-    <div>
-      <h2 className="text-center my-8 text-3xl font-semibold">
-        My Selected Class {mySelectClasses.length}
+    <div
+      className="min-h-screen p-10"
+      style={{ backgroundColor: "#2E344E", color: "#FFFFFF" }}
+    >
+      <h2 className="text-center mb-12 text-4xl font-semibold text-gray-100">
+        My Selected Classes ({mySelectClasses.length})
       </h2>
 
-      <div className="overflow-x-auto">
-        <table className="table">
-          {/* head */}
-          <thead>
+      <div className="overflow-x-auto rounded-lg shadow-xl bg-gray-800">
+        <table className="table-auto w-full text-gray-300">
+          <thead className="bg-gray-700">
             <tr>
-              <th>#</th>
-              <th>image</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Price</th>
-              <th>Seats</th>
-              <th>Action</th>
-              <th>Action</th>
+              <th className="p-4 text-left">#</th>
+              <th className="p-4 text-left">Image</th>
+              <th className="p-4 text-left">Name</th>
+              <th className="p-4 text-left">Email</th>
+              <th className="p-4 text-left">Price</th>
+              <th className="p-4 text-left">Seats</th>
+              <th className="p-4 text-center">Actions</th>
             </tr>
           </thead>
           <tbody>
             {mySelectClasses.map((selectClass, index) => (
-              <tr key={selectClass._id}>
-                <th>{index + 1}</th>
-                <td>
-                  <div className="flex items-center space-x-3">
-                    <div className="avatar">
-                      <div className="mask mask-squircle w-12 h-12">
-                        <img src={selectClass.imgURL} alt="Yoga photo" />
-                      </div>
-                    </div>
-                  </div>
+              <tr
+                key={selectClass._id}
+                className="hover:bg-gray-700 transition duration-150"
+              >
+                <td className="p-4">{index + 1}</td>
+                <td className="p-4">
+                  <img
+                    src={selectClass.imgURL}
+                    alt="Class"
+                    className="w-16 h-16 rounded-full object-cover border border-gray-500"
+                  />
                 </td>
-
-                <td>
-                  <div>
-                    <div className="font-bold">{selectClass.name}</div>
-                  </div>
+                <td className="p-4 font-semibold">{selectClass.name}</td>
+                <td className="p-4">{selectClass.email}</td>
+                <td className="p-4">${selectClass.price}</td>
+                <td className="p-4 text-center">{selectClass.seats}</td>
+                <td className="p-4 flex justify-center space-x-3">
+                  <button
+                    onClick={() => handleDelete(selectClass)}
+                    className="px-4 py-2 rounded-md bg-red-600 text-white hover:bg-red-500 transition duration-150 shadow-md"
+                  >
+                    Delete
+                  </button>
+                  <Link to={`/dashbord/payment/${selectClass._id}`}>
+                    <button className="px-4 py-2 rounded-md bg-green-600 text-white hover:bg-green-500 transition duration-150 shadow-md">
+                      Pay
+                    </button>
+                  </Link>
                 </td>
-
-                <td>{selectClass.email}</td>
-                <td>{selectClass.price}</td>
-                <td>{selectClass.seats}</td>
-                <th>
-                  <button onClick={()=>handleDelete(selectClass)} className="btn bg-red-500 btn-xs">Delete</button>
-                </th>
-                <th>
-                  <Link 
-                  to={`/dashbord/payment/${selectClass._id}`} 
-                  // onClick={()=>handlePrice(selectClass.price)}
-                  ><button  className="btn bg-green-500 btn-xs">pay</button></Link>
-                </th>
               </tr>
             ))}
           </tbody>

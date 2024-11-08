@@ -1,80 +1,86 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
 const MyEnrolledClass = () => {
-    const [enrolledClass,setEnrolledClass] = useState([])
-    useEffect(()=>{
-        fetch('https://kriya-kolap-sever-jakir540.vercel.app/payments')
-        .then(res => res.json())
-        .then(data =>{
-            console.log(data)
-            setEnrolledClass(data)
+  const [enrolledClass, setEnrolledClass] = useState([]);
 
-        })
-    },[])
-    return (
-        <div>
-            <h2 className="text-center text-3xl font-semibold my-8">My All Enrolled Classes {enrolledClass.length}</h2>
+  useEffect(() => {
+    fetch("https://kriya-kolap-sever-jakir540.vercel.app/payments")
+      .then((res) => res.json())
+      .then((data) => {
+        setEnrolledClass(data);
+      });
+  }, []);
 
+  return (
+    <div className="max-w-7xl mx-auto p-8 bg-[#2E344E] text-white min-h-screen">
+      <h2 className="text-center text-4xl font-semibold my-8 text-[#A0AEC0]">
+        My All Enrolled Classes{" "}
+        <span className="text-lg text-gray-400">({enrolledClass.length})</span>
+      </h2>
 
-
-
-            <div>
-            <div>
-     
-
-      <div className="overflow-x-auto">
-        <table className="table">
-          {/* head */}
+      <div className="overflow-x-auto shadow-lg rounded-lg bg-[#3B4252]">
+        <table className="table-auto w-full text-left border-collapse">
           <thead>
-            <tr>
-              <th>#</th>
-              <th>image</th>
-              <th>Name</th>
-            
-              <th>Price</th>
-              <th>Enrolled date</th>
-              <th>Balance Seats</th>
-          
-              <th>status</th>
+            <tr className="bg-[#4C566A] text-[#A0AEC0] uppercase text-sm tracking-wide">
+              <th className="p-4">#</th>
+              <th className="p-4">Image</th>
+              <th className="p-4">Class Name</th>
+              <th className="p-4">Price</th>
+              <th className="p-4">Enrolled Date</th>
+              <th className="p-4">Available Seats</th>
+              <th className="p-4">Status</th>
             </tr>
           </thead>
           <tbody>
             {enrolledClass.map((singleEnrolledClass, index) => (
-              <tr key={singleEnrolledClass._id}>
-                <th>{index + 1}</th>
-                <td>
-                  <div className="flex items-center space-x-3">
-                    <div className="avatar">
-                      <div className="mask mask-squircle w-12 h-12">
-                        <img src={singleEnrolledClass.imgURL} alt="Yoga photo" />
-                      </div>
+              <tr
+                key={singleEnrolledClass._id}
+                className="even:bg-[#2E344E] odd:bg-[#3B4252] hover:bg-[#4C566A] transition duration-200"
+              >
+                <td className="p-4 text-center font-semibold text-[#D8DEE9]">
+                  {index + 1}
+                </td>
+                <td className="p-4">
+                  <div className="flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-full overflow-hidden shadow-lg">
+                      <img
+                        src={singleEnrolledClass.imgURL}
+                        alt="Yoga photo"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   </div>
                 </td>
-
-                <td>
-                  <div>
-                    <div className="font-bold">{singleEnrolledClass.name}</div>
-                  </div>
+                <td className="p-4 font-medium text-[#ECEFF4] text-center">
+                  {singleEnrolledClass.name}
                 </td>
-
-                
-                <td>{singleEnrolledClass?.price}</td>
-                <td>{singleEnrolledClass?.date}</td>
-                <td className="text-center">{singleEnrolledClass?.seats}</td>
-                <td>{singleEnrolledClass?.status}</td>
-               
-                
+                <td className="p-4 text-center text-[#A0AEC0]">
+                  ${singleEnrolledClass.price}
+                </td>
+                <td className="p-4 text-center text-[#A0AEC0]">
+                  {singleEnrolledClass.date}
+                </td>
+                <td className="p-4 text-center text-[#A0AEC0]">
+                  {singleEnrolledClass.seats}
+                </td>
+                <td className="p-4 text-center">
+                  <span
+                    className={`py-1 px-3 rounded-full font-semibold ${
+                      singleEnrolledClass.status === "active"
+                        ? "bg-green-600 text-green-200"
+                        : "bg-gray-600 text-yellow-300"
+                    }`}
+                  >
+                    {singleEnrolledClass.status}
+                  </span>
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
     </div>
-            </div>
-        </div>
-    );
+  );
 };
 
 export default MyEnrolledClass;
