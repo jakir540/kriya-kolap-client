@@ -1,40 +1,37 @@
 import { useEffect, useState } from "react";
 
-
 const ReceivedFeedback = () => {
-   
   const [feedback, setFeedback] = useState([]);
 
   useEffect(() => {
-    fetch("https://kriya-kolap-sever-jakir540.vercel.app/receivedInstructorsFeedback")
-      .then(res => res.json())
-
+    fetch(
+      "https://kriya-kolap-sever-jakir540.vercel.app/receivedInstructorsFeedback"
+    )
+      .then((res) => res.json())
       .then((data) => {
         setFeedback(data);
       });
   }, []);
-  console.log(feedback);
 
   return (
-    <div>
-      <h2 className="text-center my-8 text-3xl font-semibold">
+    <div className="max-w-7xl mx-auto p-8 bg-gray-50">
+      <h2 className="text-center text-4xl font-semibold text-gray-800 my-8">
         Classes Feedback
       </h2>
-      <div></div>
-      <div className=" grid grid-cols-1 gap-5">
-        {feedback.map((feedback, index) => (
-          <div className="bg-slate-300 border border-gray-950 p-10 rounded-lg" key={index}>
-            <div className="">
-              <h3>Class Id: {feedback._id}</h3>
-            </div>
-            <div className="">
-              <h3>Name: {feedback.name}</h3>
-            </div>
 
-            <div>
-              <p>Feedback: {feedback.feedback}</p>
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {feedback.map((feedback, index) => (
+          <div
+            className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:scale-105"
+            key={index}
+          >
+            <div className="text-lg font-semibold text-[#00A854] mb-2">
+              Class ID: {feedback._id}
             </div>
-            {/* Add additional fields from your feedback data object */}
+            <div className="text-gray-700 font-medium mb-4">
+              Name: {feedback.name}
+            </div>
+            <div className="text-gray-600">{feedback.feedback}</div>
           </div>
         ))}
       </div>

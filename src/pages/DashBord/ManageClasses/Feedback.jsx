@@ -24,7 +24,7 @@ const Feedback = () => {
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "feedback send to instructor  successfully",
+            title: "Feedback sent to instructor successfully",
             showConfirmButton: false,
             timer: 1500,
           });
@@ -33,45 +33,53 @@ const Feedback = () => {
   };
 
   return (
-    <div>
-  
-      <form onSubmit={handleSubmit} className="w-full">
-        <div>
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="bg-white p-8 rounded-xl shadow-xl w-full sm:w-3/4 lg:w-1/2">
+        <h2 className="text-3xl font-semibold text-gray-800 text-center mb-8">
+          Provide Your Feedback
+        </h2>
+
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <div className="form-control w-full ">
-              <label className="label">
-                <span className="label-text">Name</span>
+            <div className="form-control">
+              <label className="label text-sm font-medium text-gray-600">
+                Your Name
               </label>
               <input
                 type="text"
-                placeholder="Type here"
                 name="name"
-                className="input input-bordered w-full "
+                placeholder="Enter your name"
+                className="input input-bordered w-full border-gray-300 focus:ring-2 focus:ring-blue-500 transition-all rounded-lg"
+                required
               />
             </div>
           </div>
 
           <div>
-            <div className="form-control w-full my-5 ">
-              <label className="label">
-                <span className="label-text">Feedback</span>
+            <div className="form-control">
+              <label className="label text-sm font-medium text-gray-600">
+                Your Feedback
               </label>
               <textarea
-                type="text"
-                placeholder="Type here"
                 name="feedback"
-                className="input input-bordered w-full "
+                placeholder="Enter your feedback"
+                className="input input-bordered w-full border-gray-300 focus:ring-2 focus:ring-blue-500 transition-all rounded-lg"
+                rows="4"
+                required
               />
             </div>
           </div>
-        </div>
 
-        <div>
-          <button type="submit" className="btn btn-active btn-accent my-5">
-            Add Class
-          </button>
-        </div>
-      </form>
+          <div className="text-center">
+            <button
+              type="submit"
+              className="btn btn-primary text-white px-8 py-3 rounded-lg shadow-md hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition-all duration-300"
+            >
+              Submit Feedback
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

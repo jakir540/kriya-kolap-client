@@ -6,13 +6,10 @@ import useAdmin from "../../Hooks/useAdmin";
 import useInstructor from "../../Hooks/useInstructor";
 // import { useEffect, useState } from "react";
 
-
 const ApprovedClassesCard = ({ singleClass }) => {
-  const {user} = useAuth()
-  const [isAdmin] = useAdmin();  
-  const [isInstructor] =useInstructor()
-
-
+  const { user } = useAuth();
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
 
   const [axiosSecure] = useAxiosSecure();
   const { classname, name, price, seats, imgURL, email } = singleClass;
@@ -31,11 +28,9 @@ const ApprovedClassesCard = ({ singleClass }) => {
           });
         }
       });
+    } else {
+      alert("login first then select item ");
     }
-    else{
-      alert("login first then select item ")
-    }
-    
   };
   return (
     <div
@@ -61,7 +56,7 @@ const ApprovedClassesCard = ({ singleClass }) => {
         <p>Price : $ {price}</p>
         <div className="card-actions justify-end">
           {isAdmin || isInstructor || seats == 0 ? (
-            <button disabled className="btn bg-orange-600 text-white">
+            <button disabled className="btn bg-[#00a854] text-white">
               Select
             </button>
           ) : (

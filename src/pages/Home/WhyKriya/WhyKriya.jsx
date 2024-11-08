@@ -25,9 +25,21 @@ const WhyKriya = () => {
 
       <div className="lg:flex items-center justify-between gap-5">
         {[
-          { icon: icon1, title: "COMPLETE VIDEO SUPPORT" },
-          { icon: icon2, title: "BEST OF CUSTOMIZATION" },
-          { icon: icon3, title: "EASY TO SETUP" },
+          {
+            icon: icon1,
+            title: "COMPLETE VIDEO SUPPORT",
+            text: "Access a full library of high-quality yoga videos, designed for all levels and available anytime to enhance your practice.",
+          },
+          {
+            icon: icon2,
+            title: "BEST OF CUSTOMIZATION",
+            text: "Tailor your yoga experience with flexible class options, allowing you to choose styles, durations, and difficulty levels that fit your needs.",
+          },
+          {
+            icon: icon3,
+            title: "EASY TO SETUP",
+            text: "Seamlessly set up your profile and begin your journey with our intuitive user interface and streamlined onboarding process.",
+          },
         ].map((item, index) => (
           <motion.div
             key={index}
@@ -47,10 +59,7 @@ const WhyKriya = () => {
                 {item.title}
               </h3>
               <div className="border border-orange-200 my-1"></div>
-              <p className="py-3 text-gray-600">
-                Pellentesque odio nisi, euismod in, pharetra a, ultricies in,
-                diam. Sed arcu. Cras consequat.
-              </p>
+              <p className="py-3 text-gray-600">{item.text}</p>
             </div>
           </motion.div>
         ))}
@@ -68,7 +77,7 @@ const WhyKriya = () => {
           </motion.span>
           <motion.img
             src={icon4}
-            alt=""
+            alt="Floral Decor"
             animate={{ scale: [1, 1.1, 1] }}
             transition={{
               duration: 1,

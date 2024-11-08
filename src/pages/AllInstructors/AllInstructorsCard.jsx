@@ -1,51 +1,27 @@
 const AllInstructorsCard = ({ instructor }) => {
-  console.log({ instructor });
-
   const { instructorName, email, activities, photo } = instructor;
-  console.log(activities)
+
   return (
-    <div className="hero w-full rounded-lg shadow-2xl group">
-      <div className="hero-content flex-col  fd-cl group-hover:opacity-25">
-        <div className="">
-        <img
-          src={photo}
-          className="max-w-sm rounded-lg shadow-2xl"
-        />
-        </div>
-        <div className="">
-        
-          <p className="py-2">
-           Email: {email}
-          </p>
-          <p className="py-2">
-           {
-            activities.map((item,index) => <li key={index}>{item}</li>)
+    <div className="relative group rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105">
+      <img
+        src={photo}
+        alt={instructorName}
+        className="w-full h-60 object-cover rounded-t-lg"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
 
-           }
-          </p>
-      
-        </div>
+      <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <h2 className="text-2xl font-bold text-black mb-4">{instructorName}</h2>
+        <p className="text-sm text-black mb-4">{email}</p>
+        <ul className="text-sm text-gray-300 mb-6">
+          {activities.map((activity, index) => (
+            <li key={index}>{activity}</li>
+          ))}
+        </ul>
+        <button className="btn bg-[#00a854] text-white hover:bg-[#008f39] transition duration-300 px-6 py-2 rounded-md">
+          See Classes
+        </button>
       </div>
-
-
-
-      <div className="absolute mt-32 ms-20 text-center opacity-0 fd-sh group-hover:opacity-100">
-          <span className="text-3xl flex items-center justify-center flex-col font-bold text-gray-600 tracking-wider leading-relaxed font-sans">
-          <h1 className="text-3xl font-bold">{instructorName}</h1>
-            
-          </span>
-          <div className="">
-          
-          <button className="btn bg-[#cbd5e1]">See Classes</button>
-        </div>
-        </div>
-
-
-
-
-
-
-
     </div>
   );
 };

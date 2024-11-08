@@ -95,7 +95,7 @@ const Contact = () => {
               </div>
 
               <div className="flex justify-end mt-8">
-                <button className="bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 px-8 rounded-full font-semibold text-lg hover:bg-gradient-to-l hover:from-purple-500 hover:to-blue-500 transition-all duration-300 shadow-lg transform hover:scale-105">
+                <button className=" btn bg-[#00a854] text-white hover:bg-[#00a854] py-3 px-8 rounded-full font-semibold text-lg  transition-all duration-300 shadow-lg transform hover:scale-105">
                   Submit
                 </button>
               </div>

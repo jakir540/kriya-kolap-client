@@ -28,7 +28,9 @@ const ApprovedClasses = () => {
             </h2>
             <p className="my-5 mt-16 leading-7">
               We at{" "}
-              <span className="font-bold  text-green-600 lg:text-4xl">KRIYA KOLAP</span>{" "}
+              <span className="font-bold  text-green-600 lg:text-4xl">
+                KRIYA KOLAP
+              </span>{" "}
               provide various services to the nature of the <br />
               clients. Wish how you would like to spend the time <br /> here we
               can talk and come to a conclusion.

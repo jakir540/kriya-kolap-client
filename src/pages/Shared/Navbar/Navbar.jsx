@@ -46,7 +46,9 @@ const Navbar = () => {
       <li>
         <Link
           to="/"
-          className="flex items-center space-x-1 hover:text-[#00a854]"
+          className={`flex items-center space-x-1 hover:text-[#00a854] ${
+            !isTransparent ? "text-black" : "text-white"
+          }`}
         >
           <AiOutlineHome className="text-xl" /> <span>Home</span>
         </Link>
@@ -54,7 +56,9 @@ const Navbar = () => {
       <li>
         <Link
           to="/allInstructors"
-          className="flex items-center space-x-1 hover:text-[#00a854]"
+          className={`flex items-center space-x-1 hover:text-[#00a854] ${
+            !isTransparent ? "text-black" : "text-white"
+          }`}
         >
           <GiTeacher className="text-xl" /> <span>Instructors</span>
         </Link>
@@ -63,7 +67,9 @@ const Navbar = () => {
         <li>
           <div
             tabIndex={0}
-            className="flex items-center space-x-1 cursor-pointer hover:text-[#00a854]"
+            className={`flex items-center space-x-1 cursor-pointer hover:text-[#00a854] ${
+              !isTransparent ? "text-black" : "text-white"
+            }`}
           >
             <FaShoppingBag className="text-xl" /> <span>Shop</span>{" "}
             <FaCaretDown />
@@ -87,14 +93,21 @@ const Navbar = () => {
       <li>
         <Link
           to="/approvedClasses"
-          className="flex items-center space-x-1 hover:text-[#00a854]"
+          className={`flex items-center space-x-1 hover:text-[#00a854] ${
+            !isTransparent ? "text-black" : "text-white"
+          }`}
         >
           <SiGoogleclassroom className="text-xl" /> <span>Classes</span>
         </Link>
       </li>
       {user && (
         <li>
-          <Link to="/dashboard" className="hover:text-[#00a854]">
+          <Link
+            to="/dashbord"
+            className={`hover:text-[#00a854] ${
+              !isTransparent ? "text-black" : "text-white"
+            }`}
+          >
             Dashboard
           </Link>
         </li>
@@ -112,7 +125,9 @@ const Navbar = () => {
         <li>
           <Link
             to="/login"
-            className="flex items-center space-x-1 hover:text-[#00a854]"
+            className={`flex items-center space-x-1 hover:text-[#00a854] ${
+              !isTransparent ? "text-black" : "text-white"
+            }`}
           >
             <AiOutlineLogin className="text-xl" /> <span>Login</span>
           </Link>
@@ -136,7 +151,7 @@ const Navbar = () => {
       className={`navbar py-4 fixed z-10 top-0 transition-all duration-500 max-w-7xl ${
         isTransparent
           ? "bg-gray-900 backdrop-blur-md"
-          : "bg-transparent backdrop-blur-lg text-[#00a854]"
+          : "bg-transparent backdrop-blur-lg text-black"
       }`}
     >
       <div className="navbar-start">
@@ -165,7 +180,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link className="text-2xl lg:text-4xl font-bold text-white flex items-center space-x-2">
-          <GrYoga className="text-3xl" />
+          <GrYoga className="text-4x" />
           <span>Kriya Kolap</span>
         </Link>
       </div>

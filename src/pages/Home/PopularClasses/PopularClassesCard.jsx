@@ -46,7 +46,7 @@ const PopularClassesCard = ({ singleClass }) => {
         <p className="mt-2">Seats Available: {seats}</p>
         <p className="text-lg font-bold mt-1">Price: ${price}</p>
         <Link to="/approvedClasses" className="mt-4">
-          <button className="btn bg-blue-600 text-white hover:bg-blue-800 px-4 py-2 rounded-lg">
+          <button className="btn bg-[#00A854] text-white hover:bg-[#00a854d7] px-4 py-2 rounded-lg">
             Go To Class Page
           </button>
         </Link>

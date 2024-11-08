@@ -1,4 +1,3 @@
-
 import useAuth from "../../../Hooks/useAuth";
 import Swal from "sweetalert2";
 
@@ -6,7 +5,6 @@ const AddClass = () => {
   const { user } = useAuth();
   const { displayName, email } = user;
 
-  //-----------------------------------------------
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -15,7 +13,6 @@ const AddClass = () => {
     const email = form.email.value;
     const price = form.price.value;
     const seats = form.seats.value;
-    //image upload imgbb
     const image = form.image.files[0];
 
     const formData = new FormData();
@@ -24,7 +21,6 @@ const AddClass = () => {
     const url = `https://api.imgbb.com/1/upload?key=${
       import.meta.env.VITE_IMGBB_KEY
     }`;
-    console.log(import.meta.env.VITE_IMGBB_KEY);
 
     fetch(url, {
       method: "POST",
@@ -34,7 +30,6 @@ const AddClass = () => {
       .then((imgData) => {
         const imgURL = imgData.data.display_url;
 
-//post class in DB form client-------------
         const newClass = {
           classname,
           name,
@@ -44,6 +39,7 @@ const AddClass = () => {
           email,
           status: "pending",
         };
+
         fetch("https://kriya-kolap-sever-jakir540.vercel.app/classes", {
           method: "POST",
           headers: {
@@ -53,116 +49,136 @@ const AddClass = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.insertedId) {
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "new class uploaded",
-                    showConfirmButton: false,
-                    timer: 1500,
-                  });
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "New class uploaded successfully!",
+                showConfirmButton: false,
+                timer: 1500,
+              });
             }
           });
       });
   };
 
   return (
-    <div>
-      <h2 className="text-center text-3xl font-semibold my-8">Add Classes</h2>
-
-      <div>
-        <form onSubmit={handleSubmit} className="w-full">
-          <div className="grid grid-cols-2 gap-8 ">
-            <div>
-              <div className="form-control w-full ">
-                <label className="label">
-                  <span className="label-text">Class Name</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Type here"
-                  name="className"
-                  className="input input-bordered w-full "
-                />
-              </div>
-            </div>
-
-            <div>
-              <div className="form-control w-full ">
-                <label className="label">
-                  <span className="label-text">Instructor Name</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Type here"
-                  name="name"
-                  defaultValue={displayName}
-                  className="input input-bordered w-full "
-                />
-              </div>
-            </div>
-
-            <div>
-              <div className="form-control w-full ">
-                <label className="label">
-                  <span className="label-text">Instructor Email</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Type here"
-                  name="email"
-                  defaultValue={email}
-                  className="input input-bordered w-full "
-                />
-              </div>
-            </div>
-
-            <div>
-              <div className="form-control w-full ">
-                <label className="label">
-                  <span className="label-text">Available Seats</span>
-                </label>
-                <input
-                  type="number"
-                  placeholder="Type here"
-                  name="seats"
-                  className="input input-bordered w-full "
-                />
-              </div>
-            </div>
-
-            <div>
-              <div className="form-control w-full ">
-                <label className="label">
-                  <span className="label-text">Price</span>
-                </label>
-                <input
-                  type="number"
-                  placeholder="Type here"
-                  name="price"
-                  className="input input-bordered w-full "
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="my-5">
+    <div className="max-w-4xl mx-auto p-8 bg-[#1D2330] rounded-lg shadow-lg">
+      <h2 className="text-center text-3xl font-semibold text-white mb-8">
+        Add New Class
+      </h2>
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label
+              htmlFor="className"
+              className="block text-sm font-medium text-white"
+            >
+              Class Name
+            </label>
             <input
-              type="file"
-              name="image"
-              accept="image/*"
-              className="file-input file-input-bordered file-input-accent w-full "
+              type="text"
+              id="className"
+              name="className"
+              placeholder="Enter class name"
+              required
+              className="mt-2 block w-full px-4 py-2 bg-[#2E344E] text-white border border-[#4C4C4C] rounded-lg shadow-sm focus:ring-[#00A854] focus:border-[#00A854]"
             />
           </div>
 
           <div>
-            <button type="submit" className="btn btn-active btn-accent">
-              Add Class
-            </button>
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-white"
+            >
+              Instructor Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              defaultValue={displayName}
+              required
+              className="mt-2 block w-full px-4 py-2 bg-[#2E344E] text-white border border-[#4C4C4C] rounded-lg shadow-sm focus:ring-[#00A854] focus:border-[#00A854]"
+            />
           </div>
-        </form>
-      </div>
+
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-white"
+            >
+              Instructor Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              defaultValue={email}
+              required
+              className="mt-2 block w-full px-4 py-2 bg-[#2E344E] text-white border border-[#4C4C4C] rounded-lg shadow-sm focus:ring-[#00A854] focus:border-[#00A854]"
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="seats"
+              className="block text-sm font-medium text-white"
+            >
+              Available Seats
+            </label>
+            <input
+              type="number"
+              id="seats"
+              name="seats"
+              required
+              className="mt-2 block w-full px-4 py-2 bg-[#2E344E] text-white border border-[#4C4C4C] rounded-lg shadow-sm focus:ring-[#00A854] focus:border-[#00A854]"
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="price"
+              className="block text-sm font-medium text-white"
+            >
+              Price
+            </label>
+            <input
+              type="number"
+              id="price"
+              name="price"
+              required
+              className="mt-2 block w-full px-4 py-2 bg-[#2E344E] text-white border border-[#4C4C4C] rounded-lg shadow-sm focus:ring-[#00A854] focus:border-[#00A854]"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label
+            htmlFor="image"
+            className="block text-sm font-medium text-white"
+          >
+            Class Image
+          </label>
+          <input
+            type="file"
+            id="image"
+            name="image"
+            accept="image/*"
+            required
+            className="mt-2 block w-full file:mr-2 file:py-2 file:px-4 file:border-0 file:bg-[#00A854] file:text-white file:rounded-lg"
+          />
+        </div>
+
+        <div className="flex justify-center">
+          <button
+            type="submit"
+            className="px-6 py-3 bg-[#00A854] text-white font-semibold rounded-lg shadow-md hover:bg-[#007B3D] focus:outline-none focus:ring-2 focus:ring-[#00A854] focus:ring-opacity-50"
+          >
+            Add Class
+          </button>
+        </div>
+      </form>
     </div>
   );
 };
