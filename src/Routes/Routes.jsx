@@ -42,7 +42,7 @@ export const router = createBrowserRouter([
     element: <Login></Login>,
   },
   {
-    path: "payment/success/:tranID",
+    path: "payment/success",
     element: <PaymentSuccess></PaymentSuccess>,
   },
   {

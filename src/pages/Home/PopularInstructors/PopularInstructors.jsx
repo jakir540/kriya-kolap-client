@@ -8,7 +8,6 @@ const PopularInstructors = () => {
     fetch("https://kriya-kolap-sever-jakir540.vercel.app/instructors")
       .then((res) => res.json())
       .then((data) => {
-      
         setInstructors(data);
       });
   }, []);
@@ -20,7 +19,7 @@ const PopularInstructors = () => {
         </h2>
         <p className="my-5 lg:leading-9 ">
           A yoga teachers primary responsibility is to lead yoga classes, where
-          they demonstrate <br /> 
+          they demonstrate <br />
         </p>
       </div>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 my-5">
@@ -36,7 +35,9 @@ const PopularInstructors = () => {
         {" "}
         <Link to="/allInstructors">
           {" "}
-          <button className="btn bg-[#cbd5e1] hover:bg-slate-700">All Instructors</button>
+          <button className="btn bg-[#cbd5e1] hover:bg-slate-700">
+            All Instructors
+          </button>
         </Link>
       </div>
     </div>

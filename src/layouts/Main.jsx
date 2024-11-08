@@ -7,9 +7,8 @@ const Main = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
- 
     setTimeout(() => {
-      setIsLoading(false); 
+      setIsLoading(false);
     }, 3000);
   }, []);
 

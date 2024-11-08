@@ -6,7 +6,6 @@ import lottieAboutJson from "../../../assets/aboutKriya.json";
 import { useEffect } from "react";
 
 const About = () => {
-
   useEffect(function () {
     Aos.init({ duration: 1000 });
   }, []);
@@ -17,8 +16,6 @@ const About = () => {
         About kriya kolap
       </h2>
       <div className="lg:flex   justify-between items-center lg:gap-16">
-
-
         <div data-aos="fade-left" className="lg:w-1/2">
           <h2 className="capitalize lg:text-end text-center  text-3xl text-[#00a854] leading-[50px] ">
             summer vacation of yoga <br />{" "}
@@ -46,11 +43,7 @@ const About = () => {
             />
           </div>
         </div>
-
-      
       </div>
-
-
     </div>
   );
 };

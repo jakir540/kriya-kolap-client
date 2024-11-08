@@ -1,3 +1,4 @@
+import About from "../About/About";
 import Blogs from "../Blogs/Blogs";
 import CarouselBanner from "../CarouselBanner/CarouselBanner";
 import Contact from "../Contact/Contact";
@@ -11,21 +12,22 @@ import Videos from "../Videos/Videos";
 import WhyKriya from "../WhyKriya/WhyKriya";
 
 const Home = () => {
-    return (
-        <div>
-            <CarouselBanner></CarouselBanner>
-            <PopularClasses></PopularClasses>
-            <Services></Services>
-            <PopularInstructors></PopularInstructors>
-            <Meditation></Meditation>
-            <Blogs></Blogs>
-            <WhyKriya></WhyKriya>
-            <Videos></Videos>
-            <FAQs></FAQs>
-            <Newsletter></Newsletter>
-            <Contact></Contact>
-        </div>
-    );
+  return (
+    <div>
+      <CarouselBanner></CarouselBanner>
+      <About />
+      <PopularClasses></PopularClasses>
+      <Services></Services>
+      <PopularInstructors></PopularInstructors>
+      <Meditation></Meditation>
+      <Blogs></Blogs>
+      <WhyKriya></WhyKriya>
+      <Videos></Videos>
+      <FAQs></FAQs>
+      <Newsletter></Newsletter>
+      <Contact></Contact>
+    </div>
+  );
 };
 
 export default Home;

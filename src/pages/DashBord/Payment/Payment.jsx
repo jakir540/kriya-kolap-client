@@ -21,12 +21,17 @@ const Payment = () => {
   console.log(paymentPrice);
 
   const { register, handleSubmit } = useForm();
+
+
+  
   const onSubmit = (data) => {
     console.log(data);
     console.log(id);
     data.classId = id;
 
-    fetch("https://kriya-kolap-sever-jakir540.vercel.app/order", {
+    // fetch("https://kriya-kolap-sever-jakir540.vercel.app/order"
+    fetch("http://localhost:5000/order"
+    , {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

@@ -1,8 +1,8 @@
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import "./PaymentSuccess.css";
 
 const PaymentSuccess = () => {
-  const { tranID } = useParams();
+  // const { tranID } = useParams();
 
 
   return (
@@ -22,7 +22,7 @@ const PaymentSuccess = () => {
             </div>
             <div className="order-details">
               <div className="order-number-label">
-                Transaction ID : {tranID}
+                {/* Transaction ID : {tranID} */}
               </div>
               <div className="order-number"> 1011255958</div>
               <div className="complement">Thank You!</div>

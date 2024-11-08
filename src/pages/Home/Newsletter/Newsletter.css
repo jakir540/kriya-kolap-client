@@ -1,5 +1,7 @@
 .newsletter {
   background-image: url("../../../assets/Gravity-Fitness-Home-banner-Web-2000px-srgb_2_1600x.webp");
+  background-position: center;
+  background-size: cover;
 }
 /* @media (max-width: 768px) {
   .location {
@@ -7,3 +9,7 @@
       width: 400px;
   }
 } */
+
+input::placeholder {
+  color: #a0aec0; /* Light gray placeholder */
+}

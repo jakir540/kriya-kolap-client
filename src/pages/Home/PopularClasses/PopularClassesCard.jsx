@@ -12,10 +12,8 @@ const PopularClassesCard = ({ singleClass }) => {
 
   const { classname, name, price, seats, imgURL } = singleClass;
 
-  // const { yogaClassName, students, photo, instructorName, description } =
-  //   singleClass;
   return (
-    <div className="card card-compact lg:w-[400px] w-[375px]   bg-base-100 shadow-xl group content-div">
+    <div className="relative bg-white shadow-xl rounded-lg overflow-hidden group transform transition duration-500 hover:scale-105">
       <motion.figure
         initial={false}
         animate={
@@ -23,33 +21,35 @@ const PopularClassesCard = ({ singleClass }) => {
             ? { WebkitMaskImage: visibleMask, maskImage: visibleMask }
             : { WebkitMaskImage: hiddenMask, maskImage: hiddenMask }
         }
-        transition={{ duration: 1, delay: 1 }}
+        transition={{ duration: 1, delay: 0.5 }}
         viewport={{ once: true }}
         onViewportEnter={() => setIsInView(true)}
-      ></motion.figure>
-
-      <div className="card-body fd-cl group-hover:opacity-25">
+        className="w-full h-48"
+      >
         <img
-          className="w-"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           src={imgURL}
           onLoad={() => setIsLoaded(true)}
           alt="yoga class"
         />
-        <h2 className="card-title">{classname}</h2>
+      </motion.figure>
+
+      <div className="absolute inset-0 bg-gradient-to-t from-gray-800 to-transparent opacity-0 group-hover:opacity-90 transition-opacity duration-500"></div>
+
+      <div className="relative p-6 text-center">
+        <h2 className="text-2xl font-semibold text-gray-800">{classname}</h2>
+        <p className="text-gray-600 mt-2">Instructor: {name}</p>
       </div>
 
-      <div className="absolute mt-20 ms-10 text-center opacity-0 fd-sh group-hover:opacity-100">
-        <span className="text-3xl flex items-center justify-center flex-col font-bold text-gray-600 tracking-wider leading-relaxed font-sans"></span>
-        <h2 className="">Instructor Name: {name}</h2>
-        <p>Students: {seats}</p>
-        <p>Price : $ {price}</p>
-        <div className="card-actions justify-end">
-          <Link to="/approvedClasses">
-            <button className="btn bg-[#cbd5e1] hover:bg-slate-700 ">
-              Go To Class Page
-            </button>
-          </Link>
-        </div>
+      <div className="absolute inset-0 p-6 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-white">
+        <h3 className="text-xl font-semibold">Instructor: {name}</h3>
+        <p className="mt-2">Seats Available: {seats}</p>
+        <p className="text-lg font-bold mt-1">Price: ${price}</p>
+        <Link to="/approvedClasses" className="mt-4">
+          <button className="btn bg-blue-600 text-white hover:bg-blue-800 px-4 py-2 rounded-lg">
+            Go To Class Page
+          </button>
+        </Link>
       </div>
     </div>
   );
