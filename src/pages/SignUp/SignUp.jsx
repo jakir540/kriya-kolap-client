@@ -54,23 +54,31 @@ const SignUp = () => {
   };
 
   return (
-    <div className=" min-h-screen flex justify-center items-center">
-      <div className="w-full md:w-1/3 bg-white p-8 rounded-lg shadow-lg transform transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-2xl">
-        <h2 className="text-center text-3xl font-semibold text-gray-800 mb-6">
-          Please Signup
+    <div
+      className="min-h-screen flex justify-center items-center bg-cover bg-center"
+      style={{
+        backgroundImage: "url('https://i.ibb.co/8K32cHW/yoga.jpg')",
+      }}
+    >
+      <div className="w-full md:w-1/2 bg-white bg-opacity-40 p-10 rounded-xl shadow-2xl transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-2xl">
+        <h2 className="text-center text-4xl font-bold text-teal-600 mb-8">
+          Sign Up
         </h2>
+
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           {/* Name Field */}
           <div className="form-control">
             <input
               type="text"
               name="name"
-              {...register("name", { required: true })}
+              {...register("name", { required: "Name is required" })}
               placeholder="Full Name"
-              className="input input-bordered w-full rounded-md p-3 focus:ring-2 focus:ring-[#00a854]"
+              className="input input-bordered w-full p-4 bg-gray-100 rounded-lg shadow-sm focus:ring-2 focus:ring-teal-500"
             />
             {errors.name && (
-              <span className="text-red-500 text-sm">Name is required</span>
+              <span className="text-red-500 text-sm">
+                {errors.name.message}
+              </span>
             )}
           </div>
 
@@ -79,12 +87,14 @@ const SignUp = () => {
             <input
               type="email"
               name="email"
-              {...register("email", { required: true })}
+              {...register("email", { required: "Email is required" })}
               placeholder="Email Address"
-              className="input input-bordered w-full rounded-md p-3 focus:ring-2 focus:ring-[#00a854]"
+              className="input input-bordered w-full p-4 bg-gray-100 rounded-lg shadow-sm focus:ring-2 focus:ring-teal-500"
             />
             {errors.email && (
-              <span className="text-red-500 text-sm">Email is required</span>
+              <span className="text-red-500 text-sm">
+                {errors.email.message}
+              </span>
             )}
           </div>
 
@@ -94,23 +104,24 @@ const SignUp = () => {
               type="password"
               name="password"
               {...register("password", {
-                required: true,
-                minLength: 6,
-                pattern: /^(?=.*[A-Z])(?=.*[!@#$%^&*])/,
+                required: "Password is required",
+                minLength: {
+                  value: 6,
+                  message: "Password should be at least 6 characters",
+                },
+                pattern: {
+                  value: /^(?=.*[A-Z])(?=.*[!@#$%^&*])/,
+                  message:
+                    "Password must contain an uppercase letter and a special character",
+                },
               })}
               placeholder="Password"
-              className="input input-bordered w-full rounded-md p-3 focus:ring-2 focus:ring-[#00a854]"
+              className="input input-bordered w-full p-4 bg-gray-100 rounded-lg shadow-sm focus:ring-2 focus:ring-teal-500"
             />
-            {errors.password?.type === "minLength" && (
-              <p className="text-yellow-600">
-                Password should be at least 6 characters
-              </p>
-            )}
-            {errors.password?.type === "pattern" && (
-              <p className="text-yellow-600">
-                Password must contain an uppercase letter and a special
-                character
-              </p>
+            {errors.password && (
+              <span className="text-red-500 text-sm">
+                {errors.password.message}
+              </span>
             )}
           </div>
 
@@ -119,13 +130,15 @@ const SignUp = () => {
             <input
               type="password"
               name="confirmPassword"
-              {...register("confirmPassword", { required: true })}
+              {...register("confirmPassword", {
+                required: "Please confirm your password",
+              })}
               placeholder="Confirm Password"
-              className="input input-bordered w-full rounded-md p-3 focus:ring-2 focus:ring-[#00a854]"
+              className="input input-bordered w-full p-4 bg-gray-100 rounded-lg shadow-sm focus:ring-2 focus:ring-teal-500"
             />
             {errors.confirmPassword && (
               <span className="text-red-500 text-sm">
-                Please confirm your password
+                {errors.confirmPassword.message}
               </span>
             )}
           </div>
@@ -136,13 +149,13 @@ const SignUp = () => {
               type="url"
               name="photoURL"
               accept="image/*"
-              {...register("photoURL", { required: true })}
+              {...register("photoURL", { required: "Photo URL is required" })}
               placeholder="Photo URL"
-              className="input input-bordered w-full rounded-md p-3 focus:ring-2 focus:ring-[#00a854]"
+              className="input input-bordered w-full p-4 bg-gray-100 rounded-lg shadow-sm focus:ring-2 focus:ring-teal-500"
             />
             {errors.photoURL && (
               <span className="text-red-500 text-sm">
-                Photo URL is required
+                {errors.photoURL.message}
               </span>
             )}
           </div>
@@ -151,24 +164,26 @@ const SignUp = () => {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="btn bg-[#00a854] text-white font-semibold rounded-md w-full py-3 hover:bg-[#008f39] focus:ring-4 focus:ring-[#00a854]"
+              className="w-full py-3 mt-4 bg-teal-600 text-white font-semibold rounded-lg shadow-md hover:bg-teal-700 focus:outline-none focus:ring-4 focus:ring-teal-300"
             >
               Register
             </button>
           </div>
         </form>
 
-        <p className="text-center mt-4">
+        <p className="text-center text-xl mt-4 text-gray-600">
           <small>
             Already have an account?{" "}
-            <Link to="/login" className="text-[#00a854] hover:underline">
+            <Link to="/login" className="text-teal-600 hover:underline">
               Login here
             </Link>
           </small>
         </p>
 
         {/* Social Login Component */}
-        <SocialLogin />
+        <div className="mt-2">
+          <SocialLogin />
+        </div>
       </div>
     </div>
   );
