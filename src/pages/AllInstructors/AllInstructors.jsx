@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "../Shared/Navbar/Navbar";
 import AllInstructorsCard from "./AllInstructorsCard";
+import Footer from "../Shared/Footer/Footer";
 
 const AllInstructors = () => {
   const [instructors, setInstructors] = useState([]);
@@ -32,6 +33,7 @@ const AllInstructors = () => {
           <AllInstructorsCard instructor={instructor} key={instructor._id} />
         ))}
       </div>
+      <Footer />
     </div>
   );
 };

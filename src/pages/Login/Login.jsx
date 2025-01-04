@@ -15,7 +15,6 @@ const Login = () => {
   const navigate = useNavigate();
 
   const from = location.state?.from?.pathname || "/";
-  // -----------------------------------------
 
   const {
     register,
@@ -24,20 +23,16 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-
   const onSubmit = (data) => {
-    console.log(data);
     const { email, password } = data;
-    //------------Sign in with email password -----------------
     signIn(email, password)
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
-        navigate(from,{replace:true})
+        navigate(from, { replace: true });
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: "Your Login successfully",
+          title: "Login Successful",
           showConfirmButton: false,
           timer: 1500,
         });
@@ -45,68 +40,86 @@ const Login = () => {
       .catch((error) => {
         setError(error);
         setLoading(false);
-        console.log(error);
       });
   };
 
-  //hide and unhide password
   const handleShow = () => {
     setShow(!show);
   };
 
   return (
-    <div className="w-1/2 mx-auto mt-16 bg-slate-100 p-16 shadow-2xl rounded-lg">
-      <h2 className=" text-center text-3xl font-semibold"> Please Login</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="form-control my-8">
-          <input
-            type="email"
-            name="email"
-            {...register("email", { required: true })}
-            placeholder="email"
-            className="input input-bordered"
-          />
+    <div
+      className="w-full h-screen bg-cover bg-center"
+      style={{
+        backgroundImage: "url('https://i.ibb.co.com/YDzNrD8/yoga3.jpg')",
+      }}
+    >
+      <div className="flex justify-center items-center w-full h-full bg-black bg-opacity-20">
+        <div className="w-full max-w-md p-8 bg-white bg-opacity-50 rounded-lg shadow-xl">
+          <h2 className="text-center text-3xl font-semibold text-teal-600 mb-8">
+            Please Login
+          </h2>
+
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            <div className="form-control">
+              <input
+                type="email"
+                name="email"
+                {...register("email", { required: "Email is required" })}
+                placeholder="Email"
+                className="w-full p-4 bg-gray-100 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition"
+              />
+              {errors.email && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.email.message}
+                </p>
+              )}
+            </div>
+
+            <div className="form-control relative">
+              <input
+                type={show ? "text" : "password"}
+                name="password"
+                {...register("password", { required: "Password is required" })}
+                placeholder="Password"
+                className="w-full p-4 bg-gray-100 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition"
+              />
+              <AiFillEye
+                onClick={handleShow}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-xl text-teal-400 cursor-pointer"
+              />
+              {errors.password && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.password.message}
+                </p>
+              )}
+            </div>
+
+            <div className="flex justify-center">
+              <button
+                type="submit"
+                className="w-full py-3 mt-4 bg-teal-600 text-white font-semibold rounded-lg shadow-md hover:bg-teal-700 transition duration-300"
+              >
+                Login
+              </button>
+            </div>
+          </form>
+
+          <p className="text-center mt-4 text-gray-600">
+            Don't have an account?{" "}
+            <Link
+              to="/signup"
+              className="text-teal-600 hover:text-teal-700 font-medium"
+            >
+              Sign Up
+            </Link>
+          </p>
+
+          <div className="mt-6 text-center">
+            <SocialLogin />
+          </div>
         </div>
-
-        {errors.email && <span>Email must be required</span>}
-
-        <div className="form-control my-8 relative">
-          <input
-            type={show ? "text" : "password"}
-            name="password"
-            {...register("password", { required: true })}
-            placeholder="password"
-            className="input input-bordered"
-          />
-          <AiFillEye
-            onClick={handleShow}
-            className="absolute right-3 top-4 text-xl"
-          ></AiFillEye>
-        </div>
-        {errors.password && <span>Email must be required</span>}
-
-        <div className="flex justify-center">
-          {" "}
-          <input
-            className="btn bg-slate-500 hover:bg-slate-800 my-8 text-white"
-            type="submit"
-            value="Submit"
-          />
-        </div>
-      </form>
-      <p>
-        <small>
-          you don,t have an account please{" "}
-          <Link to="/signup">
-            <span className="text-yellow-700">signup</span>
-          </Link>{" "}
-          first
-        </small>
-      </p>
-
-  
-        <SocialLogin></SocialLogin>
-     
+      </div>
     </div>
   );
 };

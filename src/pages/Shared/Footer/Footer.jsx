@@ -29,7 +29,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-900 text-gray-200 py-16">
-      <div className="mx-auto px-6 grid md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <div className="mx-auto px-6 grid md:grid-cols-3 lg:grid-cols-4 gap-5">
         {/* Social Media Section */}
         <div className="space-y-6">
           <h4 className="text-lg font-semibold text-white">Follow Us</h4>

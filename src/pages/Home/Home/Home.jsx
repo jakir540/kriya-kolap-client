@@ -13,7 +13,7 @@ import WhyKriya from "../WhyKriya/WhyKriya";
 
 const Home = () => {
   return (
-    <div>
+    <>
       <CarouselBanner></CarouselBanner>
       <About />
       <PopularClasses></PopularClasses>
@@ -26,7 +26,7 @@ const Home = () => {
       <FAQs></FAQs>
       <Newsletter></Newsletter>
       <Contact></Contact>
-    </div>
+    </>
   );
 };
 

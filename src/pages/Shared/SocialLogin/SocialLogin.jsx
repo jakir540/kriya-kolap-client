@@ -24,7 +24,7 @@ const SocialLogin = () => {
         method: "POST",
         headers: {
           "content-type": "application/json",
-          },
+        },
         body: JSON.stringify(uploadUser),
       })
         .then((res) => res.json())
@@ -38,7 +38,10 @@ const SocialLogin = () => {
     <div>
       <div className="divider"></div>
       <div className="w-full text-center text-4xl my-5 ">
-        <button className="btn btn-circle btn-outline" onClick={handleGoogleSignIn}>
+        <button
+          className="btn btn-circle hover:text-teal-700"
+          onClick={handleGoogleSignIn}
+        >
           <FaGoogle></FaGoogle>
         </button>
       </div>

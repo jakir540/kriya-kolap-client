@@ -143,7 +143,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`navbar fixed z-10 top-0 w-full transition-all duration-500 py-4 px-6 mx-auto ${
+      className={`navbar fixed z-10 top-0 max-w-7xl transition-all duration-500 py-4 px-6 mx-auto ${
         isTransparent
           ? "bg-gray-900 bg-opacity-90 backdrop-blur-md text-white"
           : "bg-white text-black shadow-lg"
