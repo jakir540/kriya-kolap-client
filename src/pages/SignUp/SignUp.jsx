@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
@@ -53,7 +54,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-[#00a854] to-[#2d6a4f] min-h-screen flex justify-center items-center">
+    <div className=" min-h-screen flex justify-center items-center">
       <div className="w-full md:w-1/3 bg-white p-8 rounded-lg shadow-lg transform transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-2xl">
         <h2 className="text-center text-3xl font-semibold text-gray-800 mb-6">
           Please Signup

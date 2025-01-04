@@ -8,104 +8,98 @@ import { SiGoogleclassroom } from "react-icons/si";
 import { FaShoppingBag, FaCaretDown } from "react-icons/fa";
 
 const Navbar = () => {
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
-  );
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const [isTransparent, setIsTransparent] = useState(true);
 
-  const handleToggle = (e) => {
-    if (e.target.checked) {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
+  const { logOut, user } = useContext(AuthContext);
+
+  const handleToggleTheme = (e) => {
+    const selectedTheme = e.target.checked ? "dark" : "light";
+    setTheme(selectedTheme);
   };
 
   useEffect(() => {
     localStorage.setItem("theme", theme);
-    const localTheme = localStorage.getItem("theme");
-    document.querySelector("html").setAttribute("data-theme", localTheme);
+    document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsTransparent(window.scrollY <= 100);
-    };
-
+    const handleScroll = () => setIsTransparent(window.scrollY <= 100);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const { logOut, user } = useContext(AuthContext);
   const handleLogOut = () => {
-    logOut().catch(console.log);
+    logOut().catch(console.error);
   };
 
-  const menu = (
+  const menuItems = (
     <>
       <li>
         <Link
           to="/"
-          className={`flex items-center space-x-1 hover:text-[#00a854] ${
-            !isTransparent ? "text-black" : "text-white"
+          className={`flex items-center space-x-1 hover:text-green-600 ${
+            isTransparent ? "text-white" : "text-black"
           }`}
         >
-          <AiOutlineHome className="text-xl" /> <span>Home</span>
+          <AiOutlineHome className="text-xl" />
+          <span>Home</span>
         </Link>
       </li>
       <li>
         <Link
           to="/allInstructors"
-          className={`flex items-center space-x-1 hover:text-[#00a854] ${
-            !isTransparent ? "text-black" : "text-white"
+          className={`flex items-center space-x-1 hover:text-green-600 ${
+            isTransparent ? "text-white" : "text-black"
           }`}
         >
-          <GiTeacher className="text-xl" /> <span>Instructors</span>
+          <GiTeacher className="text-xl" />
+          <span>Instructors</span>
         </Link>
       </li>
-      <div className="dropdown">
-        <li>
-          <div
-            tabIndex={0}
-            className={`flex items-center space-x-1 cursor-pointer hover:text-[#00a854] ${
-              !isTransparent ? "text-black" : "text-white"
-            }`}
-          >
-            <FaShoppingBag className="text-xl" /> <span>Shop</span>{" "}
-            <FaCaretDown />
-          </div>
-          <ul className="dropdown-content z-[1] menu p-3 shadow-lg bg-white/70 backdrop-blur-md rounded-lg w-44 mt-3 text-gray-700">
-            <li>
-              <a>Yoga Mats</a>
-            </li>
-            <li>
-              <a>Yoga Blocks</a>
-            </li>
-            <li>
-              <a>Yoga Straps</a>
-            </li>
-            <li>
-              <a>Yoga Bolsters</a>
-            </li>
-          </ul>
-        </li>
-      </div>
+      <li className="dropdown">
+        <div
+          tabIndex={0}
+          className={`flex items-center space-x-1 cursor-pointer hover:text-green-600 ${
+            isTransparent ? "text-white" : "text-black"
+          }`}
+        >
+          <FaShoppingBag className="text-xl" />
+          <span>Shop</span>
+          <FaCaretDown />
+        </div>
+        <ul className="dropdown-content menu p-3 shadow-lg bg-white rounded-lg mt-3 text-gray-700">
+          <li>
+            <a>Yoga Mats</a>
+          </li>
+          <li>
+            <a>Yoga Blocks</a>
+          </li>
+          <li>
+            <a>Yoga Straps</a>
+          </li>
+          <li>
+            <a>Yoga Bolsters</a>
+          </li>
+        </ul>
+      </li>
       <li>
         <Link
           to="/approvedClasses"
-          className={`flex items-center space-x-1 hover:text-[#00a854] ${
-            !isTransparent ? "text-black" : "text-white"
+          className={`flex items-center space-x-1 hover:text-green-600 ${
+            isTransparent ? "text-white" : "text-black"
           }`}
         >
-          <SiGoogleclassroom className="text-xl" /> <span>Classes</span>
+          <SiGoogleclassroom className="text-xl" />
+          <span>Classes</span>
         </Link>
       </li>
       {user && (
         <li>
           <Link
             to="/dashbord"
-            className={`hover:text-[#00a854] ${
-              !isTransparent ? "text-black" : "text-white"
+            className={`hover:text-green-600 ${
+              isTransparent ? "text-white" : "text-black"
             }`}
           >
             Dashboard
@@ -113,34 +107,35 @@ const Navbar = () => {
         </li>
       )}
       {user ? (
-        <div className="hidden md:block">
-          <img
-            className="mx-3 rounded-full h-12 border-2 border-[#00a854]"
-            src={user.photoURL}
-            alt="userProfile"
-            title={user.displayName}
-          />
-        </div>
+        <>
+          <li>
+            <button
+              className="bg-green-600 px-4 py-2 rounded-md hover:bg-white hover:text-green-600"
+              onClick={handleLogOut}
+            >
+              LogOut
+            </button>
+          </li>
+          <li>
+            <img
+              className="w-10 h-10 mx-3 rounded-full border-2 border-green-600"
+              src={user.photoURL}
+              alt="Profile"
+              title={user.displayName}
+            />
+          </li>
+        </>
       ) : (
         <li>
           <Link
             to="/login"
-            className={`flex items-center space-x-1 hover:text-[#00a854] ${
-              !isTransparent ? "text-black" : "text-white"
+            className={`flex items-center space-x-1 hover:text-green-600 ${
+              isTransparent ? "text-white" : "text-black"
             }`}
           >
-            <AiOutlineLogin className="text-xl" /> <span>Login</span>
+            <AiOutlineLogin className="text-xl" />
+            <span>Login</span>
           </Link>
-        </li>
-      )}
-      {user && (
-        <li>
-          <button
-            className="bg-[#00a854]  px-4 py-2 rounded-md hover:bg-white"
-            onClick={handleLogOut}
-          >
-            LogOut
-          </button>
         </li>
       )}
     </>
@@ -148,10 +143,10 @@ const Navbar = () => {
 
   return (
     <div
-      className={`navbar py-4 fixed z-10 top-0 transition-all duration-500 max-w-7xl ${
+      className={`navbar fixed z-10 top-0 w-full transition-all duration-500 py-4 px-6 mx-auto ${
         isTransparent
-          ? "bg-gray-900 backdrop-blur-md"
-          : "bg-transparent backdrop-blur-lg text-black"
+          ? "bg-gray-900 bg-opacity-90 backdrop-blur-md text-white"
+          : "bg-white text-black shadow-lg"
       }`}
     >
       <div className="navbar-start">
@@ -174,44 +169,45 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-indigo-100 rounded-lg w-52 text-gray-700"
+            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-gray-100 rounded-lg w-52 text-gray-700"
           >
-            {menu}
+            {menuItems}
           </ul>
         </div>
-        <Link className="text-2xl lg:text-4xl font-bold text-white flex items-center space-x-2">
-          <GrYoga className="text-4x" />
+        <Link className="text-2xl font-bold flex items-center space-x-2">
+          <GrYoga className="text-4xl" />
           <span>Kriya Kolap</span>
         </Link>
       </div>
 
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal space-x-4 px-1 text-white">
-          {menu}
+        <ul className="menu menu-horizontal space-x-4 text-white">
+          {menuItems}
         </ul>
       </div>
 
-      <div className="navbar-end hidden md:block">
+      <div className="navbar-end hidden md:flex items-center">
         <label className="swap swap-rotate">
           <input
             type="checkbox"
-            onChange={handleToggle}
+            onChange={handleToggleTheme}
             checked={theme === "dark"}
-            className="hidden"
           />
           <svg
             className="swap-on w-8 h-8 text-yellow-500"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
-            {/* sun icon path */}
+            {/* Sun icon */}
+            <path d="M12 4V2m0 20v-2m8-8h2M4 12H2m15.071 6.071l1.414-1.414M6.515 6.515 5.1 5.1m12.364 0 1.414 1.414M6.515 17.485l-1.414 1.414" />
           </svg>
           <svg
             className="swap-off w-8 h-8 text-gray-700"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
-            {/* moon icon path */}
+            {/* Moon icon */}
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
           </svg>
         </label>
       </div>
