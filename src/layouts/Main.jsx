@@ -17,11 +17,11 @@ const Main = () => {
       {isLoading ? (
         <Loader></Loader>
       ) : (
-        <div>
+        <>
           <Navbar></Navbar>
           <Outlet></Outlet>
           <Footer></Footer>
-        </div>
+        </>
       )}
     </>
   );

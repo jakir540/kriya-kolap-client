@@ -12,7 +12,7 @@ const About = () => {
 
   return (
     <div className="my-10 ">
-      <h2 className="text-center text-4xl font-semibold capitalize">
+      <h2 className="text-center text-4xl font-semibold capitalize text-black">
         About kriya kolap
       </h2>
       <div className="lg:flex   justify-between items-center lg:gap-16">

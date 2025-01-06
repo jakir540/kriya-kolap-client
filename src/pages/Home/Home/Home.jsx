@@ -15,6 +15,7 @@ const Home = () => {
   return (
     <>
       <CarouselBanner></CarouselBanner>
+
       <About />
       <PopularClasses></PopularClasses>
       <Services></Services>

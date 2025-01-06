@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "kriya-kolap"
-  }
+    "default": "kriya-kolap",
+    "Y": "kriya-kolap"
+  },
+  "targets": {},
+  "etags": {}
 }
