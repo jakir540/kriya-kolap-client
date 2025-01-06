@@ -29,7 +29,7 @@ const Meditation = () => {
       <div className="relative lg:text-3xl text-2xl text-center lg:w-[500px] font-semibold p-3 lg:top-[280px] lg:left-[800px] top-[280px] left-[10px]">
         <h3>
           BUILD YOUR YOGA AND{" "}
-          <span className="text-[#facc15] leading-[60px] font-serif">
+          <span className="text-yellow-700 text-4xl leading-[60px] font-serif">
             MEDITATION
           </span>{" "}
           ROUTINE BY SETTING WEEKLY
