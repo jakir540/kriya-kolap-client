@@ -14,7 +14,7 @@ const PopularInstructors = () => {
   return (
     <div>
       <div className="text-center my-10">
-        <h2 className="text-center text-3xl font-semibold">
+        <h2 className="text-center text-3xl font-semibold text-gray-700">
           Popular Instructors
         </h2>
         <p className="my-5 lg:leading-9 ">
@@ -35,7 +35,7 @@ const PopularInstructors = () => {
         {" "}
         <Link to="/allInstructors">
           {" "}
-          <button className="btn bg-[#cbd5e1] hover:bg-slate-700">
+          <button className="btn text-gray-700 bg-[#cbd5e1] border-none hover:bg-slate-700 hover:text-white">
             All Instructors
           </button>
         </Link>
