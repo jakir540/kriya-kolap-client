@@ -129,7 +129,7 @@ const ManageClasses = () => {
                 </td>
 
                 <td className="py-4 px-6 text-center">
-                  <Link to="/dashbord/manageClasses/feedback">
+                  <Link to="/dashboard/manageClasses/feedback">
                     <button className="btn bg-gradient-to-r from-blue-500 to-blue-700 text-white text-sm py-2 px-4 rounded-lg hover:bg-gradient-to-l transition-all duration-300">
                       Feedback
                     </button>

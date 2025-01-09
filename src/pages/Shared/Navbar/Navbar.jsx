@@ -97,7 +97,7 @@ const Navbar = () => {
       {user && (
         <li>
           <Link
-            to="/dashbord"
+            to="/dashboard"
             className={`hover:text-green-600 ${
               isTransparent ? "text-white" : "text-black"
             }`}

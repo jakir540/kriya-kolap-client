@@ -75,7 +75,7 @@ const MyClasses = () => {
 
                 <td className="py-4 px-6 text-center">
                   <Link
-                    to={`/dashbord/myClasses/${singleClass._id}`}
+                    to={`/dashboard/myClasses/${singleClass._id}`}
                     className="text-blue-500 hover:text-blue-600 transition duration-200"
                   >
                     <GrUpdate className="text-2xl" />
@@ -83,7 +83,7 @@ const MyClasses = () => {
                 </td>
 
                 <td className="py-4 px-6 text-center">
-                  <Link to={`/dashbord/feedback/${singleClass._id}`}>
+                  <Link to={`/dashboard/feedback/${singleClass._id}`}>
                     <button className="btn btn-xs bg-blue-600 text-white rounded-lg transition duration-300 hover:bg-blue-700">
                       Feedback
                     </button>

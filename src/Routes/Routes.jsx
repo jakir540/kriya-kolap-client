@@ -4,27 +4,29 @@ import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import Home from "../pages/Home/Home/Home";
 import AllInstructors from "../pages/AllInstructors/AllInstructors";
-import Dashbord from "../layouts/Dashbord";
-import MyClasses from "../pages/DashBord/MyClasses/MyClasses";
+
 import PrivateRoutes from "./PrivateRoutes";
-import ManageUsers from "../pages/DashBord/ManageUsers/ManageUsers";
-import AddClass from "../pages/DashBord/AddClasse/AddClass";
-import ManageClasses from "../pages/DashBord/ManageClasses/ManageClasses";
-import Feedback from "../pages/DashBord/ManageClasses/Feedback";
+
+import ManageUsers from "../pages/DashBoard/ManageUsers/ManageUsers";
+import AddClass from "../pages/DashBoard/AddClasse/AddClass";
 import ApprovedClasses from "../pages/ApprovedClasses/ApprovedClasses";
-import MySelectedClass from "../pages/DashBord/MySelectedClass/MySelectedClass";
-import Payment from "../pages/DashBord/Payment/Payment";
-import AdminRoute from "./AdminRoute";
-import InstructorRoute from "./InstructorRoute";
-import MyEnrolledClass from "../pages/DashBord/MyEnrolledClass/MyEnrolledClass";
-import PaymentHistory from "../pages/DashBord/PaymentHistory/PaymentHistory";
-import UpdateInstructorInfo from "../pages/DashBord/UpdateInstructorInfo/UpdateInstructorInfo";
-import ReceivedFeedback from "../pages/DashBord/ReceivedFeedback/ReceivedFeedback";
+import Feedback from "../pages/DashBoard/ManageClasses/Feedback";
+import ManageClasses from "../pages/DashBoard/ManageClasses/ManageClasses";
+import MySelectedClass from "../pages/DashBoard/MySelectedClass/MySelectedClass";
 import Errorpage from "../components/Errorpage/Errorpage";
-import Shop from "../pages/Shop/Shop";
 import PaymentSuccess from "../pages/paymentSuccess/PaymentSuccess";
 import PaymentFail from "../pages/paymentFail/PaymentFail";
+import Shop from "../pages/Shop/Shop";
+import InstructorRoute from "./InstructorRoute";
+import MyClasses from "../pages/DashBoard/MyClasses/MyClasses";
 import ProfilePage from "../components/ProfilePage";
+import UpdateInstructorInfo from "../pages/DashBoard/UpdateInstructorInfo/UpdateInstructorInfo";
+import ReceivedFeedback from "../pages/DashBoard/ReceivedFeedback/ReceivedFeedback";
+import AdminRoute from "./AdminRoute";
+import MyEnrolledClass from "../pages/DashBoard/MyEnrolledClass/MyEnrolledClass";
+import Payment from "../pages/DashBoard/Payment/Payment";
+import PaymentHistory from "../pages/DashBoard/PaymentHistory/PaymentHistory";
+import Dashboard from "../layouts/Dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -67,10 +69,10 @@ export const router = createBrowserRouter([
     element: <Shop></Shop>,
   },
   {
-    path: "dashbord",
+    path: "dashboard",
     element: (
       <PrivateRoutes>
-        <Dashbord></Dashbord>
+        <Dashboard />
       </PrivateRoutes>
     ),
     children: [
@@ -119,7 +121,7 @@ export const router = createBrowserRouter([
         path: "manageUsers",
         element: (
           <AdminRoute>
-            <ManageUsers></ManageUsers>
+            <ManageUsers />
           </AdminRoute>
         ),
       },

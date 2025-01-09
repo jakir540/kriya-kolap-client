@@ -82,7 +82,7 @@ const MySelectedClass = () => {
                   >
                     Delete
                   </button>
-                  <Link to={`/dashbord/payment/${selectClass._id}`}>
+                  <Link to={`/dashboard/payment/${selectClass._id}`}>
                     <button className="px-4 py-2 rounded-md bg-green-600 text-white hover:bg-green-500 transition duration-150 shadow-md">
                       Pay
                     </button>

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";

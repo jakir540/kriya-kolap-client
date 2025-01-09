@@ -4,7 +4,6 @@ import "./PaymentSuccess.css";
 const PaymentSuccess = () => {
   // const { tranID } = useParams();
 
-
   return (
     <div className="container">
       <div className="printer-top"></div>
