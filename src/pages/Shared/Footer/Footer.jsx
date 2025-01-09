@@ -5,7 +5,6 @@ import {
   FaInstagram,
   FaGithub,
   FaGoogle,
-  FaEnvelope,
   FaPhone,
 } from "react-icons/fa";
 
@@ -36,37 +35,32 @@ const Footer = () => {
           <div className="flex gap-6">
             <a
               href="#"
-              className="text-gray-400 hover:text-blue-500 transition-colors duration-300"
+              className="w-14 h-14 flex justify-center items-center rounded-full bg-gray-900  shadow-lg text-gray-400 hover:text-blue-500 hover:shadow-blue-500/50 transform hover:scale-110 hover:-rotate-3 transition-all duration-300"
             >
-              <FaFacebook className="text-3xl" />
+              <FaFacebook className="text-4xl" />
             </a>
             <a
               href="#"
-              className="text-gray-400 hover:text-pink-500 transition-colors duration-300"
+              className="w-14 h-14 flex justify-center items-center rounded-full bg-gray-900  shadow-lg text-gray-400 hover:text-blue-500 hover:shadow-blue-500/50 transform hover:scale-110 hover:-rotate-3 transition-all duration-300"
             >
-              <FaInstagram className="text-3xl" />
+              <FaInstagram className="text-4xl" />
             </a>
             <a
               href="#"
-              className="text-gray-400 hover:text-gray-500 transition-colors duration-300"
+              className="w-14 h-14 flex justify-center items-center rounded-full bg-gray-900  shadow-lg text-gray-400 hover:text-blue-500 hover:shadow-blue-500/50 transform hover:scale-110 hover:-rotate-3 transition-all duration-300"
             >
               <FaGithub className="text-3xl" />
             </a>
             <a
               href="#"
-              className="text-gray-400 hover:text-red-500 transition-colors duration-300"
+              className="w-14 h-14 flex justify-center items-center rounded-full bg-gray-900  shadow-lg text-gray-400 hover:text-blue-500 hover:shadow-blue-500/50 transform hover:scale-110 hover:-rotate-3 transition-all duration-300"
             >
               <FaGoogle className="text-3xl" />
             </a>
+
             <a
               href="#"
-              className="text-gray-400 hover:text-indigo-500 transition-colors duration-300"
-            >
-              <FaEnvelope className="text-3xl" />
-            </a>
-            <a
-              href="#"
-              className="text-gray-400 hover:text-green-500 transition-colors duration-300"
+              className="w-14 h-14 flex justify-center items-center rounded-full bg-gray-900  shadow-lg text-gray-400 hover:text-blue-500 hover:shadow-blue-500/50 transform hover:scale-110 hover:-rotate-3 transition-all duration-300"
             >
               <FaPhone className="text-3xl" />
             </a>
