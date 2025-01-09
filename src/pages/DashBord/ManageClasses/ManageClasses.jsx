@@ -60,37 +60,35 @@ const ManageClasses = () => {
         Manage All Classes
       </h2>
 
-      <div className="overflow-x-auto bg-[#3B4252] rounded-lg shadow-md">
-        <table className="min-w-full table-auto text-white">
+      <div className="overflow-hidden bg-[#3B4252] rounded-lg shadow-md">
+        <table className="w-full table-auto text-white">
           <thead className="text-lg font-semibold bg-[#4C566A]">
             <tr>
               <th className="py-4 px-6 text-left">Class Image</th>
-              <th className="py-4 px-6 text-left">Class Name</th>
               <th className="py-4 px-6 text-left">Instructor Name</th>
-              <th className="py-4 px-6 text-left">Instructor Email</th>
               <th className="py-4 px-6 text-left">Available Seats</th>
               <th className="py-4 px-6 text-left">Price</th>
               <th className="py-4 px-6 text-left">Status</th>
-              <th className="py-4 px-6 text-center">Approve</th>
-              <th className="py-4 px-6 text-center">Deny</th>
+              <th className="py-4 px-6 text-center">Actions</th>
               <th className="py-4 px-6 text-center">Feedback</th>
             </tr>
           </thead>
           <tbody>
-            {classes.map((singleClass, index) => (
+            {classes.map((singleClass) => (
               <tr key={singleClass._id} className="border-b hover:bg-[#434C5E]">
-                <td className="py-4 px-6">
+                <td className="py-4 px-6 relative">
                   <div className="flex items-center space-x-3">
-                    <div className="avatar">
+                    <div className="avatar relative group">
                       <div className="mask mask-squircle w-12 h-12">
                         <img src={singleClass.imgURL} alt="Class Image" />
+                      </div>
+                      <div className="absolute top-0 left-0 bg-gray-500 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        {singleClass.classname}
                       </div>
                     </div>
                   </div>
                 </td>
-                <td className="py-4 px-6">{singleClass.classname}</td>
                 <td className="py-4 px-6">{singleClass.name}</td>
-                <td className="py-4 px-6">{singleClass.email}</td>
                 <td className="py-4 px-6">{singleClass.seats}</td>
                 <td className="py-4 px-6">${singleClass.price}</td>
                 <td
@@ -106,31 +104,26 @@ const ManageClasses = () => {
                 </td>
 
                 <td className="py-4 px-6 text-center">
-                  {singleClass.status !== "pending" ? (
-                    <button className="btn bg-gray-500 text-white text-sm cursor-not-allowed">
-                      Approved
-                    </button>
+                  {singleClass.status === "pending" ? (
+                    <div className="flex space-x-2 justify-center">
+                      <button
+                        onClick={() => handleUpdateApproved(singleClass)}
+                        className="btn bg-gradient-to-r from-green-500 to-green-700 text-white text-sm py-2 px-4 rounded-lg hover:bg-gradient-to-l transition-all duration-300"
+                      >
+                        Approve
+                      </button>
+                      <button
+                        onClick={() => handleUpdateDenied(singleClass)}
+                        className="btn bg-gradient-to-r from-red-500 to-red-700 text-white text-sm py-2 px-4 rounded-lg hover:bg-gradient-to-l transition-all duration-300"
+                      >
+                        Deny
+                      </button>
+                    </div>
                   ) : (
-                    <button
-                      onClick={() => handleUpdateApproved(singleClass)}
-                      className="btn bg-gradient-to-r from-green-500 to-green-700 text-white text-sm py-2 px-4 rounded-lg hover:bg-gradient-to-l transition-all duration-300"
-                    >
-                      Approve
-                    </button>
-                  )}
-                </td>
-
-                <td className="py-4 px-6 text-center">
-                  {singleClass.status !== "pending" ? (
                     <button className="btn bg-gray-500 text-white text-sm cursor-not-allowed">
-                      Deny
-                    </button>
-                  ) : (
-                    <button
-                      onClick={() => handleUpdateDenied(singleClass)}
-                      className="btn bg-gradient-to-r from-red-500 to-red-700 text-white text-sm py-2 px-4 rounded-lg hover:bg-gradient-to-l transition-all duration-300"
-                    >
-                      Deny
+                      {singleClass.status === "approved"
+                        ? "Approved"
+                        : "Denied"}
                     </button>
                   )}
                 </td>
