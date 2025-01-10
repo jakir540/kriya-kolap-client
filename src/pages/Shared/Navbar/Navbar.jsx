@@ -5,7 +5,7 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import { AiOutlineHome, AiOutlineLogin } from "react-icons/ai";
 import { GiTeacher } from "react-icons/gi";
 import { SiGoogleclassroom } from "react-icons/si";
-import { FaShoppingBag, FaCaretDown } from "react-icons/fa";
+import { FaShoppingBag } from "react-icons/fa";
 
 const Navbar = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -66,22 +66,7 @@ const Navbar = () => {
         >
           <FaShoppingBag className="text-xl" />
           <span>Shop</span>
-          <FaCaretDown />
         </div>
-        <ul className="dropdown-content menu p-3 shadow-lg bg-white rounded-lg mt-3 text-gray-700">
-          <li>
-            <a>Yoga Mats</a>
-          </li>
-          <li>
-            <a>Yoga Blocks</a>
-          </li>
-          <li>
-            <a>Yoga Straps</a>
-          </li>
-          <li>
-            <a>Yoga Bolsters</a>
-          </li>
-        </ul>
       </li>
       <li>
         <Link
@@ -118,7 +103,7 @@ const Navbar = () => {
           </li>
           <li>
             <img
-              className="w-10 h-10 mx-3 rounded-full border-2 border-green-600"
+              className="w-12 h-10 rounded-full border-2 border-green-600 hover:scale-110 transition-transform duration-300"
               src={user.photoURL}
               alt="Profile"
               title={user.displayName}

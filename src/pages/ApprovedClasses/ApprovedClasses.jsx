@@ -4,16 +4,24 @@ import useAxiosSecure from "../../Hooks/useAxiosSecuir";
 import Navbar from "../Shared/Navbar/Navbar";
 import Footer from "../Shared/Footer/Footer";
 import ApprovedClassesCard from "./ApprovedClassesCard";
+import { useGetClassesQuery } from "../../redux/services/classes";
 
 const ApprovedClasses = () => {
-  const [axiosSecure] = useAxiosSecure();
-  const { data: approvedClasses = [], refetch } = useQuery(
-    ["approvedClasses"],
-    async () => {
-      const res = await axiosSecure.get("/approvedClasses");
-      return res.data;
-    }
-  );
+  // const [axiosSecure] = useAxiosSecure();
+  // const { data: approvedClasses = [], refetch } = useQuery(
+  //   ["approvedClasses"],
+  //   async () => {
+  //     const res = await axiosSecure.get("/approvedClasses");
+  //     return res.data;
+  //   }
+  // );
+
+  const {
+    data: approvedClasses,
+    error,
+    isLoading,
+  } = useGetClassesQuery(undefined);
+
   console.log(approvedClasses);
 
   return (
@@ -38,7 +46,7 @@ const ApprovedClasses = () => {
             </p>
           </div>
           <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 my-5">
-            {approvedClasses.map((singleClass) => (
+            {approvedClasses?.map((singleClass) => (
               <ApprovedClassesCard
                 singleClass={singleClass}
                 key={singleClass._id}
