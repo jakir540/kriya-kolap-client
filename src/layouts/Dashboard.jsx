@@ -9,17 +9,17 @@ import { FcAcceptDatabase } from "react-icons/fc";
 import { ImHome } from "react-icons/im";
 import { SiGoogleclassroom } from "react-icons/si";
 import useAuth from "../Hooks/useAuth";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Dashboard = () => {
   const { user } = useAuth();
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
   const navigate = useNavigate();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     if (user) {
-      // Automatically navigate to the profile page on login
       navigate("/dashboard/profile");
     }
   }, [user, navigate]);
@@ -35,8 +35,16 @@ const Dashboard = () => {
           </Link>
         </div>
 
+        {/* Hamburger Menu for Mobile */}
+        <button
+          className="lg:hidden text-2xl"
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+        >
+          ☰
+        </button>
+
         {/* Profile Section */}
-        <div className="flex items-center space-x-4">
+        <div className="hidden lg:flex items-center space-x-4">
           <img
             src={user.photoURL}
             alt="Profile"
@@ -52,9 +60,16 @@ const Dashboard = () => {
       <div className="flex flex-1 overflow-hidden">
         {/* Sidebar */}
         <div
-          className="w-64 bg-[#2E344E] text-white p-6 flex flex-col"
-          style={{ position: "sticky", top: 0, height: "100vh" }}
+          className={`fixed lg:static top-0 left-0 z-50 h-full bg-[#2E344E] text-white p-6 transform ${
+            isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+          } lg:translate-x-0 transition-transform duration-300`}
         >
+          <button
+            className="absolute top-4 right-4 text-2xl lg:hidden"
+            onClick={() => setIsSidebarOpen(false)}
+          >
+            ✕
+          </button>
           <ul className="flex flex-col space-y-4">
             {/* Profile Link */}
             <li>

@@ -37,7 +37,7 @@ const ApprovedClasses = () => {
               can talk and come to a conclusion.
             </p>
           </div>
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 my-5">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 my-5">
             {approvedClasses.map((singleClass) => (
               <ApprovedClassesCard
                 singleClass={singleClass}
