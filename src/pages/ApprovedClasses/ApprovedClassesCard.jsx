@@ -82,7 +82,7 @@ const ApprovedClassesCard = ({ singleClass }) => {
           {isAdmin || isInstructor || seats === 0 ? (
             <button
               disabled
-              className="btn bg-gray-400 text-white px-5 py-3 rounded-lg cursor-not-allowed"
+              className="btn bg-gray-400 text-gray-900 px-5 py-3 rounded-lg cursor-not-allowed"
             >
               Select
             </button>

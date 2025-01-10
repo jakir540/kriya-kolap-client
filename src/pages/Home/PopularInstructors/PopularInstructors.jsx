@@ -1,16 +1,18 @@
-import { useEffect, useState } from "react";
 import PopularInstructorsCards from "./PopularInstructorsCards";
 import { Link } from "react-router-dom";
+import { useGetInstructorsQuery } from "../../../redux/services/instructors";
 
 const PopularInstructors = () => {
-  const [instructors, setInstructors] = useState([]);
-  useEffect(() => {
-    fetch("https://kriya-kolap-sever-jakir540.vercel.app/instructors")
-      .then((res) => res.json())
-      .then((data) => {
-        setInstructors(data);
-      });
-  }, []);
+  // const [instructors, setInstructors] = useState([]);
+  // useEffect(() => {
+  //   fetch("https://kriya-kolap-sever-jakir540.vercel.app/instructors")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setInstructors(data);
+  //     });
+  // }, []);
+
+  const { data: instructors } = useGetInstructorsQuery(undefined);
   return (
     <div>
       <div className="text-center my-10">
@@ -23,7 +25,7 @@ const PopularInstructors = () => {
         </p>
       </div>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 my-5">
-        {instructors.map((instructor) => (
+        {instructors?.map((instructor) => (
           <PopularInstructorsCards
             instructor={instructor}
             key={instructor}

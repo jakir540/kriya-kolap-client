@@ -1,20 +1,22 @@
 import PopularClassesCard from "./PopularClassesCard";
-import useAxiosSecure from "../../../Hooks/useAxiosSecuir";
-import { useQuery } from "@tanstack/react-query";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { useGetPopularClassesQuery } from "../../../redux/services/classes";
 
 const PopularClasses = () => {
   useEffect(() => {
     Aos.init({ duration: 1200, easing: "ease-in-out" });
   }, []);
 
-  const [axiosSecure] = useAxiosSecure();
-  const { data: classes = [] } = useQuery(["classes"], async () => {
-    const res = await axiosSecure.get("/classes");
-    return res.data;
-  });
+  // const [axiosSecure] = useAxiosSecure();
+
+  // const { data: classes = [] } = useQuery(["classes"], async () => {
+  //   const res = await axiosSecure.get("/classes");
+  //   return res.data;
+  // });
+
+  const { data: classes } = useGetPopularClassesQuery(undefined);
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
@@ -33,7 +35,7 @@ const PopularClasses = () => {
         data-aos="fade-up"
         className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8"
       >
-        {classes.map((singleClass) => (
+        {classes?.map((singleClass) => (
           <PopularClassesCard singleClass={singleClass} key={singleClass._id} />
         ))}
       </div>
