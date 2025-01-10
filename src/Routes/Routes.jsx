@@ -27,6 +27,7 @@ import MyEnrolledClass from "../pages/DashBoard/MyEnrolledClass/MyEnrolledClass"
 import Payment from "../pages/DashBoard/Payment/Payment";
 import PaymentHistory from "../pages/DashBoard/PaymentHistory/PaymentHistory";
 import Dashboard from "../layouts/Dashboard";
+import SingleBlog from "../pages/Home/Blogs/SingleBlog";
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "blogs/:_id",
+        element: <SingleBlog />,
       },
     ],
   },
