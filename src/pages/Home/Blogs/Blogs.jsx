@@ -60,7 +60,7 @@ const Blogs = () => {
                   </p>
                   <button
                     onClick={() => handleReadMore(blog._id)}
-                    className="mt-6 px-6 py-2 text-white bg-blue-600 rounded-full transition-colors duration-200 hover:bg-blue-700"
+                    className="btn mt-6 bg-green-500 text-white font-semibold tracking-wide rounded-lg px-6 py-3 shadow-[0px_4px_6px_rgba(0,0,0,0.1),0px_1px_3px_rgba(0,0,0,0.06)] hover:shadow-[0px_10px_15px_rgba(0,0,0,0.2),0px_4px_6px_rgba(0,0,0,0.1)] border border-green-700 hover:border-green-800 transform hover:-translate-y-1 hover:scale-105 transition-all duration-300"
                   >
                     Read More
                   </button>
