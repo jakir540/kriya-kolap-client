@@ -53,8 +53,8 @@ const FAQs = () => {
             <div>
               <img
                 src={FaqWatchPhoto}
-                className="w-full rounded-lg shadow-lg dark:shadow-black/20"
-                alt=""
+                alt="Modern Shadow Effect"
+                className="w-full rounded-lg shadow-lg hover:shadow-[0_10px_20px_rgba(0,0,0,0.3),0_6px_6px_rgba(0,0,0,0.23)] dark:shadow-[0_10px_20px_rgba(0,0,0,0.5),0_6px_6px_rgba(0,0,0,0.35)] transition-shadow duration-500"
               />
             </div>
           </div>
