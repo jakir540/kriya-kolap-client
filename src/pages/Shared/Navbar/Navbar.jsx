@@ -57,17 +57,15 @@ const Navbar = () => {
           <span>Instructors</span>
         </Link>
       </li>
-      <li className="dropdown">
-        <div
-          tabIndex={0}
-          className={`flex items-center space-x-1 cursor-pointer hover:text-green-600 ${
-            isTransparent ? "text-white" : "text-black"
-          }`}
-        >
-          <FaShoppingBag className="text-xl" />
-          <span>Shop</span>
-        </div>
-      </li>
+      <Link
+        to="/about"
+        className={`flex items-center space-x-1 hover:text-green-600 ${
+          isTransparent ? "text-white" : "text-black"
+        }`}
+      >
+        <GiTeacher className="text-xl" />
+        <span>About</span>
+      </Link>
       <li>
         <Link
           to="/approvedClasses"

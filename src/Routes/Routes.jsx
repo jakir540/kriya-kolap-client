@@ -16,7 +16,6 @@ import MySelectedClass from "../pages/DashBoard/MySelectedClass/MySelectedClass"
 import Errorpage from "../components/Errorpage/Errorpage";
 import PaymentSuccess from "../pages/paymentSuccess/PaymentSuccess";
 import PaymentFail from "../pages/paymentFail/PaymentFail";
-import Shop from "../pages/Shop/Shop";
 import InstructorRoute from "./InstructorRoute";
 import MyClasses from "../pages/DashBoard/MyClasses/MyClasses";
 import ProfilePage from "../components/ProfilePage";
@@ -28,6 +27,7 @@ import Payment from "../pages/DashBoard/Payment/Payment";
 import PaymentHistory from "../pages/DashBoard/PaymentHistory/PaymentHistory";
 import Dashboard from "../layouts/Dashboard";
 import SingleBlog from "../pages/Home/Blogs/SingleBlog";
+import About from "../pages/About/About";
 
 export const router = createBrowserRouter([
   {
@@ -70,8 +70,8 @@ export const router = createBrowserRouter([
     element: <AllInstructors></AllInstructors>,
   },
   {
-    path: "/shop",
-    element: <Shop></Shop>,
+    path: "/about",
+    element: <About></About>,
   },
   {
     path: "dashboard",
