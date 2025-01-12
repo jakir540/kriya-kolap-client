@@ -1,31 +1,21 @@
+/* eslint-disable react/no-unescaped-entities */
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import Lottie from "react-lottie";
-import yogaAnimationData from "../lotties/yoga-animation.json";
 
 const Contact = () => {
   useEffect(() => {
     Aos.init({ duration: 1200 });
   }, []);
 
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: yogaAnimationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
-
   return (
     <>
-      <div className="bg-gradient-to-br from-indigo-200 via-purple-200 to-pink-200 py-10 min-h-screen">
+      <div className=" bg-gradient-to-br from-indigo-200 via-purple-200 to-pink-200 py-10 min-h-screen">
         <h1 className="font-extrabold text-5xl text-center my-12 text-gray-900 tracking-wide">
           Get in Touch with Us
         </h1>
 
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 px-6 lg:px-24">
+        <div className="flex mx-auto flex-col lg:flex-row items-center justify-center gap-10 px-6 lg:px-24">
           {/* Contact Form */}
           <div
             data-aos="fade-up"
@@ -92,11 +82,6 @@ const Contact = () => {
                 </button>
               </div>
             </form>
-          </div>
-
-          {/* Lottie Animation */}
-          <div className="w-full lg:w-1/3 flex justify-center items-center">
-            <Lottie options={defaultOptions} height={400} width={400} />
           </div>
         </div>
       </div>

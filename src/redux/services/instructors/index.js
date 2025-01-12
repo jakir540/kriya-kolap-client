@@ -9,7 +9,11 @@ export const instructorsApi = createApi({
     getInstructors: builder.query({
       query: () => "instructors",
     }),
+    getInstructorsSpecificClass: builder.query({
+      query: (email) => `instructor/classes?email=${email}`,
+    }),
   }),
 });
 
-export const { useGetInstructorsQuery } = instructorsApi;
+export const { useGetInstructorsQuery, useGetInstructorsSpecificClassQuery } =
+  instructorsApi;
