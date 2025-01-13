@@ -124,13 +124,13 @@ const Dashboard = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link
+                  {/* <Link
                     to="/dashboard/totalEnrolledStudents"
                     className="flex items-center space-x-3 p-2 rounded-lg bg-[#3B4252] hover:bg-[#00A854] transition-all"
                   >
                     <FcAcceptDatabase className="text-2xl" />
                     <span>Total Enrolled Students</span>
-                  </Link>
+                  </Link> */}
                 </li>
               </>
             ) : (

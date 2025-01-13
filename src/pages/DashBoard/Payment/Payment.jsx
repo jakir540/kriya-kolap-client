@@ -19,7 +19,7 @@ const Payment = () => {
 
   const onSubmit = (data) => {
     data.classId = id;
-    fetch("http://localhost:5000/order", {
+    fetch("https://kriya-kolap-sever-jakir540.vercel.app/order", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

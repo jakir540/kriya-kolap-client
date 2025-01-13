@@ -2,7 +2,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaGoogle } from "react-icons/fa";
 import { AiFillEye } from "react-icons/ai";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
@@ -21,15 +20,47 @@ const Login = () => {
   const {
     register,
     handleSubmit,
-
+    setValue, // To set input values programmatically
     formState: { errors },
   } = useForm();
+
+  // Predefined users with roles
+  const predefinedUsers = {
+    instructor: { email: "jacks@gmail.com", password: "Jakir540@" },
+    admin: { email: "mdjakirhossain7400@gmail.com", password: "123456" },
+    student: { email: "jakia@gmail.com", password: "Jakir540@" },
+  };
+
+  // Handle role-based quick login
+  const handleQuickLogin = (role) => {
+    const { email, password } = predefinedUsers[role];
+    setValue("email", email);
+    setValue("password", password);
+
+    // Automatically log in the user
+    signIn(email, password)
+      .then((result) => {
+        navigate(from, { replace: true });
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `${
+            role.charAt(0).toUpperCase() + role.slice(1)
+          } Login Successful`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => {
+        setError(error.message);
+        setLoading(false);
+      });
+  };
 
   const onSubmit = (data) => {
     const { email, password } = data;
     signIn(email, password)
-      .then((result) => {
-        const loggedUser = result.user;
+      .then(() => {
         navigate(from, { replace: true });
         Swal.fire({
           position: "top-end",
@@ -40,7 +71,7 @@ const Login = () => {
         });
       })
       .catch((error) => {
-        setError(error);
+        setError(error.message);
         setLoading(false);
       });
   };
@@ -106,6 +137,27 @@ const Login = () => {
               </button>
             </div>
           </form>
+
+          <div className="text-center mt-6">
+            <h3 className="text-lg font-semibold text-gray-700">Quick Login</h3>
+            <div className="flex justify-center gap-4 mt-4">
+              {Object.keys(predefinedUsers).map((role) => (
+                <button
+                  key={role}
+                  onClick={() => handleQuickLogin(role)}
+                  className={`py-2 px-4 bg-${
+                    role === "instructor"
+                      ? "blue-500"
+                      : role === "admin"
+                      ? "red-500"
+                      : "green-500"
+                  } text-white rounded-lg shadow-md hover:bg-opacity-80 transition duration-300`}
+                >
+                  {role.charAt(0).toUpperCase() + role.slice(1)}
+                </button>
+              ))}
+            </div>
+          </div>
 
           <p className="text-center mt-4 text-gray-600">
             Don't have an account?{" "}
