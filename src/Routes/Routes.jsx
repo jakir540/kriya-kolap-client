@@ -28,6 +28,7 @@ import PaymentHistory from "../pages/DashBoard/PaymentHistory/PaymentHistory";
 import Dashboard from "../layouts/Dashboard";
 import SingleBlog from "../pages/Home/Blogs/SingleBlog";
 import About from "../pages/About/About";
+import InstructorSpecificClass from "../pages/InstructorSpecificClass/InstructorSpecificClass";
 
 export const router = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ export const router = createBrowserRouter([
   {
     path: "approvedClasses",
     element: <ApprovedClasses></ApprovedClasses>,
+  },
+  {
+    path: "instructorSpecificClass",
+    element: <InstructorSpecificClass></InstructorSpecificClass>,
   },
   {
     path: "/allInstructors",

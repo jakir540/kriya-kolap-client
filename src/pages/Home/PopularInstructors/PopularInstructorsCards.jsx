@@ -1,20 +1,10 @@
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { useEffect, useState } from "react";
-import { useGetInstructorsSpecificClassQuery } from "../../../redux/services/instructors";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const PopularInstructorsCards = ({ instructor }) => {
-  const [selectedEmail, setSelectedEmail] = useState(null);
-
-  // Dynamically fetch classes based on the selected email
-  const {
-    data: instructorsClasses,
-    isLoading,
-    error,
-  } = useGetInstructorsSpecificClassQuery(selectedEmail, {
-    skip: !selectedEmail,
-  });
-  console.log({ instructorsClasses });
+  const navigate = useNavigate(); // React Router hook for navigation
 
   useEffect(() => {
     Aos.init({ duration: 1000, easing: "ease-in-out" });
@@ -23,8 +13,10 @@ const PopularInstructorsCards = ({ instructor }) => {
   const { instructorName, email, photo, price } = instructor;
 
   const handleInstructorClasses = (email) => {
-    console.log("Fetching classes for:", email);
-    setSelectedEmail(email); // Trigger query hook with the instructor's email
+    console.log("Redirecting to class page for:", email);
+
+    // Redirect to the classes page with the email as state or query param
+    navigate("/approvedClasses", { state: { email } });
   };
 
   return (
@@ -54,22 +46,6 @@ const PopularInstructorsCards = ({ instructor }) => {
           >
             See Classes
           </button>
-        </div>
-
-        {/* Show fetched classes or loading/error */}
-        <div className="mt-6">
-          {isLoading && <p>Loading classes...</p>}
-          {error && <p>Error fetching classes: {error.message}</p>}
-          {instructorsClasses && instructorsClasses.length === 0 && (
-            <p>No classes available for this instructor.</p>
-          )}
-          {instructorsClasses && instructorsClasses.length > 0 && (
-            <ul className="text-left">
-              {instructorsClasses.map((cls) => (
-                <li key={cls._id}>{cls.classname}</li>
-              ))}
-            </ul>
-          )}
         </div>
       </div>
     </div>
