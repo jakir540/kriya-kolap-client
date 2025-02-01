@@ -5,7 +5,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const blogsApi = createApi({
   reducerPath: "blogsApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://kriya-kolap-sever-jakir540.vercel.app/",
+    // baseUrl: "https://kriya-kolap-sever-jakir540.vercel.app/",
+    baseUrl: "https://kriya-kolap-sever.vercel.app/",
   }),
   endpoints: (builder) => ({
     getBlogs: builder.query({

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Footer from "../Shared/Footer/Footer";
 import Navbar from "../Shared/Navbar/Navbar";
 
@@ -5,101 +6,118 @@ const About = () => {
   return (
     <>
       <Navbar />
-      <div className="bg-gray-50 text-gray-800">
+      <div className="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-all duration-300">
         {/* Hero Section */}
         <section
-          className="relative bg-cover bg-center h-[400px] flex items-center justify-center"
+          className="relative bg-cover bg-center h-[450px] flex items-center justify-center"
           style={{
             backgroundImage:
               "url('https://i.ibb.co.com/b6XXXtN/yoga-About.jpg')",
           }}
         >
           <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-          <div className="relative z-10 text-center text-white">
-            <h1 className="text-5xl font-extrabold">About Us</h1>
+          <motion.div
+            className="relative z-10 text-center text-white"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="text-6xl font-extrabold tracking-wide">About Us</h1>
             <p className="mt-4 text-xl">
               Discover our mission, vision, and dedication to holistic wellness.
             </p>
-          </div>
+          </motion.div>
         </section>
 
         {/* Mission, Vision, Ambition */}
-        <section className="py-16 px-6 lg:px-20">
+        <section className="py-20 px-6 lg:px-20">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="text-center">
-              <h2 className="text-3xl font-bold text-gray-800">Our Mission</h2>
-              <p className="mt-4 text-gray-600">
-                To inspire and empower individuals to embrace yoga and
-                mindfulness as a way to achieve balance, health, and happiness.
-              </p>
-            </div>
-            <div className="text-center">
-              <h2 className="text-3xl font-bold text-gray-800">Our Vision</h2>
-              <p className="mt-4 text-gray-600">
-                To create a global community where yoga becomes a lifestyle,
-                enabling holistic growth for people of all ages and abilities.
-              </p>
-            </div>
-            <div className="text-center">
-              <h2 className="text-3xl font-bold text-gray-800">Our Ambition</h2>
-              <p className="mt-4 text-gray-600">
-                To expand our reach, provide accessible yoga education, and
-                promote mental well-being for a healthier world.
-              </p>
-            </div>
+            {[
+              {
+                title: "Our Mission",
+                text: "To inspire and empower individuals to embrace yoga and mindfulness for balance, health, and happiness.",
+              },
+              {
+                title: "Our Vision",
+                text: "To create a global yoga community where holistic growth is accessible to all ages and abilities.",
+              },
+              {
+                title: "Our Ambition",
+                text: "To expand our reach, provide accessible yoga education, and promote mental well-being.",
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                className="p-8 bg-white dark:bg-gray-800 shadow-lg rounded-2xl text-center"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 200 }}
+              >
+                <h2 className="text-3xl font-bold">{item.title}</h2>
+                <p className="mt-4 text-gray-600 dark:text-gray-300">
+                  {item.text}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </section>
 
-        {/* About Content */}
-        <section className="py-16 bg-gray-100">
-          <div className="max-w-5xl mx-auto text-center">
-            <h2 className="text-4xl font-bold text-gray-800">Why Choose Us?</h2>
-            <p className="mt-6 text-lg text-gray-600 leading-relaxed">
-              At our yoga center, we combine traditional yoga practices with
-              modern approaches to provide a holistic experience. Our
-              experienced instructors, welcoming environment, and commitment to
-              personal growth make us a trusted choice for individuals seeking
-              physical, mental, and emotional well-being.
-            </p>
-          </div>
+        {/* Why Choose Us */}
+        <section className="py-20 bg-gradient-to-r from-green-100 to-green-200 dark:from-gray-800 dark:to-gray-700 text-center">
+          <motion.h2
+            className="text-4xl font-bold text-gray-800 dark:text-gray-100"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
+            Why Choose Us?
+          </motion.h2>
+          <p className="mt-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-4xl mx-auto">
+            We combine traditional yoga with modern techniques, providing expert
+            instructors, a welcoming atmosphere, and a commitment to personal
+            growth.
+          </p>
         </section>
 
-        {/* Contact Section */}
-        <section className="py-16 px-6 lg:px-20">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {/* Contact & Location */}
+        <section className="py-20 px-6 lg:px-20">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div>
-              <h2 className="text-3xl font-bold text-gray-800">Get in Touch</h2>
+            <motion.div
+              className="p-8 bg-white dark:bg-gray-800 shadow-lg rounded-2xl"
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 150 }}
+            >
+              <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100">
+                Get in Touch
+              </h2>
               <form className="mt-8 space-y-6">
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                />
-                <input
-                  type="email"
-                  placeholder="Your Email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                />
-                <textarea
-                  placeholder="Your Message"
-                  rows="5"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                ></textarea>
-                <button
-                  type="submit"
-                  className="w-full bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300"
-                >
+                {["Your Name", "Your Email", "Your Message"].map(
+                  (placeholder, index) => (
+                    <input
+                      key={index}
+                      type={index === 2 ? "textarea" : "text"}
+                      placeholder={placeholder}
+                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-green-500 focus:outline-none"
+                    />
+                  )
+                )}
+                <button className="w-full bg-blue-600 dark:bg-green-500 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-blue-700 dark:hover:bg-green-600 transition duration-300">
                   Send Message
                 </button>
               </form>
-            </div>
-            {/* Location */}
-            <div>
-              <h2 className="text-3xl font-bold text-gray-800">Our Location</h2>
-              <p className="mt-4 text-lg text-gray-600">
-                Visit us at our serene yoga center, surrounded by nature, where
-                you can relax and rejuvenate.
+            </motion.div>
+
+            {/* Google Map */}
+            <motion.div
+              className="p-8 bg-white dark:bg-gray-800 shadow-lg rounded-2xl"
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 150 }}
+            >
+              <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100">
+                Our Location
+              </h2>
+              <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
+                Visit us at our serene yoga center, surrounded by nature.
               </p>
               <div className="mt-8">
                 <iframe
@@ -111,20 +129,23 @@ const About = () => {
                   className="rounded-lg shadow-lg"
                 ></iframe>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Call-to-Action */}
-        <section className="py-16 bg-gradient-to-r from-green-100 to-green-200 text-center">
-          <h2 className="text-3xl font-bold text-gray-800">Join Us Today</h2>
-          <p className="mt-4 text-lg text-gray-600">
-            Ready to begin your yoga journey? Sign up today and transform your
-            life with us.
+        <section className="py-20 bg-gradient-to-r from-blue-200 to-green-500 dark:from-green-300 dark:to-green-400 text-center">
+          <h2 className="text-4xl font-bold text-white">Join Us Today</h2>
+          <p className="mt-4 text-lg text-gray-200">
+            Begin your yoga journey with us. Sign up now and transform your
+            life!
           </p>
-          <button className="mt-6 px-8 py-3 bg-green-600 text-white font-semibold rounded-lg shadow-lg hover:bg-green-700 transition duration-300">
+          <motion.button
+            className="mt-6 px-8 py-3 bg-white text-blue-600 dark:text-green-700 font-semibold rounded-lg shadow-lg hover:bg-gray-200 transition duration-300"
+            whileHover={{ scale: 1.1 }}
+          >
             Get Started
-          </button>
+          </motion.button>
         </section>
       </div>
       <Footer />

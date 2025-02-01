@@ -5,7 +5,6 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import { AiOutlineHome, AiOutlineLogin } from "react-icons/ai";
 import { GiTeacher } from "react-icons/gi";
 import { SiGoogleclassroom } from "react-icons/si";
-import { FaShoppingBag } from "react-icons/fa";
 
 const Navbar = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");

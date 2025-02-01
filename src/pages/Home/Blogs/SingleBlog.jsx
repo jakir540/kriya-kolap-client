@@ -112,7 +112,7 @@ const SingleBlog = () => {
               className="relative group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transform transition-all duration-300"
             >
               <img
-                src={post.featured_image}
+                src={post?.featured_image}
                 alt={post.title}
                 className="w-full h-56 object-cover"
               />

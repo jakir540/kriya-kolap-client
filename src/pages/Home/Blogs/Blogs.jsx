@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
 import { useGetBlogsQuery } from "../../../redux/services/blogs";
 
 const Blogs = () => {
