@@ -16,7 +16,7 @@ const Home = () => {
     <>
       <CarouselBanner></CarouselBanner>
 
-      <About />
+      {/* <About />
       <PopularClasses></PopularClasses>
       <Services></Services>
       <PopularInstructors></PopularInstructors>
@@ -26,7 +26,7 @@ const Home = () => {
       <Videos></Videos>
       <FAQs></FAQs>
       <Newsletter></Newsletter>
-      <Contact></Contact>
+      <Contact></Contact> */}
     </>
   );
 };
