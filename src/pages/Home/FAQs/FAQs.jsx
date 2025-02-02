@@ -9,8 +9,8 @@ const FAQs = () => {
   };
 
   return (
-    <div className="w-full">
-      <div className="mx-auto my-24 px-6 md:px-0">
+    <div className="lg:w-full">
+      <div className="mx-auto my-10 lg:px-6 md:px-0">
         <h1 className="text-4xl font-semibold text-center mb-5 text-gray-700">
           FAQs Section
         </h1>

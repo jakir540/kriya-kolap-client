@@ -2,14 +2,41 @@
   background-image: url("../../../assets/Gravity-Fitness-Home-banner-Web-2000px-srgb_2_1600x.webp");
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
+  padding: 3rem 1rem; /* Adjust padding for better spacing on all screens */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
-/* @media (max-width: 768px) {
-  .location {
-    background-image: url("../../../assets/Gravity-Fitness-Home-banner-Web-2000px-srgb_2_1600x.webp");
-      width: 400px;
+
+@media (min-width: 768px) {
+  .newsletter {
+    padding: 5rem 2rem;
   }
-} */
+}
+
+@media (min-width: 1024px) {
+  .newsletter {
+    padding: 6rem 4rem;
+  }
+}
 
 input::placeholder {
   color: #a0aec0; /* Light gray placeholder */
+  font-size: 1rem;
+}
+
+input {
+  width: 100%;
+  max-width: 500px; /* Ensures input is not too wide on large screens */
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+@media (min-width: 640px) {
+  input {
+    font-size: 1.1rem;
+  }
 }

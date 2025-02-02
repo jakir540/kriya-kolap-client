@@ -4,7 +4,7 @@ const Newsletter = () => {
   return (
     <div className="newsletter my-16 h-96 bg-fixed bg-cover filter flex flex-col justify-center items-center">
       <div className="text-white text-center max-w-lg mx-auto px-4">
-        <h2 className="text-4xl font-bold pt-8 pb-4 tracking-wide uppercase">
+        <h2 className="lg:text-4xl md:text-3xl text-2xl font-bold pt-8 pb-4 tracking-wide uppercase">
           Subscribe to Our Newsletter
         </h2>
         <p className="mb-6 text-lg">

@@ -11,7 +11,7 @@ const Contact = () => {
   return (
     <>
       <div className=" bg-gradient-to-br from-indigo-200 via-purple-200 to-pink-200 py-10 min-h-screen">
-        <h1 className="font-extrabold text-5xl text-center my-12 text-gray-900 tracking-wide">
+        <h1 className="font-extrabold lg:text-5xl md:text-4xl text-3xl text-center my-12 text-gray-900 tracking-wide">
           Get in Touch with Us
         </h1>
 

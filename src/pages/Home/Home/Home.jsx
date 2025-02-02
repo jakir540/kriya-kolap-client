@@ -16,17 +16,27 @@ const Home = () => {
     <>
       <CarouselBanner></CarouselBanner>
 
-      {/* <About />
+      <About />
+
       <PopularClasses></PopularClasses>
+
       <Services></Services>
+
       <PopularInstructors></PopularInstructors>
+
       <Meditation></Meditation>
+
       <Blogs></Blogs>
+
       <WhyKriya></WhyKriya>
+
       <Videos></Videos>
+
       <FAQs></FAQs>
+
       <Newsletter></Newsletter>
-      <Contact></Contact> */}
+
+      <Contact></Contact>
     </>
   );
 };
