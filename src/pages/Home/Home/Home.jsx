@@ -1,6 +1,7 @@
 import About from "../About/About";
 import Blogs from "../Blogs/Blogs";
 import CarouselBanner from "../CarouselBanner/CarouselBanner";
+import ChatWidget from "../ChatWidget/ChatWidget";
 import Contact from "../Contact/Contact";
 import FAQs from "../FAQs/FAQs";
 import Meditation from "../Meditation/Meditation";
@@ -37,6 +38,7 @@ const Home = () => {
       <Newsletter></Newsletter>
 
       <Contact></Contact>
+      <ChatWidget />
     </>
   );
 };
